@@ -1,4 +1,5 @@
 const wrapper = document.querySelector(".wrapper");
+const header = document.querySelector(".header");
 const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin");
@@ -14,8 +15,10 @@ loginLink.addEventListener("click", () => {
 
 btnPopup.addEventListener("click", () => {
 	wrapper.classList.add("active-popup");
+	header.classList.add("disable-header");
 });
 
 iconClose.addEventListener("click", () => {
 	wrapper.classList.remove("active-popup");
+	header.classList.remove("disable-header");
 });
