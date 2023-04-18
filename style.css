@@ -1,45 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&family=Source+Code+Pro:wght@300&display=swap");
 
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+	font-family: "Inter", sans-serif;
 }
 
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+#page-container {
+	position: relative;
 	min-height: 100vh;
-	background: url("background.jpg") no-repeat;
-	background-size: cover;
-	background-position: center;
 }
 
-header {
-	background: transparent;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	padding: 20px 30px;
+/* Navigation Bar*/
+
+#header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	z-index: 99;
-}
-
-.logo {
-	font-size: 2em;
-	color: #fff;
-	/*Alterar o user-select para, ao carregar no logo, voltar à home page*/
-	user-select: none;
-	height: 7em;
-}
-
-.header {
+	position: fixed;
+	width: 100%;
+	padding: 20px 30px;
+	background: rgb(25, 22, 21);
 	pointer-events: all;
 }
 
@@ -47,12 +29,18 @@ header {
 	pointer-events: none;
 }
 
+.logo {
+	font-size: 2em;
+	color: white;
+	user-select: none;
+}
+
 .navigation a {
 	position: relative;
 	font-size: 1.2em;
-	color: #fff;
 	font-weight: 700;
-	margin-left: 60px;
+	color: white;
+	margin-right: 60px;
 	text-decoration: none;
 }
 
@@ -94,6 +82,8 @@ header {
 	background: #fff;
 	color: black;
 }
+
+/* Login and Register Popups */
 
 .wrapper {
 	position: relative;
@@ -267,16 +257,84 @@ header {
 	text-decoration: underline;
 }
 
-.tickets{
-	background-color: #fff;
-}
-@media only screen and (max-width:819px){
-	.navigation a{
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 20px;
-	}
+/* Main */
 
-	/*ajustar a animação*/
+#main {
+	box-sizing: border-box;
+	width: 100%;
+	padding-top: 100px;
+	padding-bottom: 2.5rem;
+}
+
+/* FAQ Page */
+
+.questions_box {
+	margin: 100px 300px;
+}
+
+.title {
+	margin-bottom: 30px;
+	font-weight: 300;
+	font-size: 2em;
+}
+
+.question {
+	padding-top: 50px;
+}
+
+.question > h2 {
+	font-family: "Source Code Pro", monospace;
+	font-weight: 100;
+	font-size: 1.1em;
+	text-decoration: underline 2px rgb(128, 126, 126);
+	text-decoration-style: dashed;
+	text-underline-offset: 6px;
+	padding-bottom: 15px;
+}
+
+.question > p {
+	padding-top: 15px;
+	padding-left: 35px;
+	font-weight: 300;
+	font-size: 1.1em;
+	color: rgb(128, 126, 126);
+}
+
+/* Footer */
+
+#footer {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 2.5rem; /* Footer height */
+	padding: 5px 300px;
+}
+
+.copyright {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: auto;
+	border-top: 3px solid rgb(25, 22, 21);
+	border-radius: 1px;
+}
+
+.left li,
+.right li {
+	display: inline-block;
+	padding: 10px 5px;
+	font-size: 1em;
+	color: rgb(78, 76, 76);
+}
+
+.right li {
+	font-size: 1.5em;
+}
+
+.left a,
+.right a {
+	text-decoration: none;
+	list-style: none;
+	color: rgb(78, 76, 76);
 }
