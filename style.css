@@ -270,6 +270,9 @@ header {
 .tickets{
 	background-color: #fff;
 }
+.submit{
+	background-color: #fff;
+}
 @media only screen and (max-width:819px){
 	.navigation a{
 		display: flex;

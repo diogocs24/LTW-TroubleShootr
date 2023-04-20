@@ -1,8 +1,8 @@
 CREATE TABLE question (
-  idTicket SERIAL PRIMARY KEY,
-  idDepartment INTEGER NOT NULL,
-  idClient INTEGER NOT NULL,
+  idTicket INTEGER PRIMARY KEY,
+  idDepartment INTEGER,
+  idClient INTEGER,
   username TEXT NOT NULL,
   body TEXT NOT NULL,
-  createDate TIMESTAMP NOT NULL DEFAULT NOW()
+  --createDate TIMESTAMP NOT NULL DEFAULT NOW()
 );
