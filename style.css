@@ -29,108 +29,10 @@
 	pointer-events: none;
 }
 
-.single-input {
-	position: relative;
-	margin: 0px 0;
-}
-.single-input label {
-	position: absolute;
-	bottom: 0px;
-	left: 0;
-	font-family: "Source Code Pro", monospace;
-	font-weight: lighter;
-	font-size: 1.3em;
-	color: rgb(150, 150, 150);
-	cursor: text;
-	transition: 0.5s ease-in-out;
-}
-
-.input {
-	width: 130%;
-	padding: 1px;
-	border: 0;
-	border-bottom: 2px solid rgb(200, 200, 200);
-	outline: 0;
-	font-size: 22.5px;
-	color: rgb(80, 80, 80);
-	transition: 0.5s ease-in-out;
-}
-
-.input:focus,
-.input:valid {
-	border-bottom: 2px solid rgb(0, 0, 0);
-}
-.input:focus ~ label,
-.input:valid ~ label {
-	transform: translateY(-24px);
-	font-size: 14px;
-	color: rgb(0, 0, 0);
-}
-
-#info {
-	position: absolute;
-	left: 100px;
-	margin-top: 75px;
-	color: #000;
-	line-height: 50px;
-	font-size: 0.9em;
-}
-
-#info ul {
-	list-style-type: none;
-}
-
-#profile_img {
-	position: absolute;
-	left: 60%;
-	top: 10%;
-	transform: scale(0.6);
-}
-
-.row {
-	display: flex;
-	align-items: center;
-}
-
-.col-md-3 {
-	flex: 0 0 65%;
-	font-family: "Source Code Pro", monospace;
-	font-weight: 100;
-	font-size: 1.3em;
-	text-decoration: underline 2px rgb(128, 126, 126);
-	text-decoration-style: dashed;
-	text-underline-offset: 6px;
-	padding-bottom: 15px;
-}
-
-.col-md-9 {
-	flex: 0 0 0%;
-}
-
 .logo {
 	font-size: 2em;
 	color: #fff;
 	user-select: none;
-}
-
-#info h1 {
-	font-size: 2.4em;
-	position: relative;
-	top: 0px;
-	padding-top: 20px;
-	opacity: 100;
-}
-
-#info h1::after {
-	content: "";
-	display: block;
-	height: 1px;
-	width: 700px;
-	background-color: #000;
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	right: 0;
 }
 
 .navigation a {
@@ -364,10 +266,98 @@
 	padding-bottom: 2.5rem;
 }
 
+/* Profile Page */
+
+#info {
+	max-width: 1200px;
+	margin: 100px auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+#info_text {
+	width: 70%;
+}
+
+.user_profile_title {
+	margin-bottom: 30px;
+	font-weight: 300;
+	font-size: 30px;
+	width: 100%;
+	border-bottom: 2px solid black;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 14px;
+}
+
+.attribute > span {
+	font-weight: 300;
+	font-size: 25px;
+}
+
+.attribute > .label {
+	font-family: "Source Code Pro", monospace;
+}
+
+.single-input {
+	position: relative;
+	margin: 0px 0;
+}
+
+.single-input label {
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+	font-family: "Source Code Pro", monospace;
+	font-weight: lighter;
+	font-size: 1.3em;
+	color: rgb(128, 126, 126);
+	cursor: text;
+	transition: 0.5s ease-in-out;
+	pointer-events: none;
+}
+
+.user_profile_input {
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid rgb(128, 126, 126);
+	outline: 0;
+	font-size: 22.5px;
+	color: rgb(128, 126, 126);
+	transition: 0.5s ease-in-out;
+}
+
+.user_profile_input:focus,
+.user_profile_input:valid {
+	border-bottom: 2px solid rgb(0, 0, 0);
+}
+.single-input .user_profile_input:focus ~ label,
+.single-input .user_profile_input:valid ~ label {
+	transform: translateY(-24px);
+	font-size: 14px;
+	color: rgb(128, 126, 126);
+}
+
+#info > #profile_img {
+	width: 250px;
+	height: 250px;
+	margin-top: 65px;
+}
+
+#info > #profile_img > img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
 /* FAQ Page */
 
 .questions_box {
-	margin: 100px 300px;
+	max-width: 1000px;
+	margin: 100px auto;
 }
 
 .title {
