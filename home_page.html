@@ -5,25 +5,23 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Authentication</title>
+		<title>Home Page</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<header class="header">
+		<header id="header" class="header">
 			<h2 class="logo">TroubleShootr</h2>
 			<nav class="navigation">
-				<a href="#" class="navigation__item">Home</a>
-				<a href="#" class="navigation__item">About</a>
-				<a href="#" class="navigation__item">FAQ</a>
+				<a href="#" class="navigation_item">Home</a>
+				<a href="#" class="navigation_item">About</a>
+				<a href="#" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button>
 			</nav>
 		</header>
-
 		<div class="wrapper">
 			<span class="icon-close"
 				><ion-icon name="close"></ion-icon
 			></span>
-
 			<div class="form-box login">
 				<h2>Login</h2>
 				<form action="#">
@@ -37,7 +35,6 @@
 						<span class="icon"><ion-icon name="lock-closed"></span>
 						<input type="password" required>
 						<label>Password</label>
-
 					</div>
 					<div class="remember-forgot">
 						<label><input type="checkbox">Remember me</label>
@@ -49,7 +46,6 @@
 					</div>
 				</form>
 			</div>
-
 		<div class="form-box register">
 			<h2>Registration</h2>
 			<form action="#">
@@ -82,6 +78,7 @@
 					</p>
 				</div>
 			</form>
+		</div>
 		</div>
 
 		<script src="script.js"></script>

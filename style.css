@@ -30,26 +30,24 @@
 }
 
 #info {
-    position: absolute;
-    left: 100px;
-    margin-top: 75px;
-    color: #000;
-    line-height: 50px;
-    font-size: 0.90em;
+	position: absolute;
+	left: 100px;
+	margin-top: 75px;
+	color: #000;
+	line-height: 50px;
+	font-size: 0.9em;
 }
 
-#info ul{
-    list-style-type:none;
+#info ul {
+	list-style-type: none;
 }
-
 
 #profile_img {
-    position: absolute;
-    top: 100px;
-    right: 200px;
-    transform: scale(0.60); 
+	position: absolute;
+	top: 100px;
+	right: 200px;
+	transform: scale(0.6);
 }
-
 
 .logo {
 	font-size: 2em;
@@ -58,25 +56,24 @@
 }
 
 #info h1 {
-    font-size: 2.4em;
-    position: relative;
-    top: 0px;
-    padding-top: 20px;
-    opacity: 100;
+	font-size: 2.4em;
+	position: relative;
+	top: 0px;
+	padding-top: 20px;
+	opacity: 100;
 }
 
 #info h1::after {
-    content: '';
-    display: block;
-    height: 1px;
+	content: "";
+	display: block;
+	height: 1px;
 	width: 700px;
-    background-color: #000;
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    right: 0;
+	background-color: #000;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	right: 0;
 }
-
 
 .navigation a {
 	position: relative;
@@ -108,7 +105,7 @@
 
 .navigation .btnLogin {
 	width: 130px;
-	height: 50px;
+	height: 40px;
 	background: transparent;
 	border: 2px solid #fff;
 	border-radius: 6px;
@@ -116,7 +113,7 @@
 	font-size: 1.2em;
 	font-weight: 700;
 	color: #fff;
-	margin-left: 60px;
+	margin-right: 60px;
 	cursor: pointer;
 	transition: 0.5s;
 }
@@ -316,9 +313,14 @@
 }
 
 .title {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title > h2 {
 	margin-bottom: 30px;
 	font-weight: 300;
-	font-size: 2em;
+	font-size: 30px;
 }
 
 .question {
@@ -343,6 +345,74 @@
 	color: rgb(128, 126, 126);
 }
 
+/* FAQ Page for Admins Only  */
+
+.add_question {
+	border: none;
+	background-color: white;
+	font-size: 3.7em;
+	cursor: pointer;
+}
+
+/* Add a FAQ */
+
+.faq_message > h2 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5%;
+	font-weight: 300;
+	font-size: 30px;
+}
+
+.faq_input {
+	background-color: rgb(245, 246, 250);
+	max-width: 1000px;
+	margin: 2em auto;
+	border: 2px solid rgb(219, 221, 226);
+	border-radius: 20px;
+	padding: 2em;
+}
+
+.faq_input > label {
+	font-family: "Source Code Pro", monospace;
+	font-weight: 100;
+	display: block;
+	font-size: 1.1em;
+	margin: 10px 0;
+}
+
+.faq_input > input,
+.faq_input > textarea {
+	display: block;
+	width: 100%;
+}
+
+.faq_input > textarea {
+	height: 200px;
+	resize: none;
+	font-size: 15;
+}
+
+.faq_input > .input {
+	display: block;
+	width: 98%;
+	border: 1px solid rgb(219, 221, 226);
+	padding: 0.5em;
+	outline: none;
+	border-radius: 7px;
+}
+
+.faq_input > .submit_btn {
+	font-size: 18px;
+	color: white;
+	border-radius: 17px;
+	border-color: rgb(25, 22, 21);
+	background-color: rgb(25, 22, 21);
+	padding: 0.5em;
+	margin-top: 2em;
+}
+
 /* Footer */
 
 #footer {
@@ -350,7 +420,7 @@
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 2.5rem; /* Footer height */
+	height: 2.5rem;
 	padding: 5px 300px;
 }
 
