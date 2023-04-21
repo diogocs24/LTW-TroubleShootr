@@ -14,32 +14,73 @@
         <h2 class="logo">TroubleShootr</h2>
         <nav class="navigation">
             <a href="#" class="navigation_item">Home</a>
-            <a href="#" class="navigation_item">Profile</a>
-            <a href="#" class="navigation_item">FAQ</a>
+            <a href="profile.html" class="navigation_item">Profile</a>
+            <a href="faq_page.html" class="navigation_item">FAQ</a>
             <a href="#" class="navigation_item">Settings</a>
             <a href="#" class="navigation_item">Sign Out</a>
         </nav>
     </header>
-    <div id="profile_img">
-        <img src="profile_image.jpg" alt="profile image">
-    </div>
     <div id="info">
         <h1 class="title">User Profile</h1>
-        <ul>
-            <li>Name: João da Silva</li>
-            <li>Username: @joãosilva</li>
-            <li>Birth Date: 01/01/2000 </li>
-            <li>Email: joão@up.pt</li>
-            <li>Password: ********* </li>
-        </ul>
-        <ul class="profile_change">
-            <li>New Name <input type="text" placeholder="Name"></li>
-            <li>New Username <input type="text" placeholder="Username"></li>
-            <li>New Birth Date <input type="date"></li>
-            <li>New Email <input type="text" placeholder="Email"></li>
-            <li>New Password <input type="password" > <input type="checkbox" id="seePasswordCheckBox"> 
-                Confirm New Password <input type="password"> <input type="checkbox" id="seePasswordCheckBox"></li>
-        </ul>
+        <div class="row">
+            <div class="col-md-3">
+                Name: João da Silva
+            </div>
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="text" class="input" id="name" required>
+                    <label for="name">New Name</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">Username: @joãosilva</div> 
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="text" class="input" id="username" required>
+                    <label for="username">New Username</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">Birth Date: 01/01/2000</div> 
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="text" class="input" id="date" required>
+                    <label for="date">Date</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">Email: joão@up.pt</div> 
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="text" class="input" id="email" required>
+                    <label for="email">New Email</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">Password: *********</div>
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="password" class="input" id="password" required>
+                    <label for="password">New Password</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="single-input">
+                <div class="col-md-9 text-secondary">
+                    <input type="password" class="input" id="confirm_password" required>
+                    <label for="confirm_password">Confirm Password</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="profile_img">
+        <img src="profile_image.jpg" alt="profile image">
     </div>
     <footer id="footer">
 		<div class="copyright">

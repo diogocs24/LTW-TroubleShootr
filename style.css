@@ -29,6 +29,44 @@
 	pointer-events: none;
 }
 
+.single-input{
+    position: relative;
+    margin: 0px 0;
+}
+.single-input label{
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+	font-family: "Source Code Pro", monospace;
+	font-weight: lighter;
+	font-size: 1.3em;
+    color: rgb(150,150,150);
+    cursor: text;
+    transition: 0.5s ease-in-out;
+}
+
+.input{
+    width: 130%;
+    padding: 1px;
+    border: 0;
+    border-bottom: 2px solid rgb(200,200,200);
+    outline: 0;
+    font-size: 22.5px;
+    color: rgb(80,80,80);
+    transition: 0.5s ease-in-out;
+}
+
+.input:focus,
+.input:valid{
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+.input:focus ~ label,
+.input:valid ~ label{
+    transform: translateY(-24px);
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
 #info {
     position: absolute;
     left: 100px;
@@ -42,14 +80,32 @@
     list-style-type:none;
 }
 
-
 #profile_img {
     position: absolute;
-    top: 100px;
-    right: 200px;
+	left: 60%;
+	top: 10%;
     transform: scale(0.60); 
 }
 
+.row {
+	display: flex;
+	align-items: center;
+}
+
+.col-md-3 {
+	flex: 0 0 65%;
+	font-family: "Source Code Pro", monospace;
+	font-weight: 100;
+	font-size: 1.3em;
+	text-decoration: underline 2px rgb(128, 126, 126);
+	text-decoration-style: dashed;
+	text-underline-offset: 6px;
+	padding-bottom: 15px;
+}
+  
+.col-md-9 {
+	flex: 0 0 0%;
+  }
 
 .logo {
 	font-size: 2em;
