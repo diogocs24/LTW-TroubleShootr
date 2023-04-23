@@ -25,21 +25,21 @@
 	pointer-events: all;
 }
 
-.header.disable-header {
+#header.disable-header {
 	pointer-events: none;
 }
 
 .logo {
-	font-size: 2em;
+	font-size: 32px;
 	color: #fff;
 	user-select: none;
 }
 
 .navigation a {
 	position: relative;
-	font-size: 1.2em;
+	font-size: 20px;
 	font-weight: 700;
-	color: white;
+	color: #fff;
 	margin-right: 60px;
 	text-decoration: none;
 }
@@ -70,7 +70,7 @@
 	border: 2px solid #fff;
 	border-radius: 6px;
 	outline: none;
-	font-size: 1.2em;
+	font-size: 20px;
 	font-weight: 700;
 	color: #fff;
 	margin-right: 60px;
@@ -80,20 +80,21 @@
 
 .navigation .btnLogin:hover {
 	background: #fff;
-	color: black;
+	color: rgb(25, 22, 21);
 }
 
 /* Login and Register Popups */
 
 .wrapper {
 	position: relative;
+	margin: 100px auto;
 	width: 400px;
 	height: 440px;
 	background: transparent;
-	border: 2px solid rgba(255, 255, 255, 0.5);
+	border: 2px solid rgb(219, 221, 226);
 	border-radius: 20px;
 	backdrop-filter: blur(20px);
-	box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -111,7 +112,7 @@
 }
 
 .wrapper .form-box {
-	width: 100%;
+	width: 80%;
 	padding: 40px;
 }
 
@@ -127,6 +128,7 @@
 
 .wrapper .form-box.register {
 	position: absolute;
+	padding: 100px;
 	transition: none;
 	transform: translateX(400px);
 }
@@ -142,8 +144,8 @@
 	right: 0;
 	width: 45px;
 	height: 45px;
-	font-size: 2em;
-	color: #fff;
+	font-size: 32px;
+	color: rgb(25, 22, 21);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -153,8 +155,8 @@
 }
 
 .form-box h2 {
-	font-size: 2em;
-	color: white;
+	font-size: 36px;
+	color: rgb(25, 22, 21);
 	text-align: center;
 }
 
@@ -162,7 +164,7 @@
 	position: relative;
 	width: 100%;
 	height: 50px;
-	border-bottom: 2px solid white;
+	border-bottom: 2px solid rgb(25, 22, 21);
 	margin: 30px 0;
 }
 
@@ -171,8 +173,8 @@
 	top: 50%;
 	left: 5px;
 	transform: translateY(-50%);
-	font-size: 1em;
-	color: white;
+	font-size: 16px;
+	color: rgb(25, 22, 21);
 	font-weight: 500;
 	pointer-events: none;
 	transition: 0.5s;
@@ -189,8 +191,7 @@
 	background: transparent;
 	border: none;
 	outline: none;
-	font-size: 1em;
-	color: white;
+	font-size: 16px;
 	font-weight: 600;
 	padding: 0 35px 0 5px;
 }
@@ -198,14 +199,14 @@
 .input-box .icon {
 	position: absolute;
 	right: 8px;
-	font-size: 1.2em;
-	color: white;
+	font-size: 20px;
+	color: rgb(25, 22, 21);
 	line-height: 57px;
 }
 
 .remember-forgot {
-	font-size: 0.9em;
-	color: white;
+	font-size: 14px;
+	color: rgb(25, 22, 21);
 	font-weight: 50px;
 	margin: -15px 0 15px;
 	display: flex;
@@ -213,12 +214,12 @@
 }
 
 .remember-forgot label input {
-	accent-color: white;
+	accent-color: rgb(25, 22, 21);
 	margin-right: 3px;
 }
 
 .remember-forgot a {
-	color: white;
+	color: rgb(25, 22, 21);
 	text-decoration: none;
 }
 
@@ -229,26 +230,26 @@
 .btn {
 	width: 100%;
 	height: 45px;
-	background: white;
+	background: rgb(25, 22, 21);
 	border: none;
 	outline: none;
 	border-radius: 6px;
 	cursor: pointer;
-	font-size: 1em;
-	color: black;
+	font-size: 16px;
+	color: #fff;
 	font-weight: 500;
 }
 
 .login-register {
-	font-size: 0.9em;
-	color: white;
+	font-size: 16px;
+	color: rgb(25, 22, 21);
 	text-align: center;
 	font-weight: 500;
 	margin: 25px 0 10px;
 }
 
 .login-register p a {
-	color: white;
+	color: rgb(25, 22, 21);
 	text-decoration: none;
 	font-weight: 600;
 }
@@ -314,7 +315,7 @@
 	left: 0;
 	font-family: "Source Code Pro", monospace;
 	font-weight: lighter;
-	font-size: 1.3em;
+	font-size: 22.5px;
 	color: rgb(128, 126, 126);
 	cursor: text;
 	transition: 0.5s ease-in-out;
@@ -378,7 +379,7 @@
 .question > h2 {
 	font-family: "Source Code Pro", monospace;
 	font-weight: 100;
-	font-size: 1.1em;
+	font-size: 20px;
 	text-decoration: underline 2px rgb(128, 126, 126);
 	text-decoration-style: dashed;
 	text-underline-offset: 6px;
@@ -389,7 +390,7 @@
 	padding-top: 15px;
 	padding-left: 35px;
 	font-weight: 300;
-	font-size: 1.1em;
+	font-size: 18px;
 	color: rgb(128, 126, 126);
 }
 
@@ -397,8 +398,8 @@
 
 .add_question {
 	border: none;
-	background-color: white;
-	font-size: 3.7em;
+	background-color: #fff;
+	font-size: 36px;
 	cursor: pointer;
 }
 
@@ -439,7 +440,7 @@
 .faq_input > textarea {
 	height: 200px;
 	resize: none;
-	font-size: 15;
+	font-size: 15px;
 }
 
 .faq_input > .input {
@@ -486,12 +487,12 @@
 .right li {
 	display: inline-block;
 	padding: 10px 5px;
-	font-size: 1em;
+	font-size: 16px;
 	color: rgb(78, 76, 76);
 }
 
 .right li {
-	font-size: 1.5em;
+	font-size: 28px;
 }
 
 .left a,
