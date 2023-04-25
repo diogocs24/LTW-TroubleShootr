@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php declare(restrict_types = 1);
+require_once(__DIR__.'/../php/drawcommon.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">

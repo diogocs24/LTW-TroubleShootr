@@ -1,6 +1,6 @@
 <?php
 /* Database credentials. */
-define('DB_SERVER', "localhost5500");
+define('DB_SERVER', 'localhost5500');
 define('DB_USERNAME', 'teste123');
 define('DB_PASSWORD', 'teste123');
 define('DB_NAME', 'mysql.sql');
