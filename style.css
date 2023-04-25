@@ -357,16 +357,24 @@
 	height: 35%;
 	font-weight: 300;
 }
+
+#info > #profile_img > #profile_img_text > .button > ion-icon {
+	position: relative;
+	top: 3px;
+	margin-left: 1px;
+	font-size: 16px;
+	--ionicon-stroke-width: 47px;
+}
   
 #info > #profile_img > #profile_img_text > .button {
 	background: none;
 	color: rgb(128, 126, 126);
 	width: 165px;
 	height: 35px;
-	border: 1px solid #000000;
+	border: 0.139em solid #000000;
 	border-radius: 7px;
 	font-size: 15px; 
-	font-weight: 600;
+	font-weight: 650;
 	transition: .6s;
 	overflow: hidden;
 }
