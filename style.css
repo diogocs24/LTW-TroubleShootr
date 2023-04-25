@@ -33,6 +33,12 @@
 	font-size: 32px;
 	color: #fff;
 	user-select: none;
+	cursor: pointer;
+}
+
+.logo a {
+	color: #fff;
+	text-decoration: none;
 }
 
 .navigation a {
