@@ -702,3 +702,8 @@
 	list-style: none;
 	color: rgb(78, 76, 76);
 }
+
+.right li a > ion-icon{
+	position: relative;
+	top: 3px;
+}
