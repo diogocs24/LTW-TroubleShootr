@@ -273,6 +273,31 @@
 	padding-bottom: 2.5rem;
 }
 
+
+/* Home Page */
+
+.content {
+	width: 60%;
+	position: absolute;
+	top: 50%;
+	left: 20%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+
+.content h1 {
+	font-size: 65px;
+	font-style: italic;
+}
+
+
+.content p {
+	margin: 20px auto;
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 25px;
+}
+
 /* Profile Page */
 
 #info {
