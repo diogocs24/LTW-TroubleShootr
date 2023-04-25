@@ -17,11 +17,15 @@
 :root{
 	--primary-color: #ffffff;
 	--secondary-color: rgb(25, 22, 21);
+	--tertiary-color: rgb(25, 22, 21);
+	--quartiary-color: rgb(78, 76, 76);
 }
 
 .dark-theme{
-	--primary-color: rgb(25, 22, 21);
+	--primary-color: #141414;
 	--secondary-color: #ffffff;
+	--tertiary-color: rgb(0, 0, 0);
+	--quartiary-color: #fff;
 }
 
 body{
@@ -38,7 +42,7 @@ body{
 	position: fixed;
 	width: 100%;
 	padding: 20px 30px;
-	background: rgb(25, 22, 21);
+	background: var(--tertiary-color);
 	pointer-events: all;
 }
 
@@ -335,14 +339,16 @@ body{
 	-webkit-text-stroke: 0vw #595959;
 	border-right: 3px solid var(--secondary-color);
 	overflow: hidden;
-	animation: animate 6s linear infinite;
+	animation: animate 6s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 @keyframes animate{
-	0%,10%,100%{
+	0%,10%{
 		width: 0%;
 	}
-	70%,90%{
+	70%,90%,100%{
 		width: 100%;
 	}
 }
@@ -717,7 +723,7 @@ body{
 	display: inline-block;
 	padding: 10px 5px;
 	font-size: 16px;
-	color: rgb(78, 76, 76);
+	color: var(--quartiary-color);
 }
 
 .right li {
@@ -728,7 +734,7 @@ body{
 .right a {
 	text-decoration: none;
 	list-style: none;
-	color: rgb(78, 76, 76);
+	color: var(--quartiary-color);
 }
 
 .right li a > ion-icon{

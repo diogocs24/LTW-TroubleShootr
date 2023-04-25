@@ -4,16 +4,6 @@ const loginLink = document.querySelector(".login-link");
 const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin");
 const iconClose = document.querySelector(".icon-close");
-var icon = document.getElementById("dark-mode-icon");
-
-icon.onclick = function () {
-	document.body.classList.toggle("dark-theme");
-	if (document.body.classList.contains("dark-theme")) {
-		icon.src = "sunny-outline.svg";
-	} else {
-		icon.src = "moon-outline.svg";
-	}
-};
 
 
 registerLink.addEventListener("click", () => {
@@ -33,3 +23,14 @@ iconClose.addEventListener("click", () => {
 	wrapper.classList.remove("active-popup");
 	header.classList.remove("disable-header");
 });
+
+var icon = document.getElementById("dark-mode-icon");
+
+icon.onclick = function () {
+	document.body.classList.toggle("dark-theme");
+	if (document.body.classList.contains("dark-theme")) {
+		icon.src = "sunny-outline.svg";
+	} else {
+		icon.src = "moon-outline.svg";
+	}
+};
