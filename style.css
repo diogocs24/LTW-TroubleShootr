@@ -339,19 +339,96 @@
 .single-input .user_profile_input:focus ~ label,
 .single-input .user_profile_input:valid ~ label {
 	transform: translateY(-24px);
-	font-size: 14px;
+	font-size: 18px;
 	color: rgb(128, 126, 126);
 }
 
 #info > #profile_img {
 	width: 250px;
 	height: 250px;
-	margin-top: 65px;
+	margin-top: 85px;
+}
+
+#info > #profile_img > #profile_img_text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 35%;
+	font-weight: 300;
+}
+  
+#info > #profile_img > #profile_img_text > .button {
+	background: none;
+	color: rgb(128, 126, 126);
+	width: 165px;
+	height: 35px;
+	border: 1px solid #000000;
+	border-radius: 7px;
+	font-size: 15px; 
+	font-weight: 600;
+	transition: .6s;
+	overflow: hidden;
+}
+
+#info > #profile_img > #profile_img_text > .button:focus {
+	outline: none;
+}
+
+#info > #profile_img > #profile_img_text > .button:before {
+   content: '';
+   display: block;
+   position: absolute;
+   background: rgba(255,255,255,.5);
+   font-weight: 600;
+   width: 60px;
+   height: 100%;
+   left: 0;
+   top: 0;
+   opacity: .5;
+   filter: blur(30px);
+   transform: translateX(-130px) skewX(-15deg);
+}
+
+#info > #profile_img > #profile_img_text > .button:after {
+   content: '';
+   display: block;
+   position: absolute;
+   background: rgba(255,255,255,.2);
+   font-weight: 600;
+   color: rgb(164, 164, 164);
+   width: 30px;
+   height: 100%;
+   left: 30px;
+   top: 0;
+   opacity: 0;
+   filter: blur(30px);
+   transform: translateX(-100px) scaleX(-15deg);
+}
+
+#info > #profile_img > #profile_img_text > .button:hover {
+	background: #000000;
+	color: rgb(255, 255, 255);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+#info > #profile_img > #profile_img_text > .button:hover:before {
+	transform: translateX(300px) skewX(-15deg);
+	opacity: .6;
+	transition: .7s;
+}
+
+#info > #profile_img > #profile_img_text > .button:hover:after {
+	transform: translateX(300px) skewX(-15deg);
+	opacity: 1;
+	transition: .7s;
 }
 
 #info > #profile_img > img {
 	max-width: 100%;
 	max-height: 100%;
+	border-radius: 50%;
 }
 
 /* FAQ Page */
