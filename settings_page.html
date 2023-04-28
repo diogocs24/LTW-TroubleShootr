@@ -6,9 +6,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="style.css" rel="stylesheet" />
 		<title>Setting Page</title>
+		<script src="script_dark-theme.js"></script>
+
 	</head>
 
-	<body>
+	<body onload="onload()">
 		<header id="header" class="header">
 			<h2 class="logo"><a href="home_page.html">TroubleShootr</a></h2>
 			<nav class="navigation">
@@ -22,7 +24,7 @@
 		<div id="page-container">
 			<main id="main">
 
-                <img src="moon-outline.svg" id="dark-mode-icon">
+                <img src="moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
                 
             </main>
 			<footer id="footer">
@@ -59,7 +61,6 @@
 			</footer>
 		</div>
 
-		<script src="script_dark-theme.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

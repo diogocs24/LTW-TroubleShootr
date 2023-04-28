@@ -14,18 +14,24 @@
 
 /* Color Variables */
 
-:root{
+:root:not(.dark-mode){
 	--primary-color: #ffffff;
 	--secondary-color: rgb(25, 22, 21);
 	--tertiary-color: rgb(25, 22, 21);
 	--quartiary-color: rgb(78, 76, 76);
+	--five-color: rgb(0,0,0,0.2);
+	--six-color: rgb(128, 126, 126);
+	--seven-color: rgb(25, 22, 21);
 }
 
-.dark-theme{
+.dark-mode{
 	--primary-color: #141414;
-	--secondary-color: #ffffff;
+	--secondary-color: rgb(255, 255, 255, 0.9);
 	--tertiary-color: rgb(0, 0, 0);
-	--quartiary-color: #fff;
+	--quartiary-color: rgb(255, 255, 255, 0.9);
+	--five-color: rgb(255, 255, 255, 0.4);
+	--six-color: rgb(255, 255, 255, 0.9 );
+	--seven-color: rgb(255, 255, 255);
 }
 
 body{
@@ -121,7 +127,7 @@ body{
 	border: 2px solid rgb(219, 221, 226);
 	border-radius: 20px;
 	backdrop-filter: blur(20px);
-	box-shadow: 0 0 17px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 17px var(--five-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -172,7 +178,7 @@ body{
 	width: 45px;
 	height: 45px;
 	font-size: 32px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -183,7 +189,7 @@ body{
 
 .form-box h2 {
 	font-size: 36px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	text-align: center;
 }
 
@@ -191,7 +197,7 @@ body{
 	position: relative;
 	width: 100%;
 	height: 50px;
-	border-bottom: 2px solid rgb(25, 22, 21);
+	border-bottom: 2px solid var(--secondary-color);
 	margin: 30px 0;
 }
 
@@ -201,7 +207,7 @@ body{
 	left: 5px;
 	transform: translateY(-50%);
 	font-size: 16px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	font-weight: 500;
 	pointer-events: none;
 	transition: 0.5s;
@@ -227,13 +233,13 @@ body{
 	position: absolute;
 	right: 8px;
 	font-size: 20px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	line-height: 57px;
 }
 
 .remember-forgot {
 	font-size: 14px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	font-weight: 50px;
 	margin: -15px 0 15px;
 	display: flex;
@@ -241,12 +247,12 @@ body{
 }
 
 .remember-forgot label input {
-	accent-color: rgb(25, 22, 21);
+	accent-color: var(--secondary-color);
 	margin-right: 3px;
 }
 
 .remember-forgot a {
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	text-decoration: none;
 }
 
@@ -257,26 +263,26 @@ body{
 .btn {
 	width: 100%;
 	height: 45px;
-	background: rgb(25, 22, 21);
+	background: var(--secondary-color);
 	border: none;
 	outline: none;
 	border-radius: 6px;
 	cursor: pointer;
 	font-size: 16px;
-	color: #fff;
+	color: var(--primary-color);
 	font-weight: 500;
 }
 
 .login-register {
 	font-size: 16px;
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	text-align: center;
 	font-weight: 500;
 	margin: 25px 0 10px;
 }
 
 .login-register p a {
-	color: rgb(25, 22, 21);
+	color: var(--secondary-color);
 	text-decoration: none;
 	font-weight: 600;
 }
@@ -358,6 +364,7 @@ body{
 	font-size: 20px;
 	font-weight: 300;
 	line-height: 25px;
+	color: var(--secondary-color);
 }
 
 /* Profile Page */
@@ -379,6 +386,7 @@ body{
 	font-size: 30px;
 	width: 100%;
 	border-bottom: 2px solid var(--secondary-color);
+	color: var(--secondary-color);
 }
 
 .row {
@@ -386,6 +394,7 @@ body{
 	justify-content: space-between;
 	align-items: center;
 	padding: 14px;
+	color: var(--secondary-color);
 }
 
 .attribute > span {
@@ -409,7 +418,7 @@ body{
 	font-family: "Source Code Pro", monospace;
 	font-weight: lighter;
 	font-size: 22.5px;
-	color: rgb(128, 126, 126);
+	color: var(--six-color);
 	cursor: text;
 	transition: 0.5s ease-in-out;
 	pointer-events: none;
@@ -418,11 +427,12 @@ body{
 .user_profile_input {
 	width: 100%;
 	border: 0;
-	border-bottom: 2px solid rgb(128, 126, 126);
+	border-bottom: 2px solid var(--six-color);
 	outline: 0;
 	font-size: 22.5px;
-	color: rgb(128, 126, 126);
+	color: var(--six-color);
 	transition: 0.5s ease-in-out;
+	background-color: var(--primary-color);
 }
 
 .user_profile_input:focus,
@@ -433,7 +443,7 @@ body{
 .single-input .user_profile_input:valid ~ label {
 	transform: translateY(-24px);
 	font-size: 18px;
-	color: rgb(128, 126, 126);
+	color: var(--six-color);
 }
 
 #info > #profile_img {
@@ -461,7 +471,7 @@ body{
   
 #info > #profile_img > #profile_img_text > .button {
 	background: none;
-	color: rgb(128, 126, 126);
+	color: var(--six-color);
 	width: 165px;
 	height: 35px;
 	border: 0.139em solid var(--secondary-color);
@@ -488,7 +498,7 @@ body{
    top: 0;
    opacity: .5;
    filter: blur(30px);
-   transform: translateX(-130px) skewX(-15deg);
+   transform: translateX(-10px) skewX(-15deg);
 }
 
 #info > #profile_img > #profile_img_text > .button:after {
@@ -508,7 +518,7 @@ body{
 }
 
 #info > #profile_img > #profile_img_text > .button:hover {
-	background: var(--secondary-color);
+	background: var(--seven-color);
 	color: var(--primary-color);
 	font-weight: 600;
 	cursor: pointer;
@@ -537,6 +547,7 @@ body{
 .questions_box {
 	max-width: 1000px;
 	margin: 100px auto;
+	color: var(--secondary-color);
 }
 
 .title {

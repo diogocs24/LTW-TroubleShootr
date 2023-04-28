@@ -1,17 +1,26 @@
-var icon = document.getElementById("dark-mode-icon");
 
-icon.onclick = function () {
-	document.body.classList.toggle("dark-theme");
-	if (document.body.classList.contains("dark-theme")) {
-		icon.src = "sunny-outline.svg";
-	} else {
-		icon.src = "moon-outline.svg";
+function darkmode() {
+	const icon = document.querySelector('#dark-mode-icon');
+  const wasDarkmode = localStorage.getItem('darkmode') === 'true';
+  localStorage.setItem('darkmode', !wasDarkmode);
+  const element = document.body;
+  element.classList.toggle('dark-mode', !wasDarkmode);
+  if (wasDarkmode) {
+    icon.setAttribute('src', "moon-outline.svg");
+  } else {
+    icon.setAttribute('src', "sunny-outline.svg");
+  }
+}
+
+function onload() {
+	const icon = document.querySelector('#dark-mode-icon');
+	const wasDarkmode = localStorage.getItem('darkmode') === 'true';
+	const element = document.body;
+	element.classList.toggle('dark-mode', wasDarkmode);
+	if (wasDarkmode) {
+		icon.setAttribute('src', "sunny-outline.svg");
+	  } 
+	else {
+		icon.setAttribute('src', "moon-outline.svg");
 	}
-};
-
-const isDarkMode = icon.src === "sunny-outline.svg";
-if (isDarkMode) {
-    document.body.classList.add("dark-theme");
-} else {
-    document.body.classList.remove("dark-theme");
 }
