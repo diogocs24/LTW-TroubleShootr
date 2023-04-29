@@ -17,9 +17,9 @@ require_once(__DIR__.'/../php/drawcommon.php');
 		<header id="header" class="header">
 			<h2 class="logo">TroubleShootr</h2>
 			<nav class="navigation">
-				<a href="#" class="navigation_item">Home</a>
+				<a href="home_page.php" class="navigation_item">Home</a>
 				<a href="#" class="navigation_item">About</a>
-				<a href="#" class="navigation_item">FAQ</a>
+				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button>
 			</nav>
 		</header>
