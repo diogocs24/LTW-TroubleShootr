@@ -350,11 +350,35 @@ body{
 	padding-top: 3px;
 }
 
+/* About Page */
 
-  
-  
-  
-  
+#about {
+	max-width: 1200px;
+	margin: 100px auto;
+	display: flex;
+	margin-top: 200px;
+}
+
+#about_text {
+	color: var(--secondary-color);
+}
+
+.about_title {
+	margin-bottom: 30px;
+	font-weight: 300;
+	font-size: 30px;
+	width: 100%;
+	border-bottom: 2px solid var(--secondary-color);
+	color: var(--secondary-color);
+}
+
+#about_text p{
+	width: 100%;
+	color: var(--secondary-color);
+	font-size: 20px;
+	font-weight: 300;
+}
+
   
 /* Home Page */
 
