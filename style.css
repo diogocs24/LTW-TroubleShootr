@@ -84,7 +84,7 @@ body{
 	bottom: -6px;
 	width: 100%;
 	height: 3px;
-	background: var(--primary-color);
+	background: #fff;
 	border-radius: 5px;
 	transform-origin: right;
 	transform: scaleX(0);
