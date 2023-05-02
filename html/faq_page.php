@@ -1,3 +1,8 @@
+<?php declare(restrict_types = 1);
+require_once(__DIR__.'/../php/drawcommon.php');
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -5,9 +10,9 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="script_dark-theme.js"></script>
 		<title>TroubleShootr's Frequently Asked Questions</title>
 		<link rel="stylesheet" href="style.css" />
-		<script src="script_dark-theme.js"></script>
 	</head>
 	<body onload="onload()">
 		<header id="header" class="header">
@@ -15,7 +20,7 @@
 			<nav class="navigation">
 				<a href="home_page.html" class="navigation_item">Home</a>
 				<a href="profile_page.html" class="navigation_item">Profile</a>
-				<a href="faq_page.html" class="navigation_item">FAQ</a>
+            	<a href="faq_page.html" class="navigation_item">FAQ</a>
 				<a href="settings_page.html" class="navigation_item">Settings</a>
 				<a href="#" class="navigation_item">Sign Out</a>
 			</nav>
@@ -25,10 +30,6 @@
 				<div class="questions_box">
 					<div class="title">
 						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
-						<a href="add_question_faq.html"
-							><button class="add_question">
-								<ion-icon name="add-circle"></ion-icon></button
-						></a>
 					</div>
 					<div class="questions_list">
 						<div class="question">
@@ -58,38 +59,7 @@
 					</div>
 				</div>
 			</main>
-			<footer id="footer">
-				<div class="copyright">
-					<ul class="left">
-						<li>&copy;2023 TroubleShootr</li>
-						<li><a href="#">Terms</a></li>
-						<li><a href="#">Privacy</a></li>
-					</ul>
-					<ul class="right">
-						<li><a href="home_page.html">TroubleShootr</a></li>
-						<li>
-							<a href="https://twitter.com/" target="_blank"
-								><ion-icon name="logo-twitter"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://facebook.com/" target="_blank"
-								><ion-icon name="logo-facebook"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://linkedin.com/" target="_blank"
-								><ion-icon name="logo-linkedin"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/" target="_blank"
-								><ion-icon name="logo-youtube"></ion-icon
-							></a>
-						</li>
-					</ul>
-				</div>
-			</footer>
+			<?php draw_footer(); ?>
 		</div>
 
 		<script

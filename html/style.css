@@ -291,6 +291,20 @@ body{
 	text-decoration: underline;
 }
 
+.tickets{
+	background-color: #fff;
+}
+.submit{
+	background-color: #fff;
+}
+@media only screen and (max-width:819px){
+	.navigation a{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+}
 /* Main */
 
 #main {
