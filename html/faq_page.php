@@ -1,3 +1,8 @@
+<?php declare(restrict_types = 1);
+require_once(__DIR__.'/../php/drawcommon.php');
+?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -12,9 +17,9 @@
 		<header id="header" class="header">
 			<h2 class="logo">TroubleShootr</h2>
 			<nav class="navigation">
-				<a href="#" class="navigation_item">Home</a>
-				<a href="profile.html" class="navigation_item">Profile</a>
-            	<a href="faq_page.html" class="navigation_item">FAQ</a>
+				<a href="home_page.php" class="navigation_item">Home</a>
+				<a href="profile.php" class="navigation_item">Profile</a>
+            	<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<a href="#" class="navigation_item">Settings</a>
 				<a href="#" class="navigation_item">Sign Out</a>
 			</nav>
@@ -53,38 +58,7 @@
 					</div>
 				</div>
 			</main>
-			<footer id="footer">
-				<div class="copyright">
-					<ul class="left">
-						<li>&copy;2023 TroubleShootr</li>
-						<li><a href="#">Terms</a></li>
-						<li><a href="#">Privacy</a></li>
-					</ul>
-					<ul class="right">
-						<li><a href="home_page.html">TroubleShootr</a></li>
-						<li>
-							<a href="https://twitter.com/" target="_blank"
-								><ion-icon name="logo-twitter"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://facebook.com/" target="_blank"
-								><ion-icon name="logo-facebook"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://linkedin.com/" target="_blank"
-								><ion-icon name="logo-linkedin"></ion-icon
-							></a>
-						</li>
-						<li>
-							<a href="https://www.youtube.com/" target="_blank"
-								><ion-icon name="logo-youtube"></ion-icon
-							></a>
-						</li>
-					</ul>
-				</div>
-			</footer>
+			<?php draw_footer(); ?>
 		</div>
 
 		<script

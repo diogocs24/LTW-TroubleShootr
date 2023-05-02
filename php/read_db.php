@@ -1,6 +1,6 @@
 <?php
 
-  try{$db = new PDO('sqlite:tickets.db');}
+  try{$db = new PDO('sqlite:database.db');}
   catch (PDOException $e){die("Error: ". $e->getMessage());}
     $result = pg_query($db, "SELECT username, body FROM question");
     while($row = pg_fetch_assoc($result)){
