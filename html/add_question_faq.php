@@ -10,8 +10,9 @@ require_once(__DIR__.'/../php/drawcommon.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>TroubleShootr's Frequently Asked Questions</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="script_dark-theme.js"></script>
 	</head>
-	<body>
+	<body onload="onload()">
 		<div id="faq-page-container">
 			<div class="faq_main_box">
 				<div class="faq_message">

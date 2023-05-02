@@ -5,6 +5,7 @@ const registerLink = document.querySelector(".register-link");
 const btnPopup = document.querySelector(".btnLogin");
 const iconClose = document.querySelector(".icon-close");
 
+
 registerLink.addEventListener("click", () => {
 	wrapper.classList.add("active");
 });
@@ -22,3 +23,14 @@ iconClose.addEventListener("click", () => {
 	wrapper.classList.remove("active-popup");
 	header.classList.remove("disable-header");
 });
+
+var icon = document.getElementById("dark-mode-icon");
+
+icon.onclick = function () {
+	document.body.classList.toggle("dark-theme");
+	if (document.body.classList.contains("dark-theme")) {
+		icon.src = "sunny-outline.svg";
+	} else {
+		icon.src = "moon-outline.svg";
+	}
+};

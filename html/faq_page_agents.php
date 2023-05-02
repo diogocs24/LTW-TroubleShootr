@@ -12,15 +12,16 @@ require_once(__DIR__.'/../php/drawcommon.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>TroubleShootr's Frequently Asked Questions</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="script_dark-theme.js"></script>
 	</head>
-	<body>
+	<body onload="onload()">
 		<header id="header" class="header">
-			<h2 class="logo">TroubleShootr</h2>
+			<h2 class="logo"><a href="home_page.html">TroubleShootr</a></h2>
 			<nav class="navigation">
-				<a href="#" class="navigation_item">Home</a>
-				<a href="#" class="navigation_item">Profile</a>
-				<a href="#" class="navigation_item">FAQ</a>
-				<a href="#" class="navigation_item">Settings</a>
+				<a href="home_page.html" class="navigation_item">Home</a>
+				<a href="profile_page.html" class="navigation_item">Profile</a>
+				<a href="faq_page.html" class="navigation_item">FAQ</a>
+				<a href="settings_page.html" class="navigation_item">Settings</a>
 				<a href="#" class="navigation_item">Sign Out</a>
 			</nav>
 		</header>
