@@ -16,12 +16,12 @@ require_once(__DIR__.'/../php/drawcommon.php');
 	</head>
 	<body onload="onload()">
 		<header id="header" class="header">
-			<h2 class="logo"><a href="home_page.html">TroubleShootr</a></h2>
+			<h2 class="logo"><a href="home_page.php">TroubleShootr</a></h2>
 			<nav class="navigation">
-				<a href="home_page.html" class="navigation_item">Home</a>
-				<a href="profile_page.html" class="navigation_item">Profile</a>
-				<a href="faq_page.html" class="navigation_item">FAQ</a>
-				<a href="settings_page.html" class="navigation_item">Settings</a>
+				<a href="home_page.php" class="navigation_item">Home</a>
+				<a href="profile_page.php" class="navigation_item">Profile</a>
+				<a href="faq_page.php" class="navigation_item">FAQ</a>
+				<a href="settings_page.php" class="navigation_item">Settings</a>
 				<a href="#" class="navigation_item">Sign Out</a>
 			</nav>
 		</header>
@@ -30,7 +30,7 @@ require_once(__DIR__.'/../php/drawcommon.php');
 				<div class="questions_box">
 					<div class="title">
 						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
-						<a href="add_question_faq.html"
+						<a href="add_question_faq.php"
 							><button class="add_question">
 								<ion-icon name="add-circle"></ion-icon></button
 						></a>
