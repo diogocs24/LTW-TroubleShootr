@@ -1,6 +1,22 @@
-<?php
-function draw_footer(){
+<?php 
+  declare(strict_types = 1);
+  
 ?>
+
+<?php function drawHeader() { ?>
+    <!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home Page</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+<?php } ?>
+
+<?php function draw_footer(){ ?>
 <footer id="footer">
 				<div class="copyright">
 					<ul class="left">
@@ -33,6 +49,8 @@ function draw_footer(){
 					</ul>
 				</div>
 			</footer>
+			</body>
+            </html>
  <?php } ?>
 
  <?php function draw_nav2() {?>
@@ -47,10 +65,20 @@ function draw_footer(){
 
 <?php function draw_nav1() {
 ?>
-<nav class="navigation">
+ <header id="header" class="header">
+			<h2 class="logo"><a href="home_page.php">TroubleShootr</a></h2>
+			<nav class="navigation">
 				<a href="home_page.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button>
 			</nav>
+		</header>
+        <body onload="onload()">
 <?php }?>
+
+
+
+
+
+
