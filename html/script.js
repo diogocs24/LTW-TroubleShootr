@@ -34,3 +34,4 @@ icon.onclick = function () {
 		icon.src = "moon-outline.svg";
 	}
 };
+
