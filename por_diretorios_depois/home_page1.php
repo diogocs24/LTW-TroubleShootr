@@ -1,8 +1,8 @@
-<?php 
+<?php declare(restrict_types = 1);
 require_once(__DIR__.'/drawcommon.php');
-drawHeader();
-draw_nav1();
-draw_pagecontainer();
-drawFooter();
-draw_script();
-?>
+
+
+draw_header();
+draw_main(); 
+draw_footer(); 
+drawscript(); ?>
