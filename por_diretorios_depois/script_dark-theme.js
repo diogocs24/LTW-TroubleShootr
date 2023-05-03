@@ -12,7 +12,7 @@ function darkmode() {
   }
 }
 
-function onload() {
+function onload1() {
 	const icon = document.querySelector('#dark-mode-icon');
 	const wasDarkmode = localStorage.getItem('darkmode') === 'true';
 	const element = document.body;

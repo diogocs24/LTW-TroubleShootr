@@ -9,8 +9,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home Page</title>
 		<link rel="stylesheet" href="style.css" />
+		<script src="script_dark-theme.js" defer> </script>
+		<script src="script.js" defer> </script>
 	</head>
-	<body onload="onload()">
+	<body onload="onload1()">
 		<header id="header" class="header">
 			<h2 class="logo"><a href="home_page.php">TroubleShootr</a></h2>
 			<nav class="navigation">
