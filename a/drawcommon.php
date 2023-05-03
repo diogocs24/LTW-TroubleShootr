@@ -8,21 +8,20 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home Page</title>
-		<link rel="stylesheet" href="style.css" />
-		<script src="script_dark-theme.js" defer> </script>
-		<script src="script.js" defer> </script>
+		<link rel="stylesheet" href="/../css/style.css" />
+		<script src="/../scripts/script_dark-theme.js" defer> </script>
+		<script src="/../scripts/script.js" defer> </script>
 	</head>
 	<body onload="onload1()">
 		<header id="header" class="header">
-			<h2 class="logo"><a href="home_page.php">TroubleShootr</a></h2>
+			<h2 class="logo"><a href="home_page1.php">TroubleShootr</a></h2>
 			<nav class="navigation">
-				<a href="home_page.php" class="navigation_item">Home</a>
+				<a href="home_page1.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button>
 			</nav>
 		</header>
-		<div id="page-container">
 
 <?php } ?>
 
@@ -67,7 +66,7 @@ function draw_footer(){
 
  <?php function draw_nav2() {?>
 <nav class="navigation">
-	<a href="home_page.php" class="navigation_item">Home</a>
+	<a href="home_page1.php" class="navigation_item">Home</a>
 	<a href="profile_page.php" class="navigation_item">Profile</a>
 	<a href="faq_page.php" class="navigation_item">FAQ</a>
 	<a href="settings_page.php" class="navigation_item">Settings</a>
@@ -78,7 +77,7 @@ function draw_footer(){
 <?php function draw_nav1() {
 ?>
 <nav class="navigation">
-				<a href="home_page.php" class="navigation_item">Home</a>
+				<a href="home_page1.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button>
@@ -86,8 +85,8 @@ function draw_footer(){
 <?php }?>
 
 <?php function draw_script(){ ?>
-<script src="script_dark-theme.js"></script>
-		<script src="script.js"></script>
+<script src="/../scripts/script_dark-theme.js"></script>
+		<script src="/../scripts/script.js"></script>
 		<script
 			type="module"
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
@@ -102,6 +101,7 @@ function draw_footer(){
 <?php } ?>
 
 <?php function draw_main(){?> 
+	<div id="page-container">
 	<main id="main">
 				<div class="content">
 					<h1 data-text="Troubleshoot with us!">Troubleshoot with us!</h1>

@@ -1,5 +1,5 @@
 <?php declare(restrict_types = 1);
-require_once(__DIR__.'/../php/drawcommon.php');
+require_once(__DIR__.'/../a/drawcommon.php');
 ?>
 
 <!DOCTYPE html>
@@ -8,9 +8,9 @@ require_once(__DIR__.'/../php/drawcommon.php');
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/../css/style.css" />
 		<title>Profile Page</title>
-		<script src="script_dark-theme.js"></script>
+		<script src="/../scripts/script_dark-theme.js"></script>
 	</head>
 
 	<body onload="onload()">
@@ -118,7 +118,7 @@ require_once(__DIR__.'/../php/drawcommon.php');
 						</div>
 					</div>
 					<div id="profile_img">
-						<img src="profile_image.jpg" alt="profile image" />
+						<img src="/../images/profile_image.jpg" alt="profile image" />
 						<div id ="profile_img_text">
 							<button class="button">Change Picture <ion-icon name="camera-outline"></ion-icon></button>
 						</div>

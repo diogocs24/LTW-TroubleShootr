@@ -1,21 +1,21 @@
 <?php declare(restrict_types = 1);
-require_once(__DIR__.'/../php/drawcommon.php');?>
+require_once(__DIR__.'/../a/drawcommon.php');?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="style.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/../css/style.css" />
 		<title>About Page</title>
-		<script src="script_dark-theme.js"></script>
+		<script src="/../scripts/script_dark-theme.js"></script>
 	</head>
 
 	<body onload="onload()">
 		<header id="header" class="header">
 			<h2 class="logo"><a href="home_page.php">TroubleShootr</a></h2>
 			<nav class="navigation">
-				<a href="home_page.php" class="navigation_item">Home</a>
+				<a href="home_page1.php" class="navigation_item">Home</a>
 				<a href="profile_page.php" class="navigation_item">Profile</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<a href="settings_page.php" class="navigation_item">Settings</a>
