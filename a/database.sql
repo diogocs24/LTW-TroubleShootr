@@ -3,16 +3,14 @@ CREATE TABLE Ticket (
   FOREIGNKEY(idDepartment) references Department(idDepartment),
   FOREIGNKEY(idClient) references Client(idUser),
   FOREIGNKEY(idAgent) references Agent(idUser),
-  message TEXT ,
-  status TEXT CHECK(status=="open" || status=="not opened")
-  --createDate TIMESTAMP NOT NULL DEFAULT NOW()
+  message TEXT
 );
 
 CREATE TABLE Clients {
   idUser INTEGER  PRIMARY KEY,
-  username TEXT ,
-  password TEXT ,
-  email TEXT 
+  username VARCHAR ,
+  password VARCHAR ,
+  email VARCHAR
 }
 
 

@@ -19,7 +19,7 @@
 				<a href="home_page1.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
-				<button class="btnLogin">Login</button>
+				<button class="btnLogin">Login</button> 
 			</nav>
 		</header>
 
@@ -60,8 +60,6 @@ function draw_footer(){
 					</ul>
 				</div>
 			</footer>
-		</div>
-
  <?php } ?>
 
  <?php function draw_nav2() {?>
@@ -100,7 +98,20 @@ function draw_footer(){
 
 <?php } ?>
 
-<?php function draw_main(){?> 
+<?php function draw_main(){ ?> 
+	<div>
+		<?php 
+		if(isset($_POST['create'])){
+			$username = $_POST['username'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			
+			$sql = "INSERT INTO Clients (username, email, password) VALUES(?,?,?)";
+			$stmtinsert = $db->prepare($sql);
+		}
+		
+		?>
+	</div>
 	<div id="page-container">
 	<main id="main">
 				<div class="content">
@@ -181,5 +192,5 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
-	
-	<?php }?>
+	</div>
+	<?php } ?>
