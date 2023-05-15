@@ -29,9 +29,9 @@ var icon = document.getElementById("dark-mode-icon");
 icon.onclick = function () {
 	document.body.classList.toggle("dark-theme");
 	if (document.body.classList.contains("dark-theme")) {
-		icon.src = "sunny-outline.svg";
+		icon.src = "/../images/sunny-outline.svg";
 	} else {
-		icon.src = "moon-outline.svg";
+		icon.src = "/../images/moon-outline.svg";
 	}
 };
 
