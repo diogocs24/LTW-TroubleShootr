@@ -9,12 +9,4 @@ draw_header();
 draw_faq();
 draw_footer();
 draw_script();
-
-
-
-
-
-
 ?>
-
-			

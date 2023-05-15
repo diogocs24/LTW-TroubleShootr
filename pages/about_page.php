@@ -5,6 +5,5 @@ require_once(__DIR__.'/../a/pages_draw.php');
 draw_header();
 draw_about();
 draw_footer();
-draw_script();
-			
+draw_script();		
 ?>
