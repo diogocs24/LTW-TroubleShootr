@@ -40,11 +40,32 @@
       } else return null;
     }
 
-    static function getCurrentUser(PDO $db, int $id) : ?User {
-      $stmt = $db->prepare('
-      SELECT *
-      FROM Users 
-      WHERE user_id = ?');
+    
+public static function usernameAlreadyExists(PDO $db, string $username): bool {
+  $stmt = $db->prepare('SELECT COUNT(*) FROM Clients WHERE username = ?');
+  $stmt->execute([$username]);
+  $result = $stmt->fetchColumn();
+  return $result > 0;
+}
+
+
+
+function get_avatar_path() : string{
+  $file_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+  
+  foreach ($file_extensions as $extension) {
+    $file_path = "../images/$this->user_id.$extension";
+    if (file_exists($file_path)) {
+      return $file_path;
+    }
+  }
+  
+  return "../images/default-user-image.png";
+}
+
+
+    static function getUser(PDO $db, int $id) : ?User {
+      $stmt = $db->prepare('SELECT * FROM Users WHERE user_id = ?');
       $stmt->execute(array($id));
 
       if($user = $stmt->fetch()) {
@@ -59,26 +80,6 @@
       }
   }
 
-
-    function get_avatar_path() : string{
-      $file_extensions = ['jpg', 'jpeg', 'png', 'gif'];
-      
-      foreach ($file_extensions as $extension) {
-        $file_path = "../images/$this->user_id.$extension";
-        if (file_exists($file_path)) {
-          return $file_path;
-        }
-      }
-      
-      return "../images/default-user-image.png";
-    }
-
-    public static function usernameAlreadyExists(PDO $db, string $username): bool {
-      $stmt = $db->prepare('SELECT COUNT(*) FROM Clients WHERE username = ?');
-      $stmt->execute([$username]);
-      $result = $stmt->fetchColumn();
-      return $result > 0;
-    }
 
 
     public function update(PDO $db, string $username, string $email, string $password): void {
@@ -98,7 +99,7 @@
         $stmt->execute([$username, $email, $bio, $hashedPassword,$this->user_id]);
       }
 
-    public function insert_db(PDO $db): void { 
+    public function insert(PDO $db): void { 
       if ($this->user_id === 0) {
 
         $stmt = $db->prepare('INSERT INTO Clients (username, email, password) VALUES (?, ?, ?)');
