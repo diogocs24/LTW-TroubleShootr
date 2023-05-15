@@ -12,7 +12,7 @@ if(!$session->isLoggedIn()) {
 }
 */
 
-draw_header();
+draw_header_logged_in();
 draw_main_page();
 draw_footer(); 
 draw_script(); 
