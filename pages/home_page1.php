@@ -1,8 +1,7 @@
 <?php declare(strict_types = 1);
 require_once(__DIR__.'/../a/drawcommon.php');
-require_once(__DIR__.'/../a/config.php');
+require_once(__DIR__.'/../database/config.php');
 
-$db = new PDO('sqlite:tickets.db');
 
 
 draw_header();

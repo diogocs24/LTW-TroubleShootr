@@ -99,23 +99,7 @@ function draw_footer(){
 <?php } ?>
 
 <?php function draw_main(){ ?> 
-	<div>
-		<?php 
-		if(isset($_POST['create'])){
-			$username = $_POST['username'];
-			$email = $_POST['email'];
-			$password = $_POST['password'];
-			
-			$sql = "INSERT INTO Clients (username, email, password) VALUES(?,?,?)";
-			$stmtinsert = $db->prepare($sql);
-
-			$result = $stmtinsert->
-
-			echo $username = " "  .$email = " " . $password;
-		}
-		
-		?>
-	</div>
+	
 	<div id="page-container">
 	<main id="main">
 				<div class="content">
@@ -157,18 +141,18 @@ function draw_footer(){
 						<form action="/../a/registration.php" method="post">
 							<div class="input-box">
 								<span class="icon"><ion-icon name="person"></ion-icon></span>
-								<input type="text" required />
+								<input type="text" name="username" required />
 								<label>Username</label>
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="mail"></ion-icon></span>
 								<!--Change the type to email-->
-								<input type="email" required />
+								<input type="text" name="email" required />
 								<label>Email</label>
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-								<input type="password" required />
+								<input type="password" name="password" required />
 								<label>Password</label>
 							</div>
 							<div class="remember-forgot">
@@ -187,5 +171,5 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
-	</div>
+		</div>
 	<?php } ?>
