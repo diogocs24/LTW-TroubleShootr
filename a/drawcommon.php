@@ -137,9 +137,18 @@ function draw_footer(){
 							</div>
 						</form>
 					</div>
+
+					<div>
+						<?php
+						if(isset($_POST['create'])) {
+							echo 'User submitted';
+						}
+						?>
+					</div>
+
 					<div class="form-box register">
 						<h2>Registration</h2>
-						<form action="#">
+						<form method='post' action="/../a/registration.php">
 							<div class="input-box">
 								<span class="icon"><ion-icon name="person"></ion-icon></span>
 								<input type="text" required />
@@ -161,7 +170,7 @@ function draw_footer(){
 									><input type="checkbox" />I agree to the terms & conditions</label
 								>
 							</div>
-							<button type="submit" class="btn">Register</button>
+							<button type="submit" name="create" class="btn">Register</button>
 							<div class="login-register">
 								<p>
 									Already have an account?
