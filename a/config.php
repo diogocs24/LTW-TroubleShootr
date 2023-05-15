@@ -1,15 +1,10 @@
 <?php
-/* Database credentials. */
-define('DB_SERVER', 'localhost5500');
-define('DB_USERNAME', 'teste123');
-define('DB_PASSWORD', 'teste123');
-define('DB_NAME', 'mysql.sql');
- 
-/* Attempt to connect to MySQL database */
-$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
- 
-// Check connection
-if($mysqli === false){
-    die("ERROR: Could not connect. " . $mysqli->connect_error);
-}
+$db_user = "root123";
+$db_pass = "root123";
+$db_name = "Clients";
+$db = new PDO('mysql:host=localhost;dbname='. $db_name.';charset=utf8', $db_user, $db_pass);
+
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
 ?>

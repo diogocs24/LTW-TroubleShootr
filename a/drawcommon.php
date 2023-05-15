@@ -19,7 +19,7 @@
 				<a href="home_page1.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
-				<button class="btnLogin">Login</button>
+				<button class="btnLogin">Login</button> 
 			</nav>
 		</header>
 
@@ -60,8 +60,6 @@ function draw_footer(){
 					</ul>
 				</div>
 			</footer>
-		</div>
-
  <?php } ?>
 
  <?php function draw_nav2() {?>
@@ -100,7 +98,24 @@ function draw_footer(){
 
 <?php } ?>
 
-<?php function draw_main(){?> 
+<?php function draw_main(){ ?> 
+	<div>
+		<?php 
+		if(isset($_POST['create'])){
+			$username = $_POST['username'];
+			$email = $_POST['email'];
+			$password = $_POST['password'];
+			
+			$sql = "INSERT INTO Clients (username, email, password) VALUES(?,?,?)";
+			$stmtinsert = $db->prepare($sql);
+
+			$result = $stmtinsert->
+
+			echo $username = " "  .$email = " " . $password;
+		}
+		
+		?>
+	</div>
 	<div id="page-container">
 	<main id="main">
 				<div class="content">
@@ -139,7 +154,7 @@ function draw_footer(){
 					</div>
 					<div class="form-box register">
 						<h2>Registration</h2>
-						<form action="#">
+						<form action="/../a/registration.php" method="post">
 							<div class="input-box">
 								<span class="icon"><ion-icon name="person"></ion-icon></span>
 								<input type="text" required />
@@ -161,7 +176,7 @@ function draw_footer(){
 									><input type="checkbox" />I agree to the terms & conditions</label
 								>
 							</div>
-							<button type="submit" class="btn">Register</button>
+							<button type="submit" name="create" class="btn">Register</button>
 							<div class="login-register">
 								<p>
 									Already have an account?
@@ -172,5 +187,5 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
-	
-	<?php }?>
+	</div>
+	<?php } ?>
