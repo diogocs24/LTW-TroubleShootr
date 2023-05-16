@@ -1,13 +1,13 @@
-CREATE TABLE Ticket (
+CREATE TABLE TICKET (
   idTicket INTEGER PRIMARY KEY,
   idDepartment INTEGER NOT NULL,
   idClient INTEGER NOT NULL,
   idAgent INTEGER,
   title TEXT NOT NULL,
-  [message] TEXT NOT NULL,
-  [status] TEXT NOT NULL,
-  created_at DATETIME NOT NULL,
-  updated_at DATETIME NOT NULL,
+  ticket_message TEXT NOT NULL,
+  ticket_status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment) ON DELETE CASCADE,
   FOREIGN KEY (idClient) REFERENCES Clients(idUser) ON DELETE CASCADE,
   FOREIGN KEY (idAgent) REFERENCES Agent(idUser) ON DELETE SET NULL,

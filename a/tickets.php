@@ -9,23 +9,15 @@ $db = getDatabaseConnection();
 
 if(isset($_POST['submit_btn'])){
 
-    if (empty($_POST['title'])) {
-        echo "Missing Title";
-    } elseif (empty($_POST['message'])) {
-        echo "Missing Message";
-    } elseif (empty($_POST['department'])) {
-        echo "Missing department";
-    } elseif (empty($_POST['hashtag'])) {
-        echo "Missing hashtag";
-    } else {
-        $ticket = new Ticket(0, 0, 0, 0, $_POST['message'], $_POST['title'], "not_opened");
-        
-        $ticket->insert($db);
-
-        echo "Done!";
-        header('Location: /../pages/submit_ticket.php');
+    $ticket = new Ticket(0, 0, 0, 0, $_POST['message'], $_POST['title'], "not_opened", "f", "f");      
+    $ticket->insert($db);
+    
+    if($ticket !== NULL){
+        header('Location: /../pages/main_page.php');
     }
-
+    else{
+        echo 'Error';
+    }
 }
 
 ?>
