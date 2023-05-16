@@ -397,12 +397,19 @@ body {
 #main_page {
 	max-width: 1200px;
 	margin: 100px auto;
-	display: flex;
 	margin-top: 100px;
 }
 
 #main_page_text {
-	color: var(--secondary-color);
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+#main_page_text > h2 {
+	margin-bottom: 30px;
+	font-weight: 300;
+	font-size: 30px;
 }
 
 .main_page_title {
@@ -410,7 +417,6 @@ body {
 	font-weight: 300;
 	font-size: 30px;
 	width: 1200px;
-	border-bottom: 2px solid var(--secondary-color);
 	color: var(--secondary-color);
 }
 
@@ -422,6 +428,13 @@ body {
 	color: var(--secondary-color);
 	font-size: 20px;
 	font-weight: 300;
+}
+
+.submit_ticket_btn {
+	border: none;
+	background-color: var(--primary-color);
+	font-size: 45px;
+	cursor: pointer;
 }
 
 /* Home Page */
