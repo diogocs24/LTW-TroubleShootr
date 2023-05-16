@@ -1,20 +1,34 @@
 CREATE TABLE Ticket (
   idTicket INTEGER PRIMARY KEY,
-  idDepartment INTEGER,
-  idClient INTEGER,
+  idDepartment INTEGER NOT NULL,
+  idClient INTEGER NOT NULL,
   idAgent INTEGER,
-  title TEXT,
-  message TEXT,
-  hashtag VARCHAR,
-  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment),
-  FOREIGN KEY (idClient) REFERENCES Clients(idUser),
-  FOREIGN KEY (idAgent) REFERENCES Agent(idUser)
+  title TEXT NOT NULL,
+  [message] TEXT NOT NULL,
+  [status] TEXT NOT NULL,
+  created_at DATETIME NOT NULL,
+  updated_at DATETIME NOT NULL,
+  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment) ON DELETE CASCADE,
+  FOREIGN KEY (idClient) REFERENCES Clients(idUser) ON DELETE CASCADE,
+  FOREIGN KEY (idAgent) REFERENCES Agent(idUser) ON DELETE SET NULL,
+);
+
+CREATE TABLE HASHTAG (
+    idHashtag INTEGER PRIMARY KEY,
+    tag TEXT
+);
+
+CREATE TABLE TICKET_HASHTAG (
+    idTicket INTEGER NOT NULL,
+    tag INTEGER NOT NULL,
+    FOREIGN KEY (TICKET_ID) REFERENCES TICKET(ID),
+    FOREIGN KEY (TAG) REFERENCES HASHTAG(ID)
 );
 
 CREATE TABLE Clients (
   idUser INTEGER PRIMARY KEY,
   username TEXT NOT NULL,
-  password TEXT NOT NULL,
+  [password] TEXT NOT NULL,
   email TEXT NOT NULL
 );
 
@@ -37,5 +51,5 @@ CREATE TABLE Admin (
 
 CREATE TABLE Department(
   idDepartment INTEGER PRIMARY KEY,
-  name TEXT 
+  name TEXT NOT NULL unique
 );

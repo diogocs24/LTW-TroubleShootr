@@ -3,40 +3,29 @@
 declare(strict_types = 1);
 require_once(__DIR__.'/../a/pages_draw.php');
 require_once(__DIR__.'/../database/config.php');
-require_once(__DIR__.'/../database/user.php');
+require_once(__DIR__.'/../database/ticket.php');
 
 $db = getDatabaseConnection();
 
 if(isset($_POST['submit_btn'])){
 
-if(User::userEmailAlreadyExists($db, $_POST['email'])){
-    echo "Email already exist";
-    $_SESSION['messages'][] = array('type' => 'error', 'text' => 'Email already exists');
-    header('Location: /../pages/home_page1.php');
-}
+    if (empty($_POST['title'])) {
+        echo "Missing Title";
+    } elseif (empty($_POST['message'])) {
+        echo "Missing Message";
+    } elseif (empty($_POST['department'])) {
+        echo "Missing department";
+    } elseif (empty($_POST['hashtag'])) {
+        echo "Missing hashtag";
+    } else {
+        $ticket = new Ticket(0, 0, 0, 0, $_POST['message'], $_POST['title'], "not_opened");
+        
+        $ticket->insert($db);
 
+        echo "Done!";
+        header('Location: /../pages/submit_ticket.php');
+    }
 
-else if(User::usernameAlreadyExists($db, $_POST['username'])){
-    $_SESSION['messages'][] = array('type' => 'error', 'text' => 'Username already exists');
-    header('Location: /../pages/home_page1.php');
-}
-else{
-    $user = new User(0,
-    $_POST['username'],
-    $_POST['email'],
-    $_POST['password']
-    );
-    
-    $user->insert($db);
-    
-    
-    if($user !== NULL){
-        header('Location: /../pages/main_page.php');
-    }
-    else{
-        echo 'Error';
-    }
-}
 }
 
 ?>

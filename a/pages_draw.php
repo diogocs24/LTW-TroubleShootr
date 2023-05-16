@@ -287,13 +287,13 @@
 				</div>
 				<form action="/../a/tickets.php" method='post' class="faq_input">
 					<label class="label">Ticket title</label>
-					<input type="text" class="input" />
+					<input type="text" class="input" name="title" required/>
 					<label class="label">Ticket message</label>
-					<textarea class="input"></textarea>
+					<textarea class="input" name="message" required></textarea>
 					<label class="label">Ticket department</label>
-					<input type="text" class="input" />
+					<input type="text" class="input" name="department" required/>
 					<label class="label">Ticket hashtag</label>
-					<input type="text" class="input" />
+					<input type="text" class="input" name="hashtag" required/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
 				</form>
 			</div>
