@@ -116,11 +116,15 @@
 		<main id="main">
             <div id="main_page">
 				<div id="main_page_text">
-					<h1 class="main_page_title">Tickets</h1>
-                    <div class="tickets_list">
-                        <p>Tickets</p>
-                    </div>
+					<h2 class="main_page_title">Tickets</h2>
+					<a href="submit_ticket.php">
+						<button class="submit_ticket_btn"><ion-icon name="add-circle"></ion-icon></button>
+					</a>
 				</div>
+				<div class="tickets_list">
+                    <p>Tickets</p>
+					<p>AMOD</p>
+                </div>
 			</div>
         </main>
 <?php } ?>
@@ -280,7 +284,6 @@
 		<main id="main">
 			<div class="faq_main_box">
 				<div class="faq_message">
-					<span class="troubleshootr_logo"></span>
 					<h2 class="faq_message_title">
 						Ticket Submission
 					</h2>
