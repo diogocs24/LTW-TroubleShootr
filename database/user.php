@@ -102,7 +102,7 @@ function get_avatar_path() : string{
     public function insert(PDO $db): void { 
       if ($this->idUser === 0) {
 
-        $stmt = $db->prepare('INSERT INTO Clients (username, email, password) VALUES (?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO Clients (username, email, [password]) VALUES (?, ?, ?)');
 
         $stmt->execute([$this->username, $this->email,  $this->password]);
 

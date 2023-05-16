@@ -1,30 +1,44 @@
 PRAGMA FOREIGN_KEYS = ON;
-
-DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS TICKET_HASHTAG;
+DROP TABLE IF EXISTS TICKET;
+DROP TABLE IF EXISTS HASHTAG;
 DROP TABLE IF EXISTS Clients;
 DROP TABLE IF EXISTS Agent;
-DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS [Admin];
 DROP TABLE IF EXISTS Department;
 
 
-
-CREATE TABLE Ticket (
+CREATE TABLE TICKET (
   idTicket INTEGER PRIMARY KEY,
-  idDepartment INTEGER,
-  idClient INTEGER,
+  idDepartment INTEGER NOT NULL,
+  idClient INTEGER NOT NULL,
   idAgent INTEGER,
-  title TEXT,
-  message TEXT,
-  hashtag VARCHAR,
-  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment),
-  FOREIGN KEY (idClient) REFERENCES Clients(idUser),
-  FOREIGN KEY (idAgent) REFERENCES Agent(idUser)
+  title TEXT NOT NULL,
+  ticket_message TEXT NOT NULL,
+  ticket_status TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  updated_at TEXT NOT NULL,
+  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment) ON DELETE CASCADE,
+  FOREIGN KEY (idClient) REFERENCES Clients(idUser) ON DELETE CASCADE,
+  FOREIGN KEY (idAgent) REFERENCES Agent(idUser) ON DELETE SET NULL
+);
+
+CREATE TABLE HASHTAG (
+    idHashtag INTEGER PRIMARY KEY,
+    tag TEXT
+);
+
+CREATE TABLE TICKET_HASHTAG (
+    idTicket INTEGER NOT NULL,
+    tag INTEGER NOT NULL,
+    FOREIGN KEY (idTicket) REFERENCES TICKET(ID),
+    FOREIGN KEY (TAG) REFERENCES HASHTAG(ID)
 );
 
 CREATE TABLE Clients (
   idUser INTEGER NOT NULL PRIMARY KEY,
   username TEXT NOT NULL,
-  password TEXT NOT NULL,
+  [password] TEXT NOT NULL,
   email TEXT NOT NULL
 );
 
@@ -47,5 +61,5 @@ CREATE TABLE Admin (
 
 CREATE TABLE Department(
   idDepartment INTEGER PRIMARY KEY,
-  name TEXT 
+  name TEXT NOT NULL unique
 );
