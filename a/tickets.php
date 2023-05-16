@@ -19,5 +19,4 @@ if(isset($_POST['submit_btn'])){
         echo 'Error';
     }
 }
-
 ?>
