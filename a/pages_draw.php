@@ -275,3 +275,28 @@
 				</div>		
 <?php } ?>
 
+<?php function draw_submit_ticket() { ?>
+	<div id="page-container">
+		<main id="main">
+			<div class="faq_main_box">
+				<div class="faq_message">
+					<span class="troubleshootr_logo"></span>
+					<h2 class="faq_message_title">
+						Ticket Submission
+					</h2>
+				</div>
+				<form action="/../a/tickets.php" method='post' class="faq_input">
+					<label class="label">Ticket title</label>
+					<input type="text" class="input" />
+					<label class="label">Ticket message</label>
+					<textarea class="input"></textarea>
+					<label class="label">Ticket department</label>
+					<input type="text" class="input" />
+					<label class="label">Ticket hashtag</label>
+					<input type="text" class="input" />
+					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
+				</form>
+			</div>
+</main>
+		</div>
+<?php } ?>

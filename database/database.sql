@@ -13,7 +13,9 @@ CREATE TABLE Ticket (
   idDepartment INTEGER,
   idClient INTEGER,
   idAgent INTEGER,
+  title TEXT,
   message TEXT,
+  hashtag VARCHAR,
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment),
   FOREIGN KEY (idClient) REFERENCES Clients(idUser),
   FOREIGN KEY (idAgent) REFERENCES Agent(idUser)
