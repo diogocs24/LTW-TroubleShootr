@@ -1,13 +1,13 @@
 <?php
 
 declare(strict_types = 1);
-require_once(__DIR__.'/../a/drawcommon.php');
+require_once(__DIR__.'/../a/pages_draw.php');
 require_once(__DIR__.'/../database/config.php');
 require_once(__DIR__.'/../database/user.php');
 
 $db = getDatabaseConnection();
 
-if(isset($_POST['create'])){
+if(isset($_POST['submit_btn'])){
 
 if(User::userEmailAlreadyExists($db, $_POST['email'])){
     echo "Email already exist";

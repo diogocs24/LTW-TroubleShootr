@@ -25,6 +25,34 @@
 
 <?php } ?>
 
+<?php function draw_header_logged_in() { ?>
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home Page</title>
+		<link rel="stylesheet" href="/../css/style.css" />
+		<script src="/../scripts/script_dark-theme.js" defer> </script>
+		<script src="/../scripts/script.js" defer> </script>
+	</head>
+	<body onload="onload1()">
+		<header id="header" class="header">
+			<h2 class="logo"><a href="home_page1.php">TroubleShootr</a></h2>
+			<nav class="navigation">
+			<a href="home_page1.php" class="navigation_item">Home</a>
+			<a href="profile_page.php" class="navigation_item">Profile</a>
+			<a href="faq_page.php" class="navigation_item">FAQ</a>
+			<a href="settings_page.php" class="navigation_item">Settings</a>
+			<a href="home_page1.php" class="navigation_item">Sign Out</a>
+			</nav>
+		</header>
+
+<?php } ?>
+
 <?php
 function draw_footer(){
 ?>
@@ -60,27 +88,8 @@ function draw_footer(){
 					</ul>
 				</div>
 			</footer>
- <?php } ?>
-
- <?php function draw_nav2() {?>
-<nav class="navigation">
-	<a href="home_page1.php" class="navigation_item">Home</a>
-	<a href="profile_page.php" class="navigation_item">Profile</a>
-	<a href="faq_page.php" class="navigation_item">FAQ</a>
-	<a href="settings_page.php" class="navigation_item">Settings</a>
-	<a href="#" class="navigation_item">Sign Out</a>
-</nav>
-<?php }?>
-
-<?php function draw_nav1() {
-?>
-<nav class="navigation">
-				<a href="home_page1.php" class="navigation_item">Home</a>
-				<a href="about_page.php" class="navigation_item">About</a>
-				<a href="faq_page.php" class="navigation_item">FAQ</a>
-				<button class="btnLogin">Login</button>
-			</nav>
-<?php }?>
+			</div>
+<?php } ?>
 
 <?php function draw_script(){ ?>
 <script src="/../scripts/script_dark-theme.js"></script>
@@ -99,23 +108,7 @@ function draw_footer(){
 <?php } ?>
 
 <?php function draw_main(){ ?> 
-	<div>
-		<?php 
-		if(isset($_POST['create'])){
-			$username = $_POST['username'];
-			$email = $_POST['email'];
-			$password = $_POST['password'];
-			
-			$sql = "INSERT INTO Clients (username, email, password) VALUES(?,?,?)";
-			$stmtinsert = $db->prepare($sql);
-
-			$result = $stmtinsert->
-
-			echo $username = " "  .$email = " " . $password;
-		}
-		
-		?>
-	</div>
+	
 	<div id="page-container">
 	<main id="main">
 				<div class="content">
@@ -152,23 +145,32 @@ function draw_footer(){
 							</div>
 						</form>
 					</div>
+
+					<div>
+						<?php
+						if(isset($_POST['create'])) {
+							echo 'User submitted';
+						}
+						?>
+					</div>
+
 					<div class="form-box register">
 						<h2>Registration</h2>
-						<form action="/../a/registration.php" method="post">
+						<form method='post' action="/../a/registration.php">
 							<div class="input-box">
 								<span class="icon"><ion-icon name="person"></ion-icon></span>
-								<input type="text" required />
+								<input type="text" name="username" required />
 								<label>Username</label>
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="mail"></ion-icon></span>
 								<!--Change the type to email-->
-								<input type="email" required />
+								<input type="text" name="email" required />
 								<label>Email</label>
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-								<input type="password" required />
+								<input type="password" name="password" required />
 								<label>Password</label>
 							</div>
 							<div class="remember-forgot">
@@ -187,5 +189,5 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
-	</div>
+		</div>
 	<?php } ?>
