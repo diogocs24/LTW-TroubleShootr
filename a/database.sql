@@ -1,6 +1,7 @@
 PRAGMA foreign_keys = ON;
 
 DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS User;
 DROP TABLE IF EXISTS Clients;
 DROP TABLE IF EXISTS Agent;
 DROP TABLE IF EXISTS Admin;
@@ -15,32 +16,32 @@ CREATE TABLE Ticket (
   message TEXT
 );
 
-CREATE TABLE Clients {
-  idUser INTEGER  PRIMARY KEY,
-  username VARCHAR ,
-  password VARCHAR ,
-  email VARCHAR
+CREATE TABLE User {
+  id INTEGER  PRIMARY KEY,
+  username TEXT NOT NULL UNIQUE,
+  password TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE
 }
 
+CREATE TABLE Clients {
+  idUser INTEGER PRIMARY KEY,
+  FOREIGN KEY (idUser) REFERENCES User(id) ON DELETE CASCADE
+}
 
 CREATE TABLE Agent{
-idUser INTEGER PRIMARY KEY,
-FOREIGNKEY(idDepartment) references Department(idDepartment),
-username TEXT ,
-password TEXT ,
-e-mail TEXT 
+  idUser INTEGER PRIMARY KEY,
+  idDepartment INTEGER NOT NULL,
+  FOREIGN KEY (idUser) REFERENCES User(id) ON DELETE CASCADE,
+  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment)
 }
 
 CREATE TABLE Admin{
-idUser INTEGER PRIMARY KEY,
-username TEXT,
-password TEXT ,
-e-mail TEXT 
-
+  idUser INTEGER PRIMARY KEY,
+  FOREIGN KEY (idUser) REFERENCES User(id) ON DELETE CASCADE
 }
 
 CREATE TABLE Department{
   idDepartment INTEGER PRIMARY KEY,
-  name TEXT 
+  name TEXT NOT NULL UNIQUE
 }
 
