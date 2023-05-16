@@ -14,9 +14,9 @@
 	</head>
 	<body onload="onload1()">
 		<header id="header" class="header">
-			<h2 class="logo"><a href="home_page1.php">TroubleShootr</a></h2>
+			<h2 class="logo"><a href="main_page.php">TroubleShootr</a></h2>
 			<nav class="navigation">
-				<a href="home_page1.php" class="navigation_item">Home</a>
+				<a href="main_page.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
 				<a href="faq_page.php" class="navigation_item">FAQ</a>
 				<button class="btnLogin">Login</button> 
@@ -41,13 +41,13 @@
 	</head>
 	<body onload="onload1()">
 		<header id="header" class="header">
-			<h2 class="logo"><a href="home_page1.php">TroubleShootr</a></h2>
+			<h2 class="logo"><a href="main_page.php">TroubleShootr</a></h2>
 			<nav class="navigation">
-			<a href="home_page1.php" class="navigation_item">Home</a>
+			<a href="main_page.php" class="navigation_item">Home</a>
 			<a href="profile_page.php" class="navigation_item">Profile</a>
 			<a href="faq_page.php" class="navigation_item">FAQ</a>
 			<a href="settings_page.php" class="navigation_item">Settings</a>
-			<a href="home_page1.php" class="navigation_item">Sign Out</a>
+			<a href="/../a/logout.php" class="navigation_item">Sign Out</a>
 			</nav>
 		</header>
 
@@ -64,7 +64,7 @@ function draw_footer(){
 						<li><a href="#">Privacy</a></li>
 					</ul>
 					<ul class="right">
-						<li><a href="home_page.html">TroubleShootr</a></li>
+						<li><a href="main_page.php">TroubleShootr</a></li>
 						<li>
 							<a href="https://twitter.com/" target="_blank"
 								><ion-icon name="logo-twitter"></ion-icon
@@ -123,35 +123,27 @@ function draw_footer(){
 					></span>
 					<div class="form-box login">
 						<h2>Login</h2>
-						<form action="#">
+						<form method='post' action="/../a/login.php">
 							<div class="input-box">
 								<span class="icon"><ion-icon name="mail"></ion-icon></span>
 								<!--Change the type to email-->
-								<input type="text" required/>
+								<input type="text" name = "email" required/>
 								<label>Email</label>
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="lock-closed"></span>
-								<input type="password" required>
+								<input type="password" name="password" required>
 								<label>Password</label>
 							</div>
 							<div class="remember-forgot">
 								<label><input type="checkbox">Remember me</label>
 								<a href="#">Forgot Password</a>
 							</div>
-							<button type="submit" class="btn">Login</button>
+							<button type="submit" name="login" class="btn">Login</button>
 							<div class="login-register">
 								<p>Don't have an account? <a href="#" class="register-link">Register</a></p>
 							</div>
 						</form>
-					</div>
-
-					<div>
-						<?php
-						if(isset($_POST['create'])) {
-							echo 'User submitted';
-						}
-						?>
 					</div>
 
 					<div class="form-box register">
@@ -164,7 +156,6 @@ function draw_footer(){
 							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="mail"></ion-icon></span>
-								<!--Change the type to email-->
 								<input type="text" name="email" required />
 								<label>Email</label>
 							</div>
