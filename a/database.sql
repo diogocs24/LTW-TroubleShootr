@@ -1,3 +1,12 @@
+PRAGMA foreign_keys = ON;
+
+DROP TABLE IF EXISTS Ticket;
+DROP TABLE IF EXISTS Clients;
+DROP TABLE IF EXISTS Agent;
+DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Department;
+
+
 CREATE TABLE Ticket (
   idTicket INTEGER PRIMARY KEY,
   FOREIGNKEY(idDepartment) references Department(idDepartment),
