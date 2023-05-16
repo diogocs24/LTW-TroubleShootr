@@ -189,5 +189,4 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
-		</div>
 	<?php } ?>
