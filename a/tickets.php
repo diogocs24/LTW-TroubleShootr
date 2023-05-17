@@ -7,10 +7,6 @@ require_once(__DIR__.'/../database/config.php');
 require_once(__DIR__.'/../a/session.php');
 require_once(__DIR__.'/../database/user.php');
 require_once(__DIR__.'/../database/ticket.php');
-<<<<<<< HEAD
-require_once(__DIR__.'/../a/session.php');
-=======
->>>>>>> main
 
 $session = new Session();
 $db = getDatabaseConnection();
