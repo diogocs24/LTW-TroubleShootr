@@ -39,6 +39,16 @@ body {
 
 /* Navigation Bar*/
 
+#dark-mode-icon {
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	position: relative;
+	margin-right: 60px;
+	text-decoration: none;
+	top: 5px;
+}
+
 #header {
 	display: flex;
 	justify-content: space-between;
@@ -304,56 +314,6 @@ body {
 	width: 100%;
 	padding-top: 100px;
 	padding-bottom: 2.5rem;
-}
-
-/* Settings Page */
-
-#dark-mode-icon {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 3%;
-	height: 3%;
-	cursor: pointer;
-}
-
-#settings {
-	max-width: 1200px;
-	margin: 100px auto;
-	display: flex;
-	justify-content: space-between;
-}
-
-#settings_text {
-	width: 70%;
-	color: var(--secondary-color);
-}
-
-.settings_title {
-	margin-bottom: 30px;
-	font-weight: 300;
-	font-size: 30px;
-	width: 147%;
-	border-bottom: 2px solid var(--secondary-color);
-	color: var(--secondary-color);
-}
-.settings_row {
-	display: flex;
-	align-items: center;
-	padding-bottom: 50px;
-}
-.settings_row p {
-	margin-right: 20px;
-	font-size: 20px;
-	color: var(--secondary-color);
-	font-weight: 400;
-	text-decoration: underline 2px rgb(128, 126, 126);
-	text-decoration-style: dashed;
-	text-underline-offset: 4px;
-}
-.settings_row img {
-	padding-top: 3px;
 }
 
 /* About Page */

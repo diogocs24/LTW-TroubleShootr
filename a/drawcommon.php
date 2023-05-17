@@ -46,7 +46,7 @@
 			<a href="main_page.php" class="navigation_item">Home</a>
 			<a href="profile_page.php" class="navigation_item">Profile</a>
 			<a href="faq_page.php" class="navigation_item">FAQ</a>
-			<a href="settings_page.php" class="navigation_item">Settings</a>
+			<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
 			<a href="/../a/logout.php" class="navigation_item">Sign Out</a>
 			</nav>
 		</header>
