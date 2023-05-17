@@ -38,5 +38,35 @@ class Ticket {
             $stmt->execute([$this->idDepartment, $this->idClient, $this->idAgent, $this->title, $this->ticket_message, $this->ticket_status, $this->ticket_priority, $this->created_at, $this->updated_at]);
         }
     }
+
+    static function getTicketsFromUser(PDO $db, int $id) : array {
+        $stmt = $db->prepare('
+            SELECT t.idTicket, t.idClient, t.idAgent, t.idDepartment, t.title, t.ticket_message, t.ticket_status, t.ticket_priority, t.created_at, t.updated_at
+            FROM TICKET t
+            WHERE t.idClient = ?
+            GROUP BY 1;
+        ');
+        $stmt->execute(array($id));
+        $tickets_array = array();
+
+        while ($ticket = $stmt->fetch()) {
+            
+            $tickets_array[] = new Ticket(
+                $ticket['idTicket'], 
+                $ticket['idClient'],
+                $ticket['idAgent'],
+                $ticket['idDepartment'],
+                $ticket['title'],
+                $ticket['ticket_message'],
+                $ticket['ticket_status'],
+                $ticket['ticket_priority'],
+                $ticket['created_at'],
+                $ticket['updated_at']
+            );
+            
+        }
+        
+        return $tickets_array;
+    }
 }
 ?>
