@@ -16,6 +16,7 @@ CREATE TABLE TICKET (
   title TEXT NOT NULL,
   ticket_message TEXT NOT NULL,
   ticket_status TEXT NOT NULL,
+  ticket_priority TEXT NOT NULL,
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment) ON DELETE CASCADE,
