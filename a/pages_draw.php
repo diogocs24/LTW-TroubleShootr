@@ -202,21 +202,6 @@ require_once(__DIR__ . '/../database/config.php');?>
 						</div>
 						<div class="row">
 							<div class="attribute">
-								<span class="label">Birth Date:</span>
-								<span class="text_input">1/1/2000</span>
-							</div>
-							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="date"
-									required
-								/>
-								<label for="#">Date</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute">
 								<span class="label">Email:</span>
 								<span class="text_input"><?php echo($email)?></span>
 							</div>
