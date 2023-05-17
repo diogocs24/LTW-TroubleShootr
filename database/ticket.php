@@ -52,10 +52,10 @@ class Ticket {
         while ($ticket = $stmt->fetch()) {
             
             $tickets_array[] = new Ticket(
-                $ticket['idTicket'], 
-                $ticket['idClient'],
-                $ticket['idAgent'],
-                $ticket['idDepartment'],
+                (int) $ticket['idTicket'], 
+                (int) $ticket['idClient'],
+                (int) $ticket['idAgent'],
+                (int) $ticket['idDepartment'],
                 $ticket['title'],
                 $ticket['ticket_message'],
                 $ticket['ticket_status'],
