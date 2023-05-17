@@ -990,6 +990,11 @@ body {
 	top: 3px;
 }
 
+/* Ticket */
+
+.tickets_list {
+	background-color: red;
+}
 
 /* Responsive */
 
@@ -1000,6 +1005,4 @@ body {
 		align-items: center;
 		margin-bottom: 20px;
 	}
-	
 }
-

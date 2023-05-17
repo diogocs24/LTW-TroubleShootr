@@ -1,5 +1,7 @@
 <?php declare(strict_types = 1);
-require_once(__DIR__.'/../a/drawcommon.php'); ?>
+require_once(__DIR__.'/../a/drawcommon.php'); 
+require_once(__DIR__ . '/../database/ticket.php');
+require_once(__DIR__ . '/../database/config.php');?>
 
 <?php function draw_about() { ?>
 		<div id="page-container">
@@ -131,7 +133,7 @@ require_once(__DIR__.'/../a/drawcommon.php'); ?>
 		</div>
 <?php } ?>
 
-<?php function draw_main_page() { ?>
+<?php function draw_main_page($tickets) { ?>
 	<div id="page-container">
 		<main id="main">
             <div id="main_page">
@@ -142,8 +144,21 @@ require_once(__DIR__.'/../a/drawcommon.php'); ?>
 					</a>
 				</div>
 				<div class="tickets_list">
-                    <p>Tickets</p>
-					<p>AMOD</p>
+					<?php foreach($tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
                 </div>
 			</div>
         </main>
@@ -308,3 +323,26 @@ require_once(__DIR__.'/../a/drawcommon.php'); ?>
 </main>
 		</div>
 <?php } ?>
+
+<?php function drawTickets($id) { 
+	$db = getDatabaseConnection();
+	$tickets =  Ticket::getTicketsFromUser($db, $id);
+	foreach($tickets as $ticket){ ?>
+		<div class="ticket">
+			<div class="ticket_info">
+				<h4><?php echo $ticket['title']?></h4>
+				<p>Priority: <span><?php echo $ticket['ticket_priority']; ?> </span></p>
+				<p class="details">Details: <span>Something something something something something something</span></p>
+				<p>Status: <span><?php echo $ticket['ticket_status']; ?></span></p>
+			</div>
+			<div class="ticket_trailing">
+				<div class="agent_info">
+					<p>Agent: <span> <?php echo $ticket['idAgent']; ?></span></p>
+				</div>
+				<div class="ticket_button">
+					<a href="seeTicket.html" class="special_button">View</a>
+				</div>
+			</div>
+		</div>
+<?php } 
+} ?>
