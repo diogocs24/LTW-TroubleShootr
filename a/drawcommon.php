@@ -107,16 +107,8 @@ function draw_footer(){
 
 <?php } ?>
 
-<?php function draw_main(){ ?> 
+<?php function draw_wrapper(){ ?> 
 	
-	<div id="page-container">
-	<main id="main">
-				<div class="content">
-					<h1 data-text="Troubleshoot with us!">Troubleshoot with us!</h1>
-					<p>Get efficient and effective 
-						support from our team and solve any problem, no matter how big or small. Join us now and 
-						let's troubleshoot together!</p>
-				</div>
 				<div class="wrapper">
 					<span class="icon-close"
 						><ion-icon name="close"></ion-icon
@@ -166,7 +158,7 @@ function draw_footer(){
 							</div>
 							<div class="remember-forgot">
 								<label
-									><input type="checkbox" />I agree to the terms & conditions</label
+									><input type="checkbox" required/>I agree to the terms & conditions</label
 								>
 							</div>
 							<button type="submit" name="create" class="btn">Register</button>

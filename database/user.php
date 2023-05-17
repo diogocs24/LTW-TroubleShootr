@@ -80,8 +80,6 @@ function get_avatar_path() : string{
       }
   }
 
-
-
     public function update(PDO $db, string $username, string $email, string $password): void {
         $stmt = $db->prepare('UPDATE Clients SET username = ?, email = ?, password = ? WHERE idUser = ?');
         if (!empty($password)){

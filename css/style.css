@@ -296,14 +296,7 @@ body {
 .submit {
 	background-color: #fff;
 }
-@media only screen and (max-width: 819px) {
-	.navigation a {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin-bottom: 20px;
-	}
-}
+
 /* Main */
 
 #main {
@@ -996,3 +989,17 @@ body {
 	position: relative;
 	top: 3px;
 }
+
+
+/* Responsive */
+
+@media only screen and (max-width: 819px) {
+	.navigation a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	
+}
+
