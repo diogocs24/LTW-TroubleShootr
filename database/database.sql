@@ -48,10 +48,7 @@ CREATE TABLE Clients (
 CREATE TABLE Agent (
   idUser INTEGER PRIMARY KEY,
   idDepartment INTEGER,
-  username TEXT,
-  [password] TEXT,
-  email TEXT,
-  [name] TEXT NOT NULL,
+  FOREIGN KEY (idUser) REFERENCES Clients(idUser),
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment)
 );
 

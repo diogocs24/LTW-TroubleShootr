@@ -111,5 +111,19 @@ function get_avatar_path() : string{
         $stmt->execute([$this->username, $this->email, $this->password, $this->idUser]);
       }
     }
+
+  public function isAgent(PDO $db, int $id): bool {
+    $stmt = $db->prepare('SELECT COUNT(*) FROM Agents WHERE id = ?');
+    
+    $stmt->execute(array($id));
+
+    $result = $stmt->fetchColumn();
+
+    return $result > 0;
+    
   }
+
+  }
+
+  
 ?>
