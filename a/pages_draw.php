@@ -1,3 +1,6 @@
+<?php declare(strict_types = 1);
+require_once(__DIR__.'/../a/drawcommon.php'); ?>
+
 <?php function draw_about() { ?>
 		<div id="page-container">
 			<main id="main">
@@ -8,8 +11,22 @@
 							At Troubleshoot with Us, we think that technology should enhance your life, not make it more difficult. Our goal is to give you excellent, efficient technical support so you can get the most out of your products and services. We take pride in our ability to deliver specialized solutions that are tailored to your specific needs and solve issues fast.<br><br>
 							Whether you're a small business owner or a home user, we're here to help you overcome your technology challenges. Join us now and let's troubleshoot together!</p>
 					</div>
+					
 				</div>
+				<?php draw_wrapper()?>
             </main>
+			
+<?php } ?>
+
+<?php function draw_home_page1(){ ?>
+	<div id="page-container">
+		<main id="main">
+				<div class="content">
+					<h1 data-text="Troubleshoot with us!">Troubleshoot with us!</h1>
+					<p>Get efficient and effective 
+						support from our team and solve any problem, no matter how big or small. Join us now and 
+						let's troubleshoot together!</p>
+				</div>
 <?php } ?>
 
 <?php function draw_faq() { ?>
@@ -44,7 +61,10 @@
 							<h2>6. First Question</h2>
 							<p>Example Answer</p>
 						</div>
+						
 					</div>
+					</div>
+					<?php draw_wrapper()?>
 			</main>
 <?php } ?>
 
@@ -129,7 +149,7 @@
         </main>
 <?php } ?>
 
-<?php function draw_profile() { ?>
+<?php function draw_profile($username, $email) { ?>
 	<div id="page-container">
 			<main id="main">
 				<div id="info">
@@ -152,8 +172,8 @@
 						</div>
 						<div class="row">
 							<div class="attribute">
-								<span class="label">Username:</span>
-								<span class="text_input">@joaosilva</span>
+								<span class="label">Username: </span>
+								<span class="text_input"><?php echo($username) ?></span>
 							</div>
 							<div class="single-input">
 								<input
@@ -183,7 +203,7 @@
 						<div class="row">
 							<div class="attribute">
 								<span class="label">Email:</span>
-								<span class="text_input">joao@up.pt</span>
+								<span class="text_input"><?php echo($email)?></span>
 							</div>
 							<div class="single-input">
 								<input
