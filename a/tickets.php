@@ -11,9 +11,11 @@ require_once(__DIR__.'/../database/ticket.php');
 $session = new Session();
 $db = getDatabaseConnection();
 
-if(isset($_POST['submit_btn'])){
 
+
+if(isset($_POST['submit_btn'])){
     $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['message'], $_POST['title'], "not_opened", "low", "f", "f");      
+
     $ticket->insert($db);
     
     if($ticket !== NULL){
