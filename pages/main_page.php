@@ -19,7 +19,7 @@ $user = User::getUser($db, $session->getId());
 $tickets =  Ticket::getTicketsFromUser($db, $session->getId());
 
 draw_header_logged_in();
-draw_main_page($tickets);
+draw_main_page($db, $tickets);
 draw_footer(); 
 draw_script(); 
 ?>

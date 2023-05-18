@@ -50,7 +50,6 @@ class Ticket {
         $tickets_array = array();
 
         while ($ticket = $stmt->fetch()) {
-            
             $tickets_array[] = new Ticket(
                 $ticket['idTicket'], 
                 $ticket['idClient'],
@@ -68,5 +67,6 @@ class Ticket {
         
         return $tickets_array;
     }
+    
 }
 ?>
