@@ -67,7 +67,6 @@ require_once(__DIR__ . '/../database/config.php');
 						
 					</div>
 					</div>
-					<?php draw_wrapper()?>
 			</main>
 <?php } ?>
 
@@ -271,51 +270,6 @@ require_once(__DIR__ . '/../database/config.php');
 			</main>		
 <?php } ?>
 
-<?php function draw_settings() { ?>
-	<div id="page-container">
-			<main id="main">
-				<div id="settings">
-					<div id="settings_text">
-						<h1 class="settings_title">Settings</h1>
-						<div class="settings_row">
-							<p>
-							Dark-Mode:
-							</p>
-							<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-					</div>
-				</div>		
-<?php } ?>
 
 <?php function draw_submit_ticket($departments) { ?>
 	<div id="page-container">

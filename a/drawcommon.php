@@ -27,7 +27,7 @@ require_once(__DIR__ . '/../database/user.php');
 			<nav class="navigation">
 				<a href="main_page.php" class="navigation_item">Home</a>
 				<a href="about_page.php" class="navigation_item">About</a>
-				<a href="faq_page.php" class="navigation_item">FAQ</a>
+				<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
 				<button class="btnLogin">Login</button> 
 			</nav>
 		</header>
@@ -58,7 +58,7 @@ require_once(__DIR__ . '/../database/user.php');
 			<a href="tickets_agents.php" class="navigation_item">Tickets</a>
 			<?php } ?>
 			<a href="faq_page.php" class="navigation_item">FAQ</a>
-			<a href="settings_page.php" class="navigation_item">Settings</a>
+			<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
 			<a href="/../a/logout.php" class="navigation_item">Sign Out</a>
 			</nav>
 		</header>
