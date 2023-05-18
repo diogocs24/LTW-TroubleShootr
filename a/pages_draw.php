@@ -338,6 +338,7 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 					<textarea class="input" name="message" required></textarea>
 					<label class="label">Ticket department</label>
 					<input type="text" class="input" name="department" required/>
+					<form action=""></form>
 					<label class="label">Ticket hashtag</label>
 					<input type="text" class="input" name="hashtag"/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
