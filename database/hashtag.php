@@ -23,6 +23,24 @@ class Hashtag{
         }
     }
 
+    static function checkNotTag(PDO $db, string $tag) {
+        
+        $stmt = $db->prepare('
+            SELECT COUNT(h.idHashtag)
+            FROM HASHTAG h
+            WHERE h.tag = :tag
+        ');
+        
+        $stmt->execute(array(':tag' => $tag));
+        $count = $stmt->fetchColumn();
+
+        if($count > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     static function getHashtagName(PDO $db, int $id) : string {
         $stmt = $db->prepare('
         SELECT h.idHashtag, h.tag
@@ -35,6 +53,17 @@ class Hashtag{
         
         $hashtag = $stmt->fetch();
         return $hashtag['tag'];
+    }
+
+    static function getHashtagWithName(PDO $db, string $tag) : int {
+        $stmt = $db->prepare('
+        SELECT h.idHashtag, h.tag
+        FROM HASHTAG h
+        WHERE h.tag = :tag
+        ');
+        $stmt->execute(array(':tag' => $tag));        
+        $hashtag = $stmt->fetch();
+        return $hashtag['idHashtag'];
     }
 }
 ?>

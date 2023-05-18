@@ -30,7 +30,7 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 					<p>Get efficient and effective 
 						support from our team and solve any problem, no matter how big or small. Join us now and 
 						let's troubleshoot together!</p>
-				</div>
+				</div>	
 <?php } ?>
 
 <?php function draw_faq() { ?>
@@ -155,7 +155,6 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 								<p>Hashtags: <span><?php
                                 $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
                                 foreach($hashtags as $hashtag){
-									
                                     echo Hashtag::getHashtagName($db,$hashtag->tag);
 									echo " ";
                         		}?></span></p>
@@ -340,7 +339,7 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 					<label class="label">Ticket department</label>
 					<input type="text" class="input" name="department" required/>
 					<label class="label">Ticket hashtag</label>
-					<input type="text" class="input" name="hashtag" required/>
+					<input type="text" class="input" name="hashtag"/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
 				</form>
 			</div>

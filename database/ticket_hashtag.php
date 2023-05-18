@@ -11,6 +11,11 @@ class Ticket_hashtag{
         $this->tag = $tag;
     }
 
+    public function save(PDO $db): void {
+        $stmt = $db->prepare('INSERT INTO TICKET_HASHTAG (idTicket, tag) VALUES (?, ?)');
+        $stmt->execute([$this->idTicket, $this->tag]);
+    }
+
     static function getHashtagsWithTickedId(PDO $db, int $id) : array {
         $stmt = $db->prepare('
         SELECT t.idTicket, t.tag

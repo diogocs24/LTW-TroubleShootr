@@ -67,6 +67,10 @@ class Ticket {
         
         return $tickets_array;
     }
+
+    public function getId(): int {
+        return $this->idTicket;
+    }
     
 }
 ?>
