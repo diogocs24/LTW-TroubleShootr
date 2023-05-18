@@ -112,8 +112,8 @@ function get_avatar_path() : string{
       }
     }
 
-  public function isAgent(PDO $db, int $id): bool {
-    $stmt = $db->prepare('SELECT COUNT(*) FROM Agents WHERE id = ?');
+  static function isAgent(PDO $db, int $id): bool {
+    $stmt = $db->prepare('SELECT COUNT(*) FROM Agent WHERE idUser = ?');
     
     $stmt->execute(array($id));
 

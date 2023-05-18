@@ -68,5 +68,124 @@ class Ticket {
         
         return $tickets_array;
     }
+
+    static function getTicketsResolvedFromUser(PDO $db, int $id) : array {
+        $stmt = $db->prepare('
+          SELECT t.idTicket, t.idUser,
+           t.idDepartment, t.idAgent, t.title, t.ticket_message,
+            t.ticket_status, t.ticket_priority, t.created_at, t.updated_at
+          FROM TICKET t
+          WHERE t.idClient = ? AND t.ticket_status = "done"
+          GROUP BY 1;
+        ');
+        $stmt->execute(array($id));
+    
+        $tickets_array = array();
+    
+        while ($ticket = $stmt->fetch()) {
+          $tickets_array[] = new Ticket(
+            $ticket['idTicket'], 
+            $ticket['idUser'],
+            $ticket['idDepartment'],
+            $ticket['idAgent'],
+            $ticket['title'],
+            $ticket['ticket_message'],
+            $ticket['ticket_status'],
+            $ticket['ticket_priority'],
+            $ticket['created_at'],
+            $ticket['updated_at']
+          );
+        }
+    
+        return $tickets_array;
+      }
+
+      static function getTicketsNotOpened(PDO $db, int $id) : array {
+        $stmt = $db->prepare('
+          SELECT t.idTicket, t.idUser,
+           t.idDepartment, t.idAgent, t.title, t.ticket_message,
+            t.ticket_status, t.ticket_priority, t.created_at, t.updated_at
+          FROM TICKET t
+          WHERE t.idClient = ? AND t.ticket_status = "not_opened"
+          GROUP BY 1;
+        ');
+        $stmt->execute(array($id));
+    
+        $tickets_array = array();
+    
+        while ($ticket = $stmt->fetch()) {
+          $tickets_array[] = new Ticket(
+            $ticket['idTicket'], 
+            $ticket['idUser'],
+            $ticket['idDepartment'],
+            $ticket['idAgent'],
+            $ticket['title'],
+            $ticket['ticket_message'],
+            $ticket['ticket_status'],
+            $ticket['ticket_priority'],
+            $ticket['created_at'],
+            $ticket['updated_at']
+          );
+        }
+    
+        return $tickets_array;
+      }
+      static function getAllTickets(PDO $db) : array {
+        $stmt = $db->prepare('
+          SELECT t.idTicket, t.idClient, t.idAgent,
+           t.idDepartment, t.idAgent, t.title, t.ticket_message,
+            t.ticket_status, t.ticket_priority, t.created_at, t.updated_at
+          FROM TICKET t
+        ');
+        $stmt->execute(array());
+    
+        $tickets_array = array();
+    
+        while ($ticket = $stmt->fetch()) {
+            $tickets_array[] = new Ticket(
+              (int) $ticket['idTicket'], 
+              (int) $ticket['idUser'],
+              (int) $ticket['idDepartment'],
+              (int) $ticket['idAgent'],
+              $ticket['title'],
+              $ticket['ticket_message'],
+              $ticket['ticket_status'],
+              $ticket['ticket_priority'],
+              $ticket['created_at'],
+              $ticket['updated_at']
+            );
+          }
+    
+        return $tickets_array;
+      }
+      static function getTicketsFromDepartment(PDO $db, int $id) : array {
+        $stmt = $db->prepare('
+            SELECT t.idTicket, t.idClient, t.idAgent, t.idDepartment, t.title, t.ticket_message, t.ticket_status, t.ticket_priority, t.created_at, t.updated_at
+            FROM TICKET t
+            WHERE t.idDepartment = ?
+            GROUP BY 1;
+        ');
+        $stmt->execute(array($id));
+        $tickets_array = array();
+
+        while ($ticket = $stmt->fetch()) {
+            
+            $tickets_array[] = new Ticket(
+                (int) $ticket['idTicket'], 
+                (int) $ticket['idClient'],
+                (int) $ticket['idAgent'],
+                (int) $ticket['idDepartment'],
+                $ticket['title'],
+                $ticket['ticket_message'],
+                $ticket['ticket_status'],
+                $ticket['ticket_priority'],
+                $ticket['created_at'],
+                $ticket['updated_at']
+            );
+            
+        }
+        
+        return $tickets_array;
+    }
 }
 ?>

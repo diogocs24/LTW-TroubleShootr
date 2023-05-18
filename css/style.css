@@ -992,8 +992,12 @@ body {
 
 /* Ticket */
 
-.tickets_list {
+.all_tickets_list {
 	background-color: red;
+}
+
+.user_tickets_list {
+	background-color: blue;
 }
 
 /* Responsive */

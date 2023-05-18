@@ -9,4 +9,4 @@ INSERT INTO Department(idDepartment,name) VALUES(6,"Artificial Intelligence");
 INSERT INTO Department(idDepartment,name) VALUES(7,"Web Programming");
 INSERT INTO Department(idDepartment,name) VALUES(8,"Compilers");
 
-
+INSERT INTO Agent(idUser, idDepartment) VALUES (1, 1);

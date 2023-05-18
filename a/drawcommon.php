@@ -1,3 +1,12 @@
+<?php declare(strict_types = 1);
+require_once(__DIR__.'/../a/drawcommon.php'); 
+require_once(__DIR__ . '/../database/ticket.php');
+require_once(__DIR__ . '/../database/config.php');
+require_once(__DIR__ . '/../database/user.php');
+?>
+
+
+
 <?php function draw_header() { ?>
 
 <!DOCTYPE html>
@@ -25,7 +34,7 @@
 
 <?php } ?>
 
-<?php function draw_header_logged_in() { ?>
+<?php function draw_header_logged_in($db, $id) { ?>
 
 <!DOCTYPE html>
 
@@ -45,6 +54,9 @@
 			<nav class="navigation">
 			<a href="main_page.php" class="navigation_item">Home</a>
 			<a href="profile_page.php" class="navigation_item">Profile</a>
+			<?php if(User::isAgent($db, $id)) {?>
+			<a href="tickets_agents.php" class="navigation_item">Tickets</a>
+			<?php } ?>
 			<a href="faq_page.php" class="navigation_item">FAQ</a>
 			<a href="settings_page.php" class="navigation_item">Settings</a>
 			<a href="/../a/logout.php" class="navigation_item">Sign Out</a>
