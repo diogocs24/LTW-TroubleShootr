@@ -21,6 +21,10 @@
 	--five-color: rgb(0, 0, 0, 0.2);
 	--six-color: rgb(128, 126, 126);
 	--seven-color: rgb(25, 22, 21);
+	--eight-color: rgb(245, 246, 250);
+	--nine-color: rgb(219, 221, 226);
+	--ten-color: rgba(255, 255, 255, 0.5);
+	--eleven-color: rgba(255, 255, 255, 0.5);
 }
 
 .dark-mode {
@@ -31,6 +35,10 @@
 	--five-color: rgb(255, 255, 255, 0.4);
 	--six-color: rgb(255, 255, 255, 0.9);
 	--seven-color: rgb(255, 255, 255);
+	--eight-color: rgb(38, 38, 39);
+	--nine-color: rgba(77, 75, 75, 0.9);
+	--ten-color: rgba(0, 0, 0, 0.5);
+	--eleven-color: rgba(255, 255, 255, 0.063);
 }
 
 body {
@@ -373,6 +381,10 @@ body {
 	color: var(--secondary-color);
 }
 
+#main_page_text {
+	color: var(--primary-color);
+}
+
 #tickets_list {
 	width: 100%;
 }
@@ -388,6 +400,8 @@ body {
 	background-color: var(--primary-color);
 	font-size: 45px;
 	cursor: pointer;
+	position: relative;
+	bottom:12px;
 }
 
 /* Home Page */
@@ -640,6 +654,9 @@ body {
 	margin-bottom: 30px;
 	font-weight: 300;
 	font-size: 30px;
+	border-bottom: 2px solid var(--secondary-color);
+	color: var(--secondary-color);
+	width: 5000px;
 }
 
 .question {
@@ -791,6 +808,10 @@ body {
 
 /* Ticket Submit */
 
+.submit_ticket_btn {
+	color: var(--secondary-color);
+}
+
 .faq_message > h2 {
 	display: flex;
 	justify-content: center;
@@ -801,10 +822,10 @@ body {
 }
 
 .faq_input {
-	background-color: rgb(245, 246, 250);
+	background-color: var(--eight-color);
 	max-width: 1000px;
 	margin: 2em auto;
-	border: 2px solid rgb(219, 221, 226);
+	border: 2px solid var(--nine-color);
 	border-radius: 20px;
 	padding: 2em;
 }
@@ -832,16 +853,17 @@ body {
 .faq_input > .input {
 	display: block;
 	width: 98%;
-	border: 1px solid rgb(219, 221, 226);
+	border: 1px solid var(--nine-color);
 	padding: 0.5em;
 	outline: none;
 	border-radius: 7px;
+	background-color: var(--eleven-color);
 }
 
 .faq_input > .submit_btn {
 	background: none;
 	margin-top: 17px;
-	color: rgb(128, 126, 126);
+	color: var(--six-color);
 	border: 0.139em solid #000000;
 	border-radius: 7px;
 	font-size: 15px;
@@ -855,11 +877,15 @@ body {
 	outline: none;
 }
 
+.faq_main_box {
+	color: var(--secondary-color);
+}
+
 .faq_input > .submit_btn:before {
 	content: "";
 	display: block;
 	position: absolute;
-	background: rgba(255, 255, 255, 0.5);
+	background: var(--ten-color);
 	font-weight: 600;
 	width: 60px;
 	height: 100%;
@@ -953,7 +979,18 @@ body {
 /* Ticket */
 
 .tickets_list {
-	background-color: red;
+	background-color: var(--nine-color);
+	border-radius: 8px;
+	padding: 10px;
+	border: 2px solid var(--six-color);
+}
+.ticket {
+	background-color: var(--eight-color);
+	border-radius: 8px;
+	margin: 10px;
+	padding: 10px;
+	color: var(--secondary-color);
+	border: 1px solid var(--six-color);
 }
 
 /* Responsive */
