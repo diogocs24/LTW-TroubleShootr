@@ -66,7 +66,6 @@ require_once(__DIR__ . '/../database/config.php');?>
 						
 					</div>
 					</div>
-					<?php draw_wrapper()?>
 			</main>
 <?php } ?>
 
