@@ -144,21 +144,21 @@ require_once(__DIR__ . '/../database/config.php');?>
 					</a>
 				</div>
 				<div class="tickets_list">
-					<?php foreach($tickets as $ticket){ ?>
-						<div class="ticket">
-							<div class="ticket_info">
-								<h4><?php echo $ticket->title?></h4>
-								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-							</div>
-							<div class="ticket_trailing">
-								<div class="agent_info">
-									<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
-								</div>
+				<?php foreach(array_reverse($tickets) as $ticket){ ?>
+					<div class="ticket">
+						<div class="ticket_info">
+							<h4><?php echo $ticket->title?></h4>
+							<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+							<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+							<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+						</div>
+						<div class="ticket_trailing">
+							<div class="agent_info">
+								<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
 							</div>
 						</div>
-					<?php } ?>
+					</div>
+				<?php } ?>
                 </div>
 			</div>
         </main>
