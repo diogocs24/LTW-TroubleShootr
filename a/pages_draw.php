@@ -68,7 +68,6 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 						
 					</div>
 					</div>
-					<?php draw_wrapper()?>
 			</main>
 <?php } ?>
 
@@ -146,27 +145,27 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 					</a>
 				</div>
 				<div class="tickets_list">
-					<?php foreach($tickets as $ticket){ ?>
-						<div class="ticket">
-							<div class="ticket_info">
-								<h4><?php echo $ticket->title?></h4>
-								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p>Hashtags: <span><?php
+				<?php foreach(array_reverse($tickets) as $ticket){ ?>
+					<div class="ticket">
+						<div class="ticket_info">
+							<h4><?php echo $ticket->title?></h4>
+							<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+							<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+							<p>Hashtags: <span><?php
                                 $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
                                 foreach($hashtags as $hashtag){
                                     echo Hashtag::getHashtagName($db,$hashtag->tag);
 									echo " ";
                         		}?></span></p>
-								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-							</div>
-							<div class="ticket_trailing">
-								<div class="agent_info">
-									<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
-								</div>
+							<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+						</div>
+						<div class="ticket_trailing">
+							<div class="agent_info">
+								<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
 							</div>
 						</div>
-					<?php } ?>
+					</div>
+				<?php } ?>
                 </div>
 			</div>
         </main>
@@ -206,21 +205,6 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 									required
 								/>
 								<label for="#">New Username</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute">
-								<span class="label">Birth Date:</span>
-								<span class="text_input">1/1/2000</span>
-							</div>
-							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="date"
-									required
-								/>
-								<label for="#">Date</label>
 							</div>
 						</div>
 						<div class="row">
@@ -276,51 +260,6 @@ require_once(__DIR__ . '/../database/hashtag.php');?>
 			</main>		
 <?php } ?>
 
-<?php function draw_settings() { ?>
-	<div id="page-container">
-			<main id="main">
-				<div id="settings">
-					<div id="settings_text">
-						<h1 class="settings_title">Settings</h1>
-						<div class="settings_row">
-							<p>
-							Dark-Mode:
-							</p>
-							<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-						<div class="settings_row">
-							<p>
-							Other Setting:
-							</p>
-						</div>
-					</div>
-				</div>		
-<?php } ?>
 
 <?php function draw_submit_ticket() { ?>
 	<div id="page-container">

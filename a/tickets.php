@@ -17,7 +17,7 @@ $hashtagString = strtolower(trim($_POST['hashtag']));
 $hashtagString = str_replace(' ', '', $hashtagString);
 
 if(isset($_POST['submit_btn'])){
-    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['message'], $_POST['title'], "not_opened", "low", "f", "f");      
+    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");      
     $hashtag = new Hashtag(0, $hashtagString);
 
     $ticket->insert($db);
