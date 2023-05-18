@@ -24,14 +24,5 @@ iconClose.addEventListener("click", () => {
 	header.classList.remove("disable-header");
 });
 
-var icon = document.getElementById("dark-mode-icon");
 
-icon.onclick = function () {
-	document.body.classList.toggle("dark-theme");
-	if (document.body.classList.contains("dark-theme")) {
-		icon.src = "/../images/sunny-outline.svg";
-	} else {
-		icon.src = "/../images/moon-outline.svg";
-	}
-};
 

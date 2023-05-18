@@ -14,7 +14,7 @@ $db = getDatabaseConnection();
 
 
 if(isset($_POST['submit_btn'])){
-    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['message'], $_POST['title'], "not_opened", "low", "f", "f");      
+    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");      
 
     $ticket->insert($db);
     
