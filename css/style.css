@@ -360,8 +360,14 @@ body {
 	max-width: 1200px;
 	margin: 100px auto;
 	display: flex;
-	margin-top: 200px;
-}
+	flex-direction: column;
+	justify-content: center;
+	width: 60%;
+	position: absolute;
+	top: 35%;
+	left: 20%;
+	transform: translateY(-50%);
+	}
 
 #about_text {
 	color: var(--secondary-color);
