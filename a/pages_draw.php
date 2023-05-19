@@ -306,27 +306,44 @@ require_once(__DIR__ . '/../database/config.php');?>
 <?php function draw_ticket_details_page($ticket) { ?>
 	<div id="page-container">
     <main id="main">
-		<div class="chat">
-    		<div class="chat-container">
-    		    <div class="message">
-    		        <span class="sender">John:</span>
-    		        <span class="text">Hello!</span>
-    		    </div>
-    		    <div class="message sent">
-    		        <span class="sender">Jane:</span>
-    		        <span class="text">Hi John, how are you?</span>
-    		    </div>
-    		    <div class="message sent">
-    		        <span class="sender">Jane:</span>
-    		        <span class="text">I'm good, thanks! How about you?</span>
-    		    </div>
-    		    <!-- Mais mensagens aqui -->
-    		</div>
+		<div class="chat_page">
+			<div class="ticket_details">
+				<div class="ticket_details_info">
+					<h2 class="ticket_details_title"><?php echo $ticket->title?></h2>
+					<p class="ticket_details_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+					<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+					<p class="ticket_details_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+				</div>
+				<div class="ticket_details_trailing">
+					<div class="ticket_details_agent_info">
+						<p class="ticket_details_text">Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+					</div>
+				</div>
+			</div>
+			<div class="chat">
+    			<div class="chat-container">
+					<div class="other_user">
+						<span class="name_user">John</span>
+					</div>
+    			    <div class="message">
+    			        <span class="sender">John:</span>
+    			        <span class="text">Hello!</span>
+    			    </div>
+    			    <div class="message sent">
+    			        <span class="sender">You:</span>
+    			        <span class="text">Hi John, how are you?</span>
+    			    </div>
+    			    <div class="message sent">
+    			        <span class="sender">You:</span>
+    			        <span class="text">I'm good, thanks! How about you?</span>
+    			    </div>
+    			</div>
 
-    		<div class="input-container">
-    		    <input type="text" placeholder="Digite sua mensagem">
-    		    <button class="submit_btn">Enviar</button>
-    		</div>
+    			<div class="input-container">
+    			    <input type="text" placeholder="Digite sua mensagem">
+    			    <button class="submit_btn">Enviar</button>
+    			</div>
+			</div>
 		</div>
     </main>
 <?php } ?>

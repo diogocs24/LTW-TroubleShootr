@@ -984,9 +984,24 @@ body {
 
 /* Ticket Details Page */
 
+.other_user {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	color: var(--secondary-color);
+	font-size: 225%;
+	font-weight: bold;
+	border-bottom: 2px solid var(--nine-color);
+	background-color: var(--nine-color);
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
 .chat-container {
-	width: 400px;
-	height: 400px;
+	width: 800px;
+	height: 600px;
 	border: 2px solid var(--nine-color);
 	color: var(--secondary-color);
 	border-top-left-radius: 20px;
@@ -1005,6 +1020,7 @@ body {
 
 .message .sender {
 	font-weight: bold;
+	padding-right: 3px;
 }
 
 .message.sent {
@@ -1020,11 +1036,11 @@ body {
 }
 
 .input-container {
-
+	position: relative;
 }
 
 .input-container input {
-	width: 380px;
+	width: 780px;
 	padding: 10px;
 	background-color: var(--eleven-color);
 	border: 2px solid var(--nine-color);
@@ -1046,8 +1062,9 @@ body {
 	border-top-left-radius: 20px;
 	cursor: pointer;
 	color: var(--secondary-color);
-	position: relative;
-	right: 67px;
+	position: absolute;
+  	top: 0;
+	right: -404px;
 }
 
 .input-container > .submit_btn {
@@ -1113,16 +1130,86 @@ body {
 .chat-container {
 	display: flex;
 	flex-direction: column;
-	height: 50vh;
   }
 
 .chat {
 	box-sizing: border-box;
-	max-width: 500px;
+	max-width: 400px;
 	margin: 100px auto;
 }
   
-  
+.chat_page {
+	box-sizing: border-box;
+	max-width: 1000px;
+	margin: 100px auto;
+}
+
+.ticket_details {
+	box-sizing: border-box;
+	border: var(--nine-color) 2px solid;
+	position: absolute;
+	left: 354px;
+  	width: 400px;
+	height: 643px;
+	border-radius: 20px;
+	color: var(--secondary-color);
+	background-color: var(--eleven-color);
+	padding: 20px;
+	padding-top: 11px;
+}
+
+.ticket_details_info p{
+	overflow-wrap: break-word;
+	word-break: break-word;
+	hyphens: auto;
+	margin-bottom: 8px;
+}
+
+.ticket_details_info h2 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 30px;
+	margin-bottom: 2%;
+}
+
+.ticket_details_text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.ticket_details_info .initial_text {
+    font-size: 17px;
+	font-weight: bolder;
+}
+.ticket_details_info .details {
+    font-size: 17px;
+	font-weight: bolder;
+	overflow-y: auto;
+	height: 400px;
+}
+
+.ticket_details_info span {
+    font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+.ticket_details_trailing .initial_text {
+    font-size: 17px;
+	font-weight: bolder;
+}
+
+.ticket_details_trailing span {
+    font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+}  
 
 /* Footer */
 
