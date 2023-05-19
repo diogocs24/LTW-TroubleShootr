@@ -844,6 +844,10 @@ body {
 
 /* Ticket Submit */
 
+.input {
+	color: var(--secondary-color);
+}
+
 .submit_ticket_btn {
 	color: var(--secondary-color);
 }
@@ -1017,6 +1021,7 @@ body {
 .tickets_list {
 	background-color: var(--eight-color);
 	border-radius: 20px;
+	box-sizing: border-box;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
 }
@@ -1025,8 +1030,12 @@ body {
 	border-radius: 20px;
 	margin: 10px;
 	padding: 20px;
+	box-sizing: border-box;
 	color: var(--secondary-color);
 	border: 1px solid var(--nine-color);
+}
+.ticket_info {
+	overflow-wrap: break-word;
 }
 
 /* Responsive */
