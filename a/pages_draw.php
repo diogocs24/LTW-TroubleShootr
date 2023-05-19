@@ -302,3 +302,32 @@ require_once(__DIR__ . '/../database/config.php');?>
 		</div>
 <?php } 
 } ?>
+
+<?php function draw_ticket_details_page($ticket) { ?>
+	<div id="page-container">
+    <main id="main">
+    <div class="chat-container">
+        <div class="message">
+            <span class="sender">John:</span>
+            <span class="text">Hello!</span>
+            <span class="timestamp">12:00 PM</span>
+        </div>
+        <div class="message">
+            <span class="sender">Jane:</span>
+            <span class="text">Hi John, how are you?</span>
+            <span class="timestamp">12:01 PM</span>
+        </div>
+        <div class="message">
+            <span class="sender">John:</span>
+            <span class="text">I'm good, thanks! How about you?</span>
+            <span class="timestamp">12:02 PM</span>
+        </div>
+        <!-- Mais mensagens aqui -->
+    </div>
+
+    <div class="input-container">
+        <input type="text" placeholder="Digite sua mensagem">
+        <button>Enviar</button>
+    </div>
+    </main>
+<?php } ?>
