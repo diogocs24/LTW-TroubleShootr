@@ -1191,7 +1191,7 @@ body {
     font-size: 17px;
 	font-weight: bolder;
 	overflow-y: auto;
-	height: 400px;
+	max-height: 400px;
 	scrollbar-width: thin;
   	scrollbar-color: var(--eleven-color) var(--eleven-color);
 	padding-right: 5px;

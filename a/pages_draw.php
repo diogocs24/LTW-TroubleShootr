@@ -311,7 +311,7 @@ require_once(__DIR__ . '/../database/config.php');?>
 				<div class="ticket_details_info">
 					<h2 class="ticket_details_title"><?php echo $ticket->title?></h2>
 					<p class="ticket_details_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-					<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+					<p class="details" id="details-content">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
 					<p class="ticket_details_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 				</div>
 				<div class="ticket_details_trailing">
