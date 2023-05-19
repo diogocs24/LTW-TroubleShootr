@@ -440,6 +440,7 @@ body {
 	bottom:12px;
 }
 
+
 /* Home Page */
 
 .content {
@@ -1033,10 +1034,72 @@ body {
 	box-sizing: border-box;
 	color: var(--secondary-color);
 	border: 1px solid var(--nine-color);
+	text-decoration: none;
 }
-.ticket_info {
+
+.tickets_list a:link{
+    text-decoration: none;
+}
+
+.tickets_list a:visited{
+	text-decoration: none;
+}
+
+.tickets_list a:hover{
+	text-decoration: none;
+}
+
+.tickets_list a:active{
+	text-decoration: none;
+}
+
+.ticket_info p{
 	overflow-wrap: break-word;
+	word-break: break-word;
+	hyphens: auto;
+	margin-bottom: 8px;
 }
+
+.ticket_info h4 {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 24px;
+	margin-bottom: 2%;
+}
+
+.ticket_info .details {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.ticket_info .initial_text {
+    font-size: 17px;
+	font-weight: bolder;
+}
+
+.ticket_info span {
+    font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+.ticket_trailing .initial_text {
+    font-size: 17px;
+	font-weight: bolder;
+}
+
+.ticket_trailing span {
+    font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
 
 /* Responsive */
 
