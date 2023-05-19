@@ -2,7 +2,11 @@
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
 require_once(__DIR__ . '/../database/config.php');
+require_once(__DIR__ . '/../database/user.php');
+require_once(__DIR__ . '/../database/departments.php');
+
 ?>
+
 
 <?php function draw_about() { ?>
 		<div id="page-container">
@@ -133,7 +137,7 @@ require_once(__DIR__ . '/../database/config.php');
 		</div>
 <?php } ?>
 
-<?php function draw_main_page($all_tickets, $user_tickets) { ?>
+<?php function draw_main_page($all_tickets, $user_tickets, $department_tickets, $user, $db, $id) { ?>
 	<div id="page-container">
 		<main id="main">
             <div id="main_page">
@@ -154,7 +158,7 @@ require_once(__DIR__ . '/../database/config.php');
 							</div>
 							<div class="ticket_trailing">
 								<div class="agent_info">
-									<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
 							</div>
 						</div>
@@ -171,14 +175,34 @@ require_once(__DIR__ . '/../database/config.php');
 							</div>
 							<div class="ticket_trailing">
 								<div class="agent_info">
-									<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
 							</div>
 						</div>
 					<?php } ?>
                 </div>
+				<?php if($user->isAgent($db,$id)){ ?>
+				<div class="department_tickets_list">
+					<?php foreach($department_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+                </div>
+				<?php } ?>
 			</div>
         </main>
+	</div>
 <?php } ?>
 
 <?php function draw_profile($username, $email) { ?>

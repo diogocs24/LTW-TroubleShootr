@@ -122,6 +122,16 @@ function get_avatar_path() : string{
     return $result > 0;
     
   }
+  static function getAgentDepartment(PDO $db, int $id): int {
+    $stmt = $db->prepare('SELECT idDepartment FROM Agent WHERE idUser = ?');
+    
+    $stmt->execute(array($id));
+
+    $result = $stmt->fetch();
+
+    return (int) $result['idDepartment'];
+    
+  }
 
   }
 

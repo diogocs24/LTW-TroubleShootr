@@ -52,10 +52,10 @@ class Ticket {
         while ($ticket = $stmt->fetch()) {
             
             $tickets_array[] = new Ticket(
-                (int) $ticket['idTicket'], 
+                (int) $ticket['idTicket'],
+                (int) $ticket['idDepartment'],
                 (int) $ticket['idClient'],
                 (int) $ticket['idAgent'],
-                (int) $ticket['idDepartment'],
                 $ticket['title'],
                 $ticket['ticket_message'],
                 $ticket['ticket_status'],
@@ -84,9 +84,9 @@ class Ticket {
     
         while ($ticket = $stmt->fetch()) {
           $tickets_array[] = new Ticket(
-            $ticket['idTicket'], 
-            $ticket['idUser'],
+            $ticket['idTicket'],
             $ticket['idDepartment'],
+            $ticket['idClient'],
             $ticket['idAgent'],
             $ticket['title'],
             $ticket['ticket_message'],
@@ -116,8 +116,8 @@ class Ticket {
         while ($ticket = $stmt->fetch()) {
           $tickets_array[] = new Ticket(
             $ticket['idTicket'], 
-            $ticket['idUser'],
             $ticket['idDepartment'],
+            $ticket['idClient'],
             $ticket['idAgent'],
             $ticket['title'],
             $ticket['ticket_message'],
@@ -130,7 +130,7 @@ class Ticket {
     
         return $tickets_array;
       }
-      static function getAllTickets(PDO $db) : array {
+      static function getAllTickets(PDO $db, $id) : array {
         $stmt = $db->prepare('
           SELECT t.idTicket, t.idClient, t.idAgent,
            t.idDepartment, t.idAgent, t.title, t.ticket_message,
@@ -144,8 +144,8 @@ class Ticket {
         while ($ticket = $stmt->fetch()) {
             $tickets_array[] = new Ticket(
               (int) $ticket['idTicket'], 
-              (int) $ticket['idUser'],
               (int) $ticket['idDepartment'],
+              (int) $ticket['idClient'],
               (int) $ticket['idAgent'],
               $ticket['title'],
               $ticket['ticket_message'],
@@ -172,9 +172,9 @@ class Ticket {
             
             $tickets_array[] = new Ticket(
                 (int) $ticket['idTicket'], 
+                (int) $ticket['idDepartment'],
                 (int) $ticket['idClient'],
                 (int) $ticket['idAgent'],
-                (int) $ticket['idDepartment'],
                 $ticket['title'],
                 $ticket['ticket_message'],
                 $ticket['ticket_status'],

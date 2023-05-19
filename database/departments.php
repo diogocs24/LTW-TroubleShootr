@@ -2,14 +2,14 @@
   declare(strict_types = 1);
 
   class Department{
-    public int $department_id;
+    public int $idDepartment;
     public string $name;
 
     public function __construct(
-        int $department_id, string $name
+        int $idDepartment, string $name
       )
     {
-      $this->department_id = $department_id;
+      $this->idDepartment = $idDepartment;
       $this->name = $name;
     }
 
@@ -31,9 +31,30 @@
       return $departments;
      
     }
+    static function getDepartments(PDO $db, string $name) : Department {
+      $stmt = $db->prepare('SELECT d.idDepartment, d.name FROM Department d WHERE name = ?');
+      
+      $stmt->execute(array($name));
+  
+      $department = $stmt->fetch();
+  
+      return new Department(
+        (int) $department['idDepartment'], 
+        $department['name']
+        );
 
+      }
   
+      static function getDepartmentName(PDO $db, int $id) : string {
+        $stmt = $db->prepare('SELECT d.name FROM Department d WHERE idDepartment = ?');
+       
+        $stmt->execute(array($id));
+    
+        $department = $stmt->fetch();
+    
+        return $department['name'];
   
+        }
   }
  
 ?>
