@@ -1,7 +1,12 @@
 <?php declare(strict_types = 1);
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
-require_once(__DIR__ . '/../database/config.php');?>
+require_once(__DIR__ . '/../database/config.php');
+require_once(__DIR__ . '/../database/user.php');
+require_once(__DIR__ . '/../database/departments.php');
+
+?>
+
 
 <?php function draw_about() { ?>
 		<div id="page-container">
@@ -110,14 +115,14 @@ require_once(__DIR__ . '/../database/config.php');?>
 			</main>
 <?php } ?>
 
-<?php function draw_add_question_faq() { ?>
+<?php function draw_answer_ticket() { ?>
 	<div id="page-container">
 		<main id="main">
 			<div class="faq_main_box">
 				<div class="faq_message">
 					<span class="troubleshootr_logo"></span>
 					<h2 class="faq_message_title">
-						TroubleShootr's Frequently Asked Questions
+						Ticket
 					</h2>
 				</div>
 				<form action="#" class="faq_input">
@@ -132,7 +137,7 @@ require_once(__DIR__ . '/../database/config.php');?>
 		</div>
 <?php } ?>
 
-<?php function draw_main_page($tickets) { ?>
+<?php function draw_main_page($all_tickets, $user_tickets, $department_tickets, $user, $db, $id) { ?>
 	<div id="page-container">
 		<main id="main">
             <div id="main_page">
@@ -142,25 +147,62 @@ require_once(__DIR__ . '/../database/config.php');?>
 						<button class="submit_ticket_btn"><ion-icon name="add-circle"></ion-icon></button>
 					</a>
 				</div>
-				<div class="tickets_list">
-				<?php foreach(array_reverse($tickets) as $ticket){ ?>
-					<div class="ticket">
-						<div class="ticket_info">
-							<h4><?php echo $ticket->title?></h4>
-							<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-							<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-							<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-						</div>
-						<div class="ticket_trailing">
-							<div class="agent_info">
-								<p>Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+				<div class="all_tickets_list">
+					<?php foreach($all_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
 							</div>
 						</div>
-					</div>
-				<?php } ?>
+					<?php } ?>
                 </div>
+				<div class="user_tickets_list">
+					<?php foreach($user_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+                </div>
+				<?php if($user->isAgent($db,$id)){ ?>
+				<div class="department_tickets_list">
+					<?php foreach($department_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+                </div>
+				<?php } ?>
 			</div>
         </main>
+	</div>
 <?php } ?>
 
 <?php function draw_profile($username, $email) { ?>
@@ -253,7 +295,7 @@ require_once(__DIR__ . '/../database/config.php');?>
 <?php } ?>
 
 
-<?php function draw_submit_ticket() { ?>
+<?php function draw_submit_ticket($departments) { ?>
 	<div id="page-container">
 		<main id="main">
 			<div class="faq_main_box">
@@ -268,7 +310,11 @@ require_once(__DIR__ . '/../database/config.php');?>
 					<label class="label">Ticket message</label>
 					<textarea class="input" name="message" required></textarea>
 					<label class="label">Ticket department</label>
-					<input type="text" class="input" name="department" required/>
+					<select name="department" required>
+					<?php foreach($departments as $department){ ?>
+							<option><?php echo $department->name ?></option>
+						<?php } ?>
+					</select>
 					<label class="label">Ticket hashtag</label>
 					<input type="text" class="input" name="hashtag" required/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />

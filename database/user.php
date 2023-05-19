@@ -112,14 +112,24 @@ function get_avatar_path() : string{
       }
     }
 
-  public function isAgent(PDO $db, int $id): bool {
-    $stmt = $db->prepare('SELECT COUNT(*) FROM Agents WHERE id = ?');
+  static function isAgent(PDO $db, int $id): bool {
+    $stmt = $db->prepare('SELECT COUNT(*) FROM Agent WHERE idUser = ?');
     
     $stmt->execute(array($id));
 
     $result = $stmt->fetchColumn();
 
     return $result > 0;
+    
+  }
+  static function getAgentDepartment(PDO $db, int $id): int {
+    $stmt = $db->prepare('SELECT idDepartment FROM Agent WHERE idUser = ?');
+    
+    $stmt->execute(array($id));
+
+    $result = $stmt->fetch();
+
+    return (int) $result['idDepartment'];
     
   }
 

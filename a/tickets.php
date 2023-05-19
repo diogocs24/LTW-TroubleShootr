@@ -7,14 +7,15 @@ require_once(__DIR__.'/../database/config.php');
 require_once(__DIR__.'/../a/session.php');
 require_once(__DIR__.'/../database/user.php');
 require_once(__DIR__.'/../database/ticket.php');
+require_once(__DIR__.'/../database/departments.php');
 
 $session = new Session();
 $db = getDatabaseConnection();
-
-
+$department_name = $_POST['department'];
+$department = Department::getDepartments($db , $department_name);
 
 if(isset($_POST['submit_btn'])){
-    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");      
+    $ticket = new Ticket(0, $department->idDepartment, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");      
 
     $ticket->insert($db);
     
