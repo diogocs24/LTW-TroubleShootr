@@ -154,21 +154,25 @@ require_once(__DIR__ . '/../database/departments.php');
 		</div>
 <?php } ?>
 
-<?php function draw_admin_section() {?> 
+<?php function draw_admin_section($all_users) {?> 
 	<div id="page-container">
 		<main id="main">
 	<div class="admin-promote">
     <h2>Promote Users</h2>
-    <form class="admin-form">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username" required>
-      <input type="submit" value="Promote" class="promote_btn">
+    <form action="/../a/promote_user.php" method='post' class="promote_admin">
+      <label class="label">Username:</label>
+      <select name="username1" required>
+		<?php foreach($all_users as $user){ ?>
+				<option><?php echo $user->username ?></option>
+		<?php } ?>
+	  </select>
+      <input type="submit" value="Promote" class="promote_btn" name="promote_btn">
     </form>
   </div>
 
   <div class="admin-department">
     <h2>Create Department</h2>
-    <form class="admin-form">
+    <form action="/../a/add_department.php" method='post' class="department_admin">
       <label for="departmentName">Department Name:</label>
       <input type="text" id="departmentName" name="departmentName" required>
       <input type="submit" value="Create" class="submit-department">
@@ -389,25 +393,3 @@ require_once(__DIR__ . '/../database/departments.php');
 		</div>
 <?php } ?>
 
-<?php function drawTickets($id) { 
-	$db = getDatabaseConnection();
-	$tickets =  Ticket::getTicketsFromUser($db, $id);
-	foreach($tickets as $ticket){ ?>
-		<div class="ticket">
-			<div class="ticket_info">
-				<h4><?php echo $ticket['title']?></h4>
-				<p>Priority: <span><?php echo $ticket['ticket_priority']; ?> </span></p>
-				<p class="details">Details: <span>Something something something something something something</span></p>
-				<p>Status: <span><?php echo $ticket['ticket_status']; ?></span></p>
-			</div>
-			<div class="ticket_trailing">
-				<div class="agent_info">
-					<p>Agent: <span> <?php echo $ticket['idAgent']; ?></span></p>
-				</div>
-				<div class="ticket_button">
-					<a href="seeTicket.html" class="special_button">View</a>
-				</div>
-			</div>
-		</div>
-<?php } 
-} ?>

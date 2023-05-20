@@ -32,7 +32,7 @@ else{
     $_POST['username'],
     $_POST['email'],
     $hashedPassword,
-    'admin'
+    'user'
     );
     
     $user->insert($db);

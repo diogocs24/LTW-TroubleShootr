@@ -161,7 +161,7 @@ class Ticket {
     
         return $tickets_array;
       }
-      static function getAllTickets(PDO $db, $id) : array {
+      static function getAllTickets(PDO $db) : array {
         $stmt = $db->prepare('
           SELECT t.idTicket, t.idClient, t.idAgent,
            t.idDepartment, t.idAgent, t.title, t.ticket_message,

@@ -54,7 +54,7 @@ require_once(__DIR__ . '/../database/user.php');
 			<nav class="navigation">
 			<a href="main_page.php" class="navigation_item">Home</a>
 			<a href="profile_page.php" class="navigation_item">Profile</a>
-			<?php if(User::isAdmin($db)) {?>
+			<?php if(User::isAdmin($db ,$id)) {?>
 			<a href="admin_section.php" class="navigation_item">Admin Section</a>
 			<?php } ?>
 			<?php if(User::isAgent($db, $id)) {?>
