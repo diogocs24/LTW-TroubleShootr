@@ -9,9 +9,9 @@ require_once(__DIR__.'/../database/ticket.php');
 $session = new Session();
 $db = getDatabaseConnection();
 
-$open_tickets = Ticket::getTicketsOpened($db);
+$all_users = User::getAllUsers($db);
 
 draw_header_logged_in($db, $session->getId());
-draw_answer_ticket($db, $open_tickets);
+draw_admin_section($all_users);
 draw_script();		
 ?>

@@ -18,7 +18,7 @@ if(!$session->isLoggedIn()) {
 $user = User::getUser($db, $session->getId());
 
 
-$all_tickets = Ticket::getAllTickets($db, $session->getId());
+$all_tickets = Ticket::getAllTickets($db);
 $user_tickets = Ticket::getTicketsFromUser($db, $session->getId());
 $department_tickets = Ticket::getTicketsFromDepartment($db, User::getAgentDepartment($db, $session->getId()));
 

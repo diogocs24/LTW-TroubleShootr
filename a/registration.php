@@ -31,7 +31,8 @@ else{
     $user = new User(0,
     $_POST['username'],
     $_POST['email'],
-    $hashedPassword
+    $hashedPassword,
+    'user'
     );
     
     $user->insert($db);

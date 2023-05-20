@@ -115,9 +115,26 @@ require_once(__DIR__ . '/../database/departments.php');
 			</main>
 <?php } ?>
 
-<?php function draw_answer_ticket() { ?>
+<?php function draw_answer_ticket($db , $opened_tickets) { ?>
 	<div id="page-container">
 		<main id="main">
+			<div class="opened_tickets">
+			<?php foreach($opened_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+			</div>
 			<div class="faq_main_box">
 				<div class="faq_message">
 					<span class="troubleshootr_logo"></span>
@@ -135,6 +152,35 @@ require_once(__DIR__ . '/../database/departments.php');
 			</div>
 </main>
 		</div>
+<?php } ?>
+
+<?php function draw_admin_section($all_users) {?> 
+	<div id="page-container">
+		<main id="main">
+	<div class="admin-promote">
+    <h2>Promote Users</h2>
+    <form action="/../a/promote_user.php" method='post' class="promote_admin">
+      <label class="label">Username:</label>
+      <select name="username1" required>
+		<?php foreach($all_users as $user){ ?>
+				<option><?php echo $user->username ?></option>
+		<?php } ?>
+	  </select>
+      <input type="submit" value="Promote" class="promote_btn" name="promote_btn">
+    </form>
+  </div>
+
+  <div class="admin-department">
+    <h2>Create Department</h2>
+    <form action="/../a/add_department.php" method='post' class="department_admin">
+      <label for="departmentName">Department Name:</label>
+      <input type="text" id="departmentName" name="departmentName" required>
+      <input type="submit" value="Create" class="submit-department">
+    </form>
+  </div>
+</main>
+  </div>
+
 <?php } ?>
 
 <?php function draw_main_page($all_tickets, $user_tickets, $department_tickets, $user, $db, $id) { ?>
@@ -160,6 +206,14 @@ require_once(__DIR__ . '/../database/departments.php');
 								<div class="agent_info">
 									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
+								<?php if($user->isAgent($db,$id)){ ?>
+								<div class="response_button">
+										<form action="/../a/update_ticket_status.php" method="post">
+                	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
+                	    				</form>
+                					</div>
+								<?php } ?>
 							</div>
 						</div>
 					<?php } ?>
@@ -177,28 +231,43 @@ require_once(__DIR__ . '/../database/departments.php');
 								<div class="agent_info">
 									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
+								<?php if($user->isAgent($db,$id)){ ?>
+								<div class="response_button">
+										<form action="/../a/update_ticket_status.php" method="post">
+                	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
+                	    				</form>
+                					</div>
+								<?php } ?>
+								</div>
 							</div>
-						</div>
-					<?php } ?>
+						<?php } ?>
                 </div>
 				<?php if($user->isAgent($db,$id)){ ?>
 				<div class="department_tickets_list">
-					<?php foreach($department_tickets as $ticket){ ?>
-						<div class="ticket">
-							<div class="ticket_info">
-								<h4><?php echo $ticket->title?></h4>
-								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-							</div>
-							<div class="ticket_trailing">
-								<div class="agent_info">
-									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-                </div>
+    			<?php foreach($department_tickets as $ticket){ ?>
+    			    <div class="ticket">
+    			        <div class="ticket_info">
+    			            <h4><?php echo $ticket->title?></h4>
+    			            <p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+    			            <p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
+    			            <p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+    			        </div>
+    			        <div class="ticket_trailing">
+    			            <div class="agent_info">
+    			                <p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+    			            </div>
+    			            <div class="response_button">
+									<form action="/../a/update_ticket_status.php" method="post">
+    			                    <input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+    			                    <input type="submit" name="open_ticket" value="Send" class="open_ticket">
+    			                </form>
+    			            </div>
+    			        </div>
+    			    </div>
+    			<?php } ?>
+				</div>
+
 				<?php } ?>
 			</div>
         </main>
@@ -324,25 +393,3 @@ require_once(__DIR__ . '/../database/departments.php');
 		</div>
 <?php } ?>
 
-<?php function drawTickets($id) { 
-	$db = getDatabaseConnection();
-	$tickets =  Ticket::getTicketsFromUser($db, $id);
-	foreach($tickets as $ticket){ ?>
-		<div class="ticket">
-			<div class="ticket_info">
-				<h4><?php echo $ticket['title']?></h4>
-				<p>Priority: <span><?php echo $ticket['ticket_priority']; ?> </span></p>
-				<p class="details">Details: <span>Something something something something something something</span></p>
-				<p>Status: <span><?php echo $ticket['ticket_status']; ?></span></p>
-			</div>
-			<div class="ticket_trailing">
-				<div class="agent_info">
-					<p>Agent: <span> <?php echo $ticket['idAgent']; ?></span></p>
-				</div>
-				<div class="ticket_button">
-					<a href="seeTicket.html" class="special_button">View</a>
-				</div>
-			</div>
-		</div>
-<?php } 
-} ?>
