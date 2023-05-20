@@ -55,7 +55,6 @@ class Ticket {
         $tickets_array = array();
 
         while ($ticket = $stmt->fetch()) {
-            
             $tickets_array[] = new Ticket(
                 (int) $ticket['idTicket'],
                 (int) $ticket['idDepartment'],
@@ -218,5 +217,10 @@ class Ticket {
         
         return $tickets_array;
     }
+
+    public function getId(): int {
+        return $this->idTicket;
+    }
+    
 }
 ?>

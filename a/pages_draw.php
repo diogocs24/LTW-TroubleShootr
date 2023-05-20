@@ -2,11 +2,16 @@
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
 require_once(__DIR__ . '/../database/config.php');
+<<<<<<< HEAD
+require_once(__DIR__ . '/../database/ticket_hashtag.php');
+require_once(__DIR__ . '/../database/hashtag.php');?>
+=======
 require_once(__DIR__ . '/../database/user.php');
 require_once(__DIR__ . '/../database/departments.php');
 
 ?>
 
+>>>>>>> main
 
 <?php function draw_about() { ?>
 		<div id="page-container">
@@ -33,7 +38,7 @@ require_once(__DIR__ . '/../database/departments.php');
 					<p>Get efficient and effective 
 						support from our team and solve any problem, no matter how big or small. Join us now and 
 						let's troubleshoot together!</p>
-				</div>
+				</div>	
 <?php } ?>
 
 <?php function draw_faq() { ?>
@@ -184,6 +189,7 @@ require_once(__DIR__ . '/../database/departments.php');
 <?php } ?>
 
 <?php function draw_main_page($all_tickets, $user_tickets, $department_tickets, $user, $db, $id) { ?>
+>>>>>>> main
 	<div id="page-container">
 		<main id="main">
             <div id="main_page">
@@ -200,6 +206,12 @@ require_once(__DIR__ . '/../database/departments.php');
 								<h4><?php echo $ticket->title?></h4>
 								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Hashtags: <span><?php
+                                $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
+                                foreach($hashtags as $hashtag){
+                                    echo Hashtag::getHashtagName($db,$hashtag->tag);
+									echo " ";
+                        		}?></span></p>
 								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 							</div>
 							<div class="ticket_trailing">
@@ -385,7 +397,7 @@ require_once(__DIR__ . '/../database/departments.php');
 						<?php } ?>
 					</select>
 					<label class="label">Ticket hashtag</label>
-					<input type="text" class="input" name="hashtag" required/>
+					<input type="text" class="input" name="hashtag"/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
 				</form>
 			</div>
