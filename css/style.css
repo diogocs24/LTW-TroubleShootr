@@ -997,25 +997,28 @@ body {
 	background-color: var(--nine-color);
 	border-top-left-radius: 20px;
 	border-top-right-radius: 20px;
+	width: 200%;
+	border-bottom: 1px solid var(--nine-color);
 }
 
 .chat-container {
-	width: 800px;
-	height: 600px;
+	width: 199%;
+	height: 518px;
 	border: 2px solid var(--nine-color);
 	color: var(--secondary-color);
-	border-top-left-radius: 20px;
-	border-top-right-radius: 20px;
 	background-color: var(--eleven-color);
 }
 
 .chat-container {
 	border-bottom: 1px solid var(--nine-color);
+	border-top: 1px solid var(--nine-color);
+
 }
 
 .message {
 	padding: 10px;
 	border-bottom: 2px solid var(--nine-color);
+	text-align: justify;
 }
 
 .message .sender {
@@ -1023,9 +1026,6 @@ body {
 	padding-right: 3px;
 }
 
-.message.sent {
-	text-align: right;
-}
 
 .message.sent .sender {
 	text-align: right;
@@ -1040,7 +1040,7 @@ body {
 }
 
 .input-container input {
-	width: 780px;
+	width: 194%;
 	padding: 10px;
 	background-color: var(--eleven-color);
 	border: 2px solid var(--nine-color);
@@ -1064,7 +1064,7 @@ body {
 	color: var(--secondary-color);
 	position: absolute;
   	top: 0;
-	right: -404px;
+	right: -400px;
 }
 
 .input-container > .submit_btn {
@@ -1130,12 +1130,27 @@ body {
 .chat-container {
 	display: flex;
 	flex-direction: column;
+	overflow-y: auto;
   }
+
+.chat-container::-webkit-scrollbar {
+	width: 8px;
+}
+  
+.chat-container::-webkit-scrollbar-thumb {
+	background-color: var(--eleven-color); 
+}
+  
+.chat-container::-webkit-scrollbar-track {
+	background-color: var(--eleven-color); 
+}
+
 
 .chat {
 	box-sizing: border-box;
 	max-width: 400px;
 	margin: 100px auto;
+	
 }
   
 .chat_page {
@@ -1148,8 +1163,8 @@ body {
 	box-sizing: border-box;
 	border: var(--nine-color) 2px solid;
 	position: absolute;
-	left: 354px;
-  	width: 400px;
+	left: 16%;
+  	width: 21%;
 	height: 643px;
 	border-radius: 20px;
 	color: var(--secondary-color);
@@ -1195,6 +1210,7 @@ body {
 	scrollbar-width: thin;
   	scrollbar-color: var(--eleven-color) var(--eleven-color);
 	padding-right: 5px;
+	text-align: justify;
 }
 
 .ticket_details_info .details::-webkit-scrollbar {
@@ -1225,6 +1241,12 @@ body {
 	font-weight: 300;
 	text-decoration: none;
 }  
+.message.sent {
+	box-sizing: border-box;
+	padding-left: 100px;
+	text-align: justify;
+  	text-align-last: right;
+}
 
 /* Footer */
 
@@ -1330,6 +1352,7 @@ body {
 	text-overflow: ellipsis;
 	font-size: 17px;
 	font-weight: bold;
+	text-align: justify;
 }
 
 .ticket_info .initial_text {

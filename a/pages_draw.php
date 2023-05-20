@@ -321,21 +321,19 @@ require_once(__DIR__ . '/../database/config.php');?>
 				</div>
 			</div>
 			<div class="chat">
-    			<div class="chat-container">
-					<div class="other_user">
-						<span class="name_user">John</span>
+			<div class="other_user">
+						<span class="name_user"><span> <?php echo $ticket->idAgent; ?></span></span>
 					</div>
+    			<div class="chat-container">
+					
+    			    
+    			    <div class="message sent">
+    			        <span class="sender">You:</span>
+    			        <span class="text"><span> <?php echo $ticket->ticket_message ?></span></span>
+    			    </div>
     			    <div class="message">
-    			        <span class="sender">John:</span>
-    			        <span class="text">Hello!</span>
-    			    </div>
-    			    <div class="message sent">
-    			        <span class="sender">You:</span>
+    			        <span class="sender">Agent<span> <?php echo $ticket->idAgent; ?></span>:</span>
     			        <span class="text">Hi John, how are you?</span>
-    			    </div>
-    			    <div class="message sent">
-    			        <span class="sender">You:</span>
-    			        <span class="text">I'm good, thanks! How about you?</span>
     			    </div>
     			</div>
 

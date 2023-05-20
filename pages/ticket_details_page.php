@@ -11,7 +11,7 @@ require_once(__DIR__.'/../database/ticket.php');
 $session = new Session();
 $db = getDatabaseConnection();
 $user = User::getUser($db, $session->getId());
-$tickets = Ticket::getTicketsFromUser($db, $session->getId()); // Substitua "1" pelo ID do usuário atual
+$tickets = Ticket::getTicketsFromUser($db, $session->getId());
 $ticketId = $_GET['ticket_id'] ?? null;
 
 if (!$ticketId) {
