@@ -1040,6 +1040,36 @@ body {
 	border: 1px solid var(--nine-color);
 }
 
+/* admin section*/
+
+.admin-section {
+	position: relative;
+	margin-top: 10em;
+	border: 1px solid #ccc;
+	padding: 10px;
+  }
+  .admin-section h2 {
+	margin-top: 0;
+  }
+  .admin-form {
+	margin-bottom: 10px;
+  }
+  .admin-form label {
+	display: block;
+	margin-bottom: 5px;
+  }
+  .admin-form input[type="text"] {
+	width: 200px;
+	padding: 5px;
+  }
+  .admin-form input[type="submit"] {
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+
 
 
 /* Responsive */

@@ -12,6 +12,6 @@ $db = getDatabaseConnection();
 $open_tickets = Ticket::getTicketsOpened($db);
 
 draw_header_logged_in($db, $session->getId());
-draw_answer_ticket($db, $open_tickets);
+draw_admin_section();
 draw_script();		
 ?>

@@ -17,7 +17,8 @@ CREATE TABLE Clients (
   idUser INTEGER NOT NULL PRIMARY KEY,
   username TEXT NOT NULL,
   [password] TEXT NOT NULL,
-  email TEXT NOT NULL
+  email TEXT NOT NULL,
+  role TEXT NOT NULL
 );
 
 CREATE TABLE Agent (
@@ -25,14 +26,6 @@ CREATE TABLE Agent (
   idDepartment INTEGER,
   FOREIGN KEY (idUser) REFERENCES Clients(idUser),
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment)
-);
-
-CREATE TABLE Admin (
-  idUser INTEGER PRIMARY KEY,
-  username TEXT NOT NULL,
-  [password] TEXT NOT NULL,
-  email TEXT NOT NULL,
-  [name] TEXT NOT NULL
 );
 
 CREATE TABLE HASHTAG (
