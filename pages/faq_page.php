@@ -13,7 +13,7 @@ $db = getDatabaseConnection();
 if(!$session->isLoggedIn()) {
     draw_header();
 }
-else{draw_header_logged_in();}
+else{draw_header_logged_in($db, $session->getId());}
 
 
 draw_faq();

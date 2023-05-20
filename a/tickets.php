@@ -9,16 +9,19 @@ require_once(__DIR__.'/../database/user.php');
 require_once(__DIR__.'/../database/ticket.php');
 require_once(__DIR__.'/../database/hashtag.php');
 require_once(__DIR__.'/../database/ticket_hashtag.php');
+require_once(__DIR__.'/../database/departments.php');
 
 $session = new Session();
 $db = getDatabaseConnection();
+$department_name = $_POST['department'];
+$department = Department::getDepartments($db , $department_name);
 
 $hashtagString = strtolower(trim($_POST['hashtag']));
 $hashtagString = str_replace(' ', '', $hashtagString);
 
 if(isset($_POST['submit_btn'])){
-    $ticket = new Ticket(0, 0, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");      
-    $hashtag = new Hashtag(0, $hashtagString);
+    $ticket = new Ticket(0, $department->idDepartment, $session->getId(), 0, $_POST['title'], $_POST['message'], "not_opened", "low", "f", "f");    
+    $hashtag = new Hashtag(0, $hashtagString);  
 
     $ticket->insert($db);
 

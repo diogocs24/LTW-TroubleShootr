@@ -16,10 +16,14 @@ if(!$session->isLoggedIn()) {
 }
 
 $user = User::getUser($db, $session->getId());
-$tickets =  Ticket::getTicketsFromUser($db, $session->getId());
 
-draw_header_logged_in();
-draw_main_page($db, $tickets);
+$all_tickets = Ticket::getAllTickets($db);
+$user_tickets = Ticket::getTicketsFromUser($db, $session->getId());
+$department_tickets = Ticket::getTicketsFromDepartment($db, User::getAgentDepartment($db, $session->getId()));
+
+
+draw_header_logged_in($db, $session->getId());
+draw_main_page($all_tickets,$user_tickets, $department_tickets, $user, $db, $session->getId());
 draw_footer(); 
 draw_script(); 
 ?>
