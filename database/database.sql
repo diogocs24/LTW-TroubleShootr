@@ -8,6 +8,30 @@ DROP TABLE IF EXISTS Agent;
 DROP TABLE IF EXISTS [Admin];
 DROP TABLE IF EXISTS Department;
 
+CREATE TABLE Department(
+  idDepartment INTEGER PRIMARY KEY,
+  [name] TEXT NOT NULL unique
+);
+
+CREATE TABLE Clients (
+  idUser INTEGER NOT NULL PRIMARY KEY,
+  username TEXT NOT NULL,
+  [password] TEXT NOT NULL,
+  email TEXT NOT NULL,
+  role TEXT NOT NULL
+);
+
+CREATE TABLE Agent (
+  idUser INTEGER PRIMARY KEY,
+  idDepartment INTEGER,
+  FOREIGN KEY (idUser) REFERENCES Clients(idUser),
+  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment)
+);
+
+CREATE TABLE HASHTAG (
+  idHashtag INTEGER PRIMARY KEY,
+  tag TEXT
+);
 
 CREATE TABLE TICKET (
   idTicket INTEGER PRIMARY KEY,
@@ -25,42 +49,9 @@ CREATE TABLE TICKET (
   FOREIGN KEY (idAgent) REFERENCES Agent(idUser) ON DELETE SET NULL
 );
 
-CREATE TABLE HASHTAG (
-  idHashtag INTEGER PRIMARY KEY,
-  tag TEXT
-);
-
 CREATE TABLE TICKET_HASHTAG (
   idTicket INTEGER NOT NULL,
   tag INTEGER NOT NULL,
   FOREIGN KEY (idTicket) REFERENCES TICKET(idTicket),
   FOREIGN KEY (tag) REFERENCES HASHTAG(idHashtag)
-);
-
-CREATE TABLE Clients (
-  idUser INTEGER NOT NULL PRIMARY KEY,
-  username TEXT NOT NULL,
-  [password] TEXT NOT NULL,
-  email TEXT NOT NULL
-);
-
-
-CREATE TABLE Agent (
-  idUser INTEGER PRIMARY KEY,
-  idDepartment INTEGER,
-  FOREIGN KEY (idUser) REFERENCES Clients(idUser),
-  FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment)
-);
-
-CREATE TABLE Admin (
-  idUser INTEGER PRIMARY KEY,
-  username TEXT NOT NULL,
-  [password] TEXT NOT NULL,
-  email TEXT NOT NULL,
-  [name] TEXT NOT NULL
-);
-
-CREATE TABLE Department(
-  idDepartment INTEGER PRIMARY KEY,
-  [name] TEXT NOT NULL unique
 );

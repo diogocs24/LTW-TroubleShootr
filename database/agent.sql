@@ -1,0 +1,1 @@
+INSERT INTO Agent(idUser, idDepartment) VALUES (1, 1);

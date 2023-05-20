@@ -971,7 +971,6 @@ body {
 
 #footer {
 	box-sizing: border-box;
-	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 2.5rem;
@@ -1014,7 +1013,19 @@ body {
 
 /* Ticket */
 
-.tickets_list {
+.user_tickets_list {
+	background-color: var(--eight-color);
+	border-radius: 20px;
+	padding: 10px;
+	border: 2px solid var(--nine-color);
+}
+.department_tickets_list {
+	background-color: var(--eight-color);
+	border-radius: 20px;
+	padding: 10px;
+	border: 2px solid var(--nine-color);
+}
+.all_tickets_list {
 	background-color: var(--eight-color);
 	border-radius: 20px;
 	padding: 10px;
@@ -1028,6 +1039,38 @@ body {
 	color: var(--secondary-color);
 	border: 1px solid var(--nine-color);
 }
+
+/* admin section*/
+
+.admin-section {
+	position: relative;
+	margin-top: 10em;
+	border: 1px solid #ccc;
+	padding: 10px;
+  }
+  .admin-section h2 {
+	margin-top: 0;
+  }
+  .admin-form {
+	margin-bottom: 10px;
+  }
+  .admin-form label {
+	display: block;
+	margin-bottom: 5px;
+  }
+  .admin-form input[type="text"] {
+	width: 200px;
+	padding: 5px;
+  }
+  .admin-form input[type="submit"] {
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+
+
 
 /* Responsive */
 
