@@ -11,7 +11,7 @@ $db = getDatabaseConnection();
 $user = User::getUser($db, $session->getId());
 
 draw_header_logged_in($db, $session->getId());
-draw_profile($user->username, $user->email);
+draw_profile($user->name,$user->username, $user->email);
 draw_footer(); 
 draw_script(); 
 ?>

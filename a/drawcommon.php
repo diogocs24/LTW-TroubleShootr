@@ -158,6 +158,11 @@ function draw_footer(){
 					<div class="form-box register">
 						<h2>Registration</h2>
 						<form method='post' action="/../a/registration.php">
+						<div class="input-box">
+								<span class="icon"><ion-icon name="person"></ion-icon></span>
+								<input type="text" name="name" required />
+								<label>Name</label>
+							</div>
 							<div class="input-box">
 								<span class="icon"><ion-icon name="person"></ion-icon></span>
 								<input type="text" name="username" required />
