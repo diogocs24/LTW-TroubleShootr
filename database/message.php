@@ -17,7 +17,7 @@
       $this->created_at=$created_at;
     }
 
-    static public function getComments(PDO $db,int $idTicket):array{
+    static public function getMessages(PDO $db,int $idTicket):array{
         $stmt = $db->prepare('
         SELECT idMessage, idUser, idTicket, message, created_at
         FROM MESSAGE
@@ -25,18 +25,18 @@
       ');
 
       $stmt->execute(array($idTicket));
-      $comments = array();
-      while ($comment=$stmt->fetch()){
-        $comments[]=new Comment(
-          $comment['idMessage'],
-          $comment['idTicket'],
-          $comment['idUser'],
-          $comment['message'],
-          $comment['created_at']
+      $messages = array();
+      while ($message=$stmt->fetch()){
+        $messages[]=new Message(
+          $message['idMessage'],
+          $message['idTicket'],
+          $message['idUser'],
+          $message['message'],
+          $message['created_at']
         );
 
       }
-      return $comments;
+      return $messages;
     }
 
     public function save(PDO $db): void {
