@@ -1020,18 +1020,24 @@ body {
 	border-radius: 20px;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .department_tickets_list {
 	background-color: var(--eight-color);
 	border-radius: 20px;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .all_tickets_list {
 	background-color: var(--eight-color);
 	border-radius: 20px;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .ticket {
 	background-color: var(--eleven-color);
@@ -1040,6 +1046,19 @@ body {
 	padding: 20px;
 	color: var(--secondary-color);
 	border: 1px solid var(--nine-color);
+}
+
+.open-popup1{
+	visibility: visible;
+
+}
+.open-popup2{
+	visibility: visible;
+
+}
+.open-popup3{
+	visibility: visible;
+
 }
 
 /* admin section*/
@@ -1084,3 +1103,5 @@ body {
 		margin-bottom: 20px;
 	}
 }
+
+
