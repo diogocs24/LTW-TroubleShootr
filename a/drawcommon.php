@@ -176,6 +176,11 @@ function draw_footer(){
 								<input type="password" name="password" required />
 								<label>Password</label>
 							</div>
+							<div class="input-box">
+								<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+								<input type="password" name="password_confirm" required />
+								<label>Confirm Password</label>
+							</div>
 							<div class="remember-forgot">
 								<label
 									><input type="checkbox" required/>I agree to the terms & conditions</label

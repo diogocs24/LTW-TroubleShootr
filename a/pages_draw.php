@@ -1,12 +1,17 @@
 <?php declare(strict_types = 1);
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
+<<<<<<< HEAD
+=======
 require_once(__DIR__ . '/../database/message.php');
 require_once(__DIR__ . '/../database/user.php');
+>>>>>>> main
 require_once(__DIR__ . '/../database/config.php');
 require_once(__DIR__ . '/../database/ticket_hashtag.php');
 require_once(__DIR__ . '/../database/hashtag.php');
 require_once(__DIR__ . '/../database/departments.php');
+require_once(__DIR__ . '/../database/message.php');
+require_once(__DIR__ . '/../database/user.php');
 ?>
 
 <?php function draw_about() { ?>
@@ -142,6 +147,29 @@ require_once(__DIR__ . '/../database/departments.php');
 						<button class="submit_ticket_btn"><ion-icon name="add-circle"></ion-icon></button>
 					</a>
 				</div>
+<<<<<<< HEAD
+				<div class="user_tickets_list">
+					<?php foreach($user_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Hashtags: <span><?php
+                                $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
+                                foreach($hashtags as $hashtag){
+                                    echo Hashtag::getHashtagName($db,$hashtag->tag);
+									echo " ";
+                        		}?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+								<?php if($user->isAgent($db,$id)){ ?>
+								<div class="response_button">
+=======
 				<button type="submit" class="btn" onclick="openPopup1()">Submit </button>
 				<div class="all_tickets_list" id="popup1">
 						<?php foreach($all_tickets as $ticket){ ?>
@@ -158,6 +186,7 @@ require_once(__DIR__ . '/../database/departments.php');
 									</div>
 										<?php if($user->isAgent($db,$id)){ ?>
 									<div class="response_button">
+>>>>>>> main
 										<form action="/../a/update_ticket_status.php" method="post">
                 	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
 										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
@@ -166,8 +195,12 @@ require_once(__DIR__ . '/../database/departments.php');
 										<?php } ?>
 								</div>
 							</div>
+<<<<<<< HEAD
+						<?php } ?>
+=======
 							<?php } ?>
 
+>>>>>>> main
                 </div>
 				<button type="button" onclick="closePopup1()"> OK </button>
 				<button type="submit" class="btn" onclick="openPopup2()">Submit </button>
@@ -335,10 +368,15 @@ require_once(__DIR__ . '/../database/departments.php');
 					<input type="submit" value="Send" name="question_submit_btn" class="submit_btn" />
 				</form>
 			</div>
+<<<<<<< HEAD
+		</div>
+<?php }  ?>
+=======
 		</main>
 </div>
 <?php } ?>
 
+>>>>>>> main
 
 <?php function draw_ticket_details_page($ticket, array $messages) { $db = getDatabaseConnection();?>
 	<div id="page-container">
@@ -388,4 +426,7 @@ require_once(__DIR__ . '/../database/departments.php');
 		<span class="message_time"><?php echo date('H:i', strtotime($message->created_at)); ?></span>
     </div>
 	<?php } ?>
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
