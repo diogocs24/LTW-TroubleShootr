@@ -142,6 +142,7 @@ require_once(__DIR__ . '/../database/departments.php');
 				</div>
 				<div class="user_tickets_list">
 					<?php foreach(array_reverse($user_tickets) as $ticket){ ?>
+						<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
@@ -169,12 +170,14 @@ require_once(__DIR__ . '/../database/departments.php');
 								<?php } ?>
 								</div>
 							</div>
+						</a>
 						<?php } ?>
 
                 </div>
 				<?php if($user->isAgent($db,$id)){ ?>
 				<div class="department_tickets_list">
     			<?php foreach($department_tickets as $ticket){ ?>
+					<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
     			    <div class="ticket">
     			        <div class="ticket_info">
     			            <h4><?php echo $ticket->title?></h4>
@@ -194,6 +197,7 @@ require_once(__DIR__ . '/../database/departments.php');
     			            </div>
     			        </div>
     			    </div>
+					</a>
     			<?php } ?>
 				</div>
 

@@ -1330,19 +1330,35 @@ body {
 	text-decoration: none;
 }
 
-.tickets_list a:link{
+.user_tickets_list a:link{
     text-decoration: none;
 }
 
-.tickets_list a:visited{
+.user_tickets_list a:visited{
 	text-decoration: none;
 }
 
-.tickets_list a:hover{
+.user_tickets_list a:hover{
 	text-decoration: none;
 }
 
-.tickets_list a:active{
+.user_tickets_list a:active{
+	text-decoration: none;
+}
+
+.department_tickets_list a:link{
+    text-decoration: none;
+}
+
+.department_tickets_list a:visited{
+	text-decoration: none;
+}
+
+.department_tickets_list a:hover{
+	text-decoration: none;
+}
+
+.department_tickets_list a:active{
 	text-decoration: none;
 }
 
