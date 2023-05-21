@@ -107,27 +107,29 @@ require_once(__DIR__ . '/../database/departments.php');
 <?php function draw_admin_section($all_users) {?> 
 	<div id="page-container">
 		<main id="main">
+			<div class="admin-page">
 	<div class="admin-promote">
     <h2>Promote Users</h2>
     <form action="/../a/promote_user.php" method='post' class="promote_admin">
-      <label class="label">Username:</label>
-      <select name="username1" required>
+      <label class="label"><div class="username">Username:</div></label>
+      <select name="username1" required class ="custom-button">
 		<?php foreach($all_users as $user){ ?>
 				<option><?php echo $user->username ?></option>
 		<?php } ?>
 	  </select>
-      <input type="submit" value="Promote" class="promote_btn" name="promote_btn">
+      <input type="submit" value="Promote" class="custom-button" name="promote_btn">
     </form>
   </div>
 
   <div class="admin-department">
     <h2>Create Department</h2>
     <form action="/../a/add_department.php" method='post' class="department_admin">
-      <label for="departmentName">Department Name:</label>
-      <input type="text" id="departmentName" name="departmentName" required>
-      <input type="submit" value="Create" class="submit-department">
+      <label for="departmentName"><div class="username">Department Name:</div></label>
+      <input type="text" class="custom-button" name="departmentName" required>
+      <input type="submit" value="Create" class="custom-button">
     </form>
   </div>
+		</div>
 </main>
   </div>
 

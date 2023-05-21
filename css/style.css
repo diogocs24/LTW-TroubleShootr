@@ -1090,7 +1090,62 @@ body {
 .ticket_details_info span {
 	font-size: 16px;
 	font-weight: 300;
-	text-decoration: none;
+	text-decoration: none;#page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-promote,
+.admin-department {
+  margin-bottom: 2rem;
+}
+
+.admin-promote h2,
+.admin-department h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.label {
+  font-size: 1.2rem;
+}
+
+.promote_admin,
+.department_admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promote_admin select,
+.department_admin input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.promote_btn,
+.submit-department {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .promote_admin,
+  .department_admin {
+    width: 50%;
+  }
+}
+
 }
 
 .ticket_details_trailing .initial_text {
@@ -1193,6 +1248,83 @@ body {
 }
 
 /* admin section*/
+
+.admin-page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50vh;
+  }
+
+.admin-promote {
+	margin-right: 3em;
+}
+
+.admin-department {
+	margin-left: 3em;
+}
+
+.admin-page .username{
+	margin-bottom: 0.7em;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+.content {
+	width: 100%;
+	padding: 2rem;
+	background-color: #f4f4f4;
+	border-radius: 2rem;
+  }
+  
+  .admin-promote,
+  .admin-department {
+	margin-bottom: 2rem;
+  }
+  
+  .admin-promote h2,
+  .admin-department h2 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+  }
+  
+  .label {
+	font-size: 1.2rem;
+  }
+  
+  .promote_admin,
+  .department_admin {
+	display: flex;
+	flex-direction: column;
+	
+  }
+  
+  .promote_admin select,
+  .department_admin input[type="text"] {
+	width: 100%;
+	padding: 0.8rem;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+  }
+  
+  .promote_btn,
+  .submit-department {
+	padding: 0.8rem 2rem;
+	font-size: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+	.promote_admin,
+	.department_admin {
+	  width: 50%;
+	}
+  }
+  
 
 .admin-section {
 	position: relative;
