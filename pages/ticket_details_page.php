@@ -30,7 +30,7 @@ foreach ($tickets as $t) {
 }
 
 if ($ticket) {
-    draw_header_logged_in();
+    draw_header_logged_in($db, $session->getId());
     draw_ticket_details_page($ticket, $messages);
     draw_footer(); 
     draw_script(); 

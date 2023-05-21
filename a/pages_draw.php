@@ -3,7 +3,11 @@ require_once(__DIR__.'/../a/drawcommon.php');
 require_once(__DIR__ . '/../database/ticket.php');
 require_once(__DIR__ . '/../database/message.php');
 require_once(__DIR__ . '/../database/user.php');
-require_once(__DIR__ . '/../database/config.php');?>
+require_once(__DIR__ . '/../database/config.php');
+require_once(__DIR__ . '/../database/ticket_hashtag.php');
+require_once(__DIR__ . '/../database/hashtag.php');
+require_once(__DIR__ . '/../database/departments.php');
+?>
 
 <?php function draw_about() { ?>
 		<div id="page-container">
@@ -30,96 +34,59 @@ require_once(__DIR__ . '/../database/config.php');?>
 					<p>Get efficient and effective 
 						support from our team and solve any problem, no matter how big or small. Join us now and 
 						let's troubleshoot together!</p>
-				</div>
+				</div>	
 <?php } ?>
 
-<?php function draw_faq() { ?>
+<?php function draw_faq($db, $user, $id, $faq) { ?>
 	<div id="page-container">
 			<main id="main">
 				<div class="questions_box">
 					<div class="title">
 						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
-					</div>
-					<div class="questions_list">
-						<div class="question">
-							<h2>1. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>2. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>3. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>4. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>5. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>6. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						
-					</div>
-					</div>
-			</main>
-<?php } ?>
-
-<?php function draw_agents_faq() { ?>
-	<div id="page-container">
-			<main id="main">
-				<div class="questions_box">
-					<div class="title">
-						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
-						<a href="add_question_faq.php"
+						<?php if($user->isAgent($db,$id)){ ?>
+							<a href="add_question_faq.php"
 							><button class="add_question">
 								<ion-icon name="add-circle"></ion-icon></button
-						></a>
+							></a>
+						<?php }?>
 					</div>
 					<div class="questions_list">
+					<?php foreach($faq as $question){ ?>
 						<div class="question">
-							<h2>1. First Question</h2>
-							<p>Example Answer</p>
+							<h2><?php echo $question->title?></h2>
+							<p><?php echo $question->FAQmessage?></p>
 						</div>
-						<div class="question">
-							<h2>2. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>3. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>4. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>5. First Question</h2>
-							<p>Example Answer</p>
-						</div>
-						<div class="question">
-							<h2>6. First Question</h2>
-							<p>Example Answer</p>
-						</div>
+					<?php } ?>	
 					</div>
 				</div>
 			</main>
 <?php } ?>
 
-<?php function draw_add_question_faq() { ?>
+<?php function draw_answer_ticket($db , $opened_tickets) { ?>
 	<div id="page-container">
 		<main id="main">
+			<div class="opened_tickets">
+			<?php foreach($opened_tickets as $ticket){ ?>
+						<div class="ticket">
+							<div class="ticket_info">
+								<h4><?php echo $ticket->title?></h4>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+							</div>
+							<div class="ticket_trailing">
+								<div class="agent_info">
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+			</div>
 			<div class="faq_main_box">
 				<div class="faq_message">
 					<span class="troubleshootr_logo"></span>
 					<h2 class="faq_message_title">
-						TroubleShootr's Frequently Asked Questions
+						Ticket
 					</h2>
 				</div>
 				<form action="#" class="faq_input">
@@ -134,7 +101,36 @@ require_once(__DIR__ . '/../database/config.php');?>
 		</div>
 <?php } ?>
 
-<?php function draw_main_page($tickets) { ?>
+<?php function draw_admin_section($all_users) {?> 
+	<div id="page-container">
+		<main id="main">
+	<div class="admin-promote">
+    <h2>Promote Users</h2>
+    <form action="/../a/promote_user.php" method='post' class="promote_admin">
+      <label class="label">Username:</label>
+      <select name="username1" required>
+		<?php foreach($all_users as $user){ ?>
+				<option><?php echo $user->username ?></option>
+		<?php } ?>
+	  </select>
+      <input type="submit" value="Promote" class="promote_btn" name="promote_btn">
+    </form>
+  </div>
+
+  <div class="admin-department">
+    <h2>Create Department</h2>
+    <form action="/../a/add_department.php" method='post' class="department_admin">
+      <label for="departmentName">Department Name:</label>
+      <input type="text" id="departmentName" name="departmentName" required>
+      <input type="submit" value="Create" class="submit-department">
+    </form>
+  </div>
+</main>
+  </div>
+
+<?php } ?>
+
+<?php function draw_main_page($all_tickets, $user_tickets, $department_tickets, $user, $db, $id) { ?>
 	<div id="page-container">
 		<main id="main">
             <div id="main_page">
@@ -144,27 +140,67 @@ require_once(__DIR__ . '/../database/config.php');?>
 						<button class="submit_ticket_btn"><ion-icon name="add-circle"></ion-icon></button>
 					</a>
 				</div>
-				<div class="tickets_list">
-				<?php foreach(array_reverse($tickets) as $ticket){ ?>
-					<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
+				<div class="user_tickets_list">
+					<?php foreach(array_reverse($user_tickets) as $ticket){ ?>
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
-								<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+								<p>Hashtags: <span><?php
+                                $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
+                                foreach($hashtags as $hashtag){
+                                    echo Hashtag::getHashtagName($db,$hashtag->tag);
+									echo " ";
+                        		}?></span></p>
+								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 							</div>
 							<div class="ticket_trailing">
 								<div class="agent_info">
-									<p class="initial_text">Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+								</div>
+								<?php if($user->isAgent($db,$id)){ ?>
+								<div class="response_button">
+										<form action="/../a/update_ticket_status.php" method="post">
+                	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
+                	    				</form>
+                					</div>
+								<?php } ?>
 								</div>
 							</div>
-						</div>
-					</a>
-				<?php } ?>
+						<?php } ?>
+
                 </div>
+				<?php if($user->isAgent($db,$id)){ ?>
+				<div class="department_tickets_list">
+    			<?php foreach($department_tickets as $ticket){ ?>
+    			    <div class="ticket">
+    			        <div class="ticket_info">
+    			            <h4><?php echo $ticket->title?></h4>
+    			            <p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+    			            <p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
+    			            <p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+    			        </div>
+    			        <div class="ticket_trailing">
+    			            <div class="agent_info">
+    			                <p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+    			            </div>
+    			            <div class="response_button">
+									<form action="/../a/update_ticket_status.php" method="post">
+    			                    <input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+    			                    <input type="submit" name="open_ticket" value="Send" class="open_ticket">
+    			                </form>
+    			            </div>
+    			        </div>
+    			    </div>
+    			<?php } ?>
+				</div>
+
+				<?php } ?>
 			</div>
         </main>
+	</div>
 <?php } ?>
 
 <?php function draw_profile($username, $email) { ?>
@@ -179,13 +215,10 @@ require_once(__DIR__ . '/../database/config.php');?>
 								<span class="text_input">João da Silva</span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="name"
-									required
-								/>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
+								<input type="text" class="user_profile_input" name="new_name"/>
 								<label for="#">New Name</label>
+							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -194,13 +227,10 @@ require_once(__DIR__ . '/../database/config.php');?>
 								<span class="text_input"><?php echo($username) ?></span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="username"
-									required
-								/>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
+								<input type="text" class="user_profile_input" name="new_username"/>
 								<label for="#">New Username</label>
+							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -209,40 +239,10 @@ require_once(__DIR__ . '/../database/config.php');?>
 								<span class="text_input"><?php echo($email)?></span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="email"
-									required
-								/>
-								<label for="#">New Email</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute">
-								<span class="label">Password:</span>
-								<span class="text_input">●●●●●●●●</span>
-							</div>
-							<div class="single-input">
-								<input
-									type="password"
-									class="user_profile_input"
-									id="password"
-									required
-								/>
-								<label for="#">New Password</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute"></div>
-							<div class="single-input">
-								<input
-									type="password"
-									class="user_profile_input"
-									id="confirm_password"
-									required
-								/>
-								<label for="#">Confirm Password</label>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_email">
+								<input type="text" class="user_profile_input" name="new_email" />
+								<label> New Email</label>
+							</form>
 							</div>
 						</div>
 					</div>
@@ -257,7 +257,7 @@ require_once(__DIR__ . '/../database/config.php');?>
 <?php } ?>
 
 
-<?php function draw_submit_ticket() { ?>
+<?php function draw_submit_ticket($departments) { ?>
 	<div id="page-container">
 		<main id="main">
 			<div class="faq_main_box">
@@ -272,38 +272,41 @@ require_once(__DIR__ . '/../database/config.php');?>
 					<label class="label">Ticket message</label>
 					<textarea class="input" name="message" required></textarea>
 					<label class="label">Ticket department</label>
-					<input type="text" class="input" name="department" required/>
+					<select name="department" required>
+					<?php foreach($departments as $department){ ?>
+							<option><?php echo $department->name ?></option>
+						<?php } ?>
+					</select>
 					<label class="label">Ticket hashtag</label>
-					<input type="text" class="input" name="hashtag" required/>
+					<input type="text" class="input" name="hashtag"/>
 					<input type="submit" value="Send" name="submit_btn" class="submit_btn" />
 				</form>
 			</div>
-</main>
+	</main>
 		</div>
 <?php } ?>
 
-<?php function drawTickets($id) { 
-	$db = getDatabaseConnection();
-	$tickets =  Ticket::getTicketsFromUser($db, $id);
-	foreach($tickets as $ticket){ ?>
-		<div class="ticket">
-			<div class="ticket_info">
-				<h4><?php echo $ticket['title']?></h4>
-				<p>Priority: <span><?php echo $ticket['ticket_priority']; ?> </span></p>
-				<p class="details">Details: <span>Something something something something something something</span></p>
-				<p>Status: <span><?php echo $ticket['ticket_status']; ?></span></p>
-			</div>
-			<div class="ticket_trailing">
-				<div class="agent_info">
-					<p>Agent: <span> <?php echo $ticket['idAgent']; ?></span></p>
+<?php function draw_add_question_faq() { ?>
+	<div id="page-container">
+		<main id="main">
+			<div class="faq_main_box">
+				<div class="faq_message">
+					<h2 class="faq_message_title">
+						Ticket Submission
+					</h2>
 				</div>
-				<div class="ticket_button">
-					<a href="seeTicket.html" class="special_button">View</a>
-				</div>
+				<form action="/../a/faq_class.php" method='post' class="faq_input">
+					<label class="label">User's question</label>
+					<input type="text" class="input" name="title" required/>
+					<label class="label">Answer</label>
+					<textarea class="input" name="message" required></textarea>
+					<input type="submit" value="Send" name="question_submit_btn" class="submit_btn" />
+				</form>
 			</div>
-		</div>
-<?php } 
-} ?>
+		</main>
+</div>
+<?php } ?>
+
 
 <?php function draw_ticket_details_page($ticket, array $messages) { $db = getDatabaseConnection();?>
 	<div id="page-container">
@@ -346,3 +349,4 @@ require_once(__DIR__ . '/../database/config.php');?>
 		<span class="message_time"><?php echo $message->created_at; ?></span>
     </div>
 	<?php } ?>
+
