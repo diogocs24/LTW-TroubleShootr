@@ -30,7 +30,7 @@
       $stmt = $db->prepare('SELECT * FROM Clients WHERE email = ?');
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
-      // mudar -> so fazer password_verify se este user for null
+      
       if ($user['password'] == null) {
         return null;
       }
