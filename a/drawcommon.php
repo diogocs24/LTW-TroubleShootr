@@ -47,6 +47,8 @@ require_once(__DIR__ . '/../database/user.php');
 		<link rel="stylesheet" href="/../css/style.css" />
 		<script src="/../scripts/script_dark-theme.js" defer> </script>
 		<script src="/../scripts/script.js" defer> </script>
+		<script src="/../scripts/popup_tickets.js" defer> </script>
+
 	</head>
 	<body onload="onload1()">
 		<header id="header" class="header">
@@ -117,8 +119,10 @@ function draw_footer(){
 			nomodule
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
 		></script>
+		<script src="/../scripts/popup_tickets.js"></script>
 		</body>
 		<script src="/../scripts/script_height.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
 
 <?php } ?>

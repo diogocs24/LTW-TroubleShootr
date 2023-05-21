@@ -1157,6 +1157,11 @@ body {
 	margin: 100px auto;
 }
 
+.message_time {
+	font-size: 12px;
+	color: var(--five-color);
+}
+
 .ticket_details {
 	box-sizing: border-box;
 	border: var(--nine-color) 2px solid;
@@ -1297,12 +1302,16 @@ body {
 	border-radius: 20px;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .department_tickets_list {
 	background-color: var(--eight-color);
 	border-radius: 20px;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .all_tickets_list {
 	background-color: var(--eight-color);
@@ -1310,6 +1319,8 @@ body {
 	box-sizing: border-box;
 	padding: 10px;
 	border: 2px solid var(--nine-color);
+	visibility: hidden ;
+	transition: transform 0.4s;
 }
 .ticket {
 	background-color: var(--eleven-color);
@@ -1360,7 +1371,51 @@ body {
 	text-decoration: none;
 }
 
-.tickets_list a:hover {
+.user_tickets_list a:link{
+    text-decoration: none;
+}
+
+.user_tickets_list a:visited{
+	text-decoration: none;
+}
+
+.user_tickets_list a:hover{
+	text-decoration: none;
+}
+
+.user_tickets_list a:active{
+	text-decoration: none;
+}
+
+.department_tickets_list a:link{
+    text-decoration: none;
+}
+
+.department_tickets_list a:visited{
+	text-decoration: none;
+}
+
+.department_tickets_list a:hover{
+	text-decoration: none;
+}
+
+.department_tickets_list a:active{
+	text-decoration: none;
+}
+
+.opened_tickets a:link{
+    text-decoration: none;
+}
+
+.opened_tickets a:visited{
+	text-decoration: none;
+}
+
+.opened_tickets a:hover{
+	text-decoration: none;
+}
+
+.opened_tickets a:active{
 	text-decoration: none;
 }
 
@@ -1416,6 +1471,58 @@ body {
 	text-decoration: none;
 }
 
+.open-popup1{
+	visibility: visible;
+
+}
+.open-popup2{
+	visibility: visible;
+
+}
+.open-popup3{
+	visibility: visible;
+
+}
+
+/* admin section*/
+
+.admin-promote{
+	color: var(--secondary-color);
+}
+
+.admin-department{
+	color: var(--secondary-color);
+}
+
+.admin-section {
+	position: relative;
+	margin-top: 10em;
+	border: 1px solid #ccc;
+	padding: 10px;
+  }
+  .admin-section h2 {
+	margin-top: 0;
+  }
+  
+  .admin-form {
+	margin-bottom: 10px;
+  }
+  .admin-form label {
+	display: block;
+	margin-bottom: 5px;
+  }
+  .admin-form input[type="text"] {
+	width: 200px;
+	padding: 5px;
+  }
+  .admin-form input[type="submit"] {
+	padding: 5px 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+
 /* Responsive */
 
 @media only screen and (max-width: 819px) {
@@ -1426,3 +1533,5 @@ body {
 		margin-bottom: 20px;
 	}
 }
+
+
