@@ -67,6 +67,7 @@ require_once(__DIR__ . '/../database/departments.php');
 		<main id="main">
 			<div class="opened_tickets">
 			<?php foreach($opened_tickets as $ticket){ ?>
+				<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
@@ -80,6 +81,7 @@ require_once(__DIR__ . '/../database/departments.php');
 								</div>
 							</div>
 						</div>
+					</a>
 					<?php } ?>
 			</div>
 			<div class="faq_main_box">
@@ -146,19 +148,19 @@ require_once(__DIR__ . '/../database/departments.php');
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
-								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p>Hashtags: <span><?php
+								<p class="initial_text">Hashtags: <span><?php
                                 $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
                                 foreach($hashtags as $hashtag){
                                     echo Hashtag::getHashtagName($db,$hashtag->tag);
 									echo " ";
                         		}?></span></p>
-								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+								<p class=initial_text>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 							</div>
 							<div class="ticket_trailing">
 								<div class="agent_info">
-									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+									<p class="initial_text">Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
 								<?php if($user->isAgent($db,$id)){ ?>
 								<div class="response_button">

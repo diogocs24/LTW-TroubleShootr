@@ -1362,6 +1362,22 @@ body {
 	text-decoration: none;
 }
 
+.opened_tickets a:link{
+    text-decoration: none;
+}
+
+.opened_tickets a:visited{
+	text-decoration: none;
+}
+
+.opened_tickets a:hover{
+	text-decoration: none;
+}
+
+.opened_tickets a:active{
+	text-decoration: none;
+}
+
 .ticket_info p{
 	overflow-wrap: break-word;
 	word-break: break-word;
@@ -1412,6 +1428,14 @@ body {
 
 /* admin section*/
 
+.admin-promote{
+	color: var(--secondary-color);
+}
+
+.admin-department{
+	color: var(--secondary-color);
+}
+
 .admin-section {
 	position: relative;
 	margin-top: 10em;
@@ -1421,6 +1445,7 @@ body {
   .admin-section h2 {
 	margin-top: 0;
   }
+  
   .admin-form {
 	margin-bottom: 10px;
   }
