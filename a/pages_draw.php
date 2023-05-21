@@ -43,13 +43,13 @@ require_once(__DIR__ . '/../database/departments.php');
 			<main id="main">
 				<div class="questions_box">
 					<div class="title">
-						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
+						<h2>TroubleShootr's Frequently Asked Questions</h2>
+						<a href="add_question_faq.php">
 						<?php if($user->isAgent($db,$id)){ ?>
-							<a href="add_question_faq.php"
-							><button class="add_question">
+							<button class="add_question">
 								<ion-icon name="add-circle"></ion-icon></button
-							></a>
-						<?php }?>
+							>
+						<?php }?></a>
 					</div>
 					<div class="questions_list">
 					<?php foreach($faq as $question){ ?>
