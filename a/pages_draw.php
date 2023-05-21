@@ -1,10 +1,11 @@
 <?php declare(strict_types = 1);
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
+require_once(__DIR__ . '/../database/message.php');
+require_once(__DIR__ . '/../database/user.php');
 require_once(__DIR__ . '/../database/config.php');
 require_once(__DIR__ . '/../database/ticket_hashtag.php');
 require_once(__DIR__ . '/../database/hashtag.php');
-require_once(__DIR__ . '/../database/user.php');
 require_once(__DIR__ . '/../database/departments.php');
 ?>
 
@@ -66,6 +67,7 @@ require_once(__DIR__ . '/../database/departments.php');
 		<main id="main">
 			<div class="opened_tickets">
 			<?php foreach($opened_tickets as $ticket){ ?>
+				<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
@@ -79,6 +81,7 @@ require_once(__DIR__ . '/../database/departments.php');
 								</div>
 							</div>
 						</div>
+					</a>
 					<?php } ?>
 			</div>
 			<div class="faq_main_box">
@@ -140,23 +143,24 @@ require_once(__DIR__ . '/../database/departments.php');
 					</a>
 				</div>
 				<div class="user_tickets_list">
-					<?php foreach($user_tickets as $ticket){ ?>
+					<?php foreach(array_reverse($user_tickets) as $ticket){ ?>
+						<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 						<div class="ticket">
 							<div class="ticket_info">
 								<h4><?php echo $ticket->title?></h4>
-								<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+								<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 								<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-								<p>Hashtags: <span><?php
+								<p class="initial_text">Hashtags: <span><?php
                                 $hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
                                 foreach($hashtags as $hashtag){
                                     echo Hashtag::getHashtagName($db,$hashtag->tag);
 									echo " ";
                         		}?></span></p>
-								<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+								<p class=initial_text>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 							</div>
 							<div class="ticket_trailing">
 								<div class="agent_info">
-									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+									<p class="initial_text">Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
 								<?php if($user->isAgent($db,$id)){ ?>
 								<div class="response_button">
@@ -168,11 +172,14 @@ require_once(__DIR__ . '/../database/departments.php');
 								<?php } ?>
 								</div>
 							</div>
+						</a>
 						<?php } ?>
+
                 </div>
 				<?php if($user->isAgent($db,$id)){ ?>
 				<div class="department_tickets_list">
     			<?php foreach($department_tickets as $ticket){ ?>
+					<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
     			    <div class="ticket">
     			        <div class="ticket_info">
     			            <h4><?php echo $ticket->title?></h4>
@@ -192,6 +199,7 @@ require_once(__DIR__ . '/../database/departments.php');
     			            </div>
     			        </div>
     			    </div>
+					</a>
     			<?php } ?>
 				</div>
 
@@ -304,4 +312,54 @@ require_once(__DIR__ . '/../database/departments.php');
 		</main>
 </div>
 <?php } ?>
+
+
+<?php function draw_ticket_details_page($ticket, array $messages) { $db = getDatabaseConnection();?>
+	<div id="page-container">
+    <main id="main">
+		<div class="chat_page">
+			<div class="ticket_details">
+				<div class="ticket_details_info">
+					<h2 class="ticket_details_title"><?php echo $ticket->title?></h2>
+					<p class="ticket_details_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+					<p class="details" id="details-content">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+					<p class="ticket_details_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+				</div>
+				<div class="ticket_details_trailing">
+					<div class="ticket_details_agent_info">
+						<p class="ticket_details_text">Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+					</div>
+				</div>
+			</div>
+			<div class="chat">
+				<div class="other_user">
+						<span class="name_user"><span> Chat Conversation </span></span>
+					</div>
+    			<div class="chat-container">
+					<?php foreach($messages as $message) draw_message($message); ?>
+    			</div>
+    			<form action="/../a/send_message.php" method='post' class="input-container">
+    			    <input type="text" placeholder="Type your message">
+					<input type="submit" value="Send" name="chat_submit_btn" class="submit_btn" />
+				</form>
+			</div>
+		</div>
+    </main>
+<?php } ?>
+
+<script>
+
+
+
+</script>
+
+
+
+<?php function draw_message(Message $message){ 	$db = getDatabaseConnection();?>
+	<div class="message">
+    	<span class="sender"><span> <?php echo User::getUser($db, $message->idUser)->username ?></span>:</span>
+    	<span class="text"><?php echo $message->message; ?></span>
+		<span class="message_time"><?php echo date('H:i', strtotime($message->created_at)); ?></span>
+    </div>
+	<?php } ?>
 
