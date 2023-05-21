@@ -338,21 +338,28 @@ require_once(__DIR__ . '/../database/departments.php');
     			<div class="chat-container">
 					<?php foreach($messages as $message) draw_message($message); ?>
     			</div>
-    			<div class="input-container">
-    			    <input type="text" placeholder="Digite sua mensagem">
-    			    <button class="submit_btn">Enviar</button>
-    			</div>
+    			<form action="/../a/send_message.php" method='post' class="input-container">
+    			    <input type="text" placeholder="Type your message">
+					<input type="submit" value="Send" name="chat_submit_btn" class="submit_btn" />
+				</form>
 			</div>
 		</div>
     </main>
 <?php } ?>
 
+<script>
+
+
+
+</script>
+
+
 
 <?php function draw_message(Message $message){ 	$db = getDatabaseConnection();?>
 	<div class="message">
-    	<span class="sender"><span> <?php echo User::getUser($db, $message->idUser) ?></span>:</span>
+    	<span class="sender"><span> <?php echo User::getUser($db, $message->idUser)->username ?></span>:</span>
     	<span class="text"><?php echo $message->message; ?></span>
-		<span class="message_time"><?php echo $message->created_at; ?></span>
+		<span class="message_time"><?php echo date('H:i', strtotime($message->created_at)); ?></span>
     </div>
 	<?php } ?>
 

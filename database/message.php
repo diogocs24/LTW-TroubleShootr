@@ -39,9 +39,9 @@
       return $messages;
     }
 
-    public function save(PDO $db): void {
+    public function insert(PDO $db): void {
         if ($this->idMessage === 0) {
-          $stmt = $db->prepare('INSERT INTO Comments (idTicket, idUser,[message],created_at) VALUES (?, ?, ?,?)');
+          $stmt = $db->prepare('INSERT INTO [MESSAGE] (idTicket, idUser,[message],created_at) VALUES (?, ?, ?,?)');
           $stmt->execute([$this->idTicket, $this->idUser, $this->message, $this->created_at]);
            $this->idMessage = intval($db->lastInsertId());
       }

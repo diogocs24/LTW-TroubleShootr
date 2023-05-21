@@ -1165,6 +1165,11 @@ body {
 	margin: 100px auto;
 }
 
+.message_time {
+	font-size: 12px;
+	color: var(--five-color);
+}
+
 .ticket_details {
 	box-sizing: border-box;
 	border: var(--nine-color) 2px solid;
