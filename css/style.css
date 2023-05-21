@@ -974,7 +974,7 @@ body {
 }
 
 .chat-container::-webkit-scrollbar-thumb {
-	background-color: var(--eleven-color);
+	background-color: var(--nine-color);
 }
 
 .chat-container::-webkit-scrollbar-track {
@@ -1057,7 +1057,7 @@ body {
 }
 
 .ticket_details_info .details::-webkit-scrollbar-thumb {
-	background-color: var(--eleven-color);
+	background-color: var(--nine-color);
 }
 
 .ticket_details_info .details::-webkit-scrollbar-track {

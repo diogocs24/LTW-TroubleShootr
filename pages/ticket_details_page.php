@@ -12,7 +12,7 @@ require_once(__DIR__.'/../database/message.php');
 $session = new Session();
 $db = getDatabaseConnection();
 $user = User::getUser($db, $session->getId());
-$tickets = Ticket::getAllTickets($db, $session->getId());
+$tickets = Ticket::getAllTickets($db);
 $ticketId = $_GET['ticket_id'] ?? null;
 Ticket::updateStatus($db, $session->getId(), "opened", $ticketId);
 $messages = Message::getMessages($db, intval($ticketId));
