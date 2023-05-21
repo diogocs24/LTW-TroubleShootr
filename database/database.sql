@@ -71,7 +71,7 @@ CREATE TABLE MESSAGE (
   idTicket INTEGER NOT NULL,
   idUser INTEGER NOT NULL,
   [message] TEXT,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  created_at TIMESTAMP,
   FOREIGN KEY (idTicket) REFERENCES TICKET(idTicket),
   FOREIGN KEY (idUser) REFERENCES Clients(idUser)
 );

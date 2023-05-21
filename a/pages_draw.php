@@ -145,18 +145,18 @@ require_once(__DIR__ . '/../database/departments.php');
 				<button type="submit" class="btn" onclick="openPopup1()">Submit </button>
 				<button type="button" onclick="closePopup1()"> OK </button>
 					<div class="all_tickets_list" id="popup1">
-						<?php foreach($all_tickets as $ticket){ ?>
+						<?php foreach(array_reverse($all_tickets) as $ticket){ ?>
 							<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 								<div class="ticket">
 									<div class="ticket_info">
 										<h4><?php echo $ticket->title?></h4>
-										<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+										<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 										<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-										<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+										<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 									</div>
 									<div class="ticket_trailing">
 										<div class="agent_info">
-											<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+											<p class="initial_text">Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 										</div>
 									</div>
 								</div>
@@ -168,24 +168,24 @@ require_once(__DIR__ . '/../database/departments.php');
 				<button type="button" onclick="closePopup2()"> OK </button>
 				
 				<div class="user_tickets_list" id="popup2">
-					<?php foreach($user_tickets as $ticket){ ?>
+					<?php foreach(array_reverse($user_tickets) as $ticket){ ?>
 						<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
 							<div class="ticket">
 								<div class="ticket_info">
 									<h4><?php echo $ticket->title?></h4>
-										<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+										<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
 										<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-										<p>Hashtags: <span><?php
+										<p class="initial_text">Hashtags: <span><?php
                                 		$hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
                                 		foreach($hashtags as $hashtag){
                                     		echo Hashtag::getHashtagName($db,$hashtag->tag);
 											echo " ";
                         					}?></span></p>
-										<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+										<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 								</div>
 								<div class="ticket_trailing">
 								<div class="agent_info">
-									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+									<p class="initial_text"> Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
 							</div>
 						</div>
@@ -197,18 +197,18 @@ require_once(__DIR__ . '/../database/departments.php');
 				<button type="submit" class="btn" onclick="openPopup3()">Submit </button>
 				<button type="button" onclick="closePopup3()"> OK </button>
 						<div class="department_tickets_list" id="popup3">
-    						<?php foreach($department_tickets as $ticket){ ?>
+    						<?php foreach(array_reverse($department_tickets) as $ticket){ ?>
 								<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
     			    				<div class="ticket">
     			        				<div class="ticket_info">
     			            				<h4><?php echo $ticket->title?></h4>
-    			            				<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+    			            				<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
     			            				<p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
-    			        					<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+    			        					<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
     			        				</div>
     			        				<div class="ticket_trailing">
     			            				<div class="agent_info">
-    			                				<p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+    			                				<p class="initial_text">Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
     			            				</div>
     			        			</div>
 								</a>
@@ -355,14 +355,6 @@ require_once(__DIR__ . '/../database/departments.php');
 				</div>
     </main>
 <?php } ?>
-
-<script>
-
-
-
-</script>
-
-
 
 <?php function draw_message(Message $message){ 	$db = getDatabaseConnection();?>
 	<div class="message">
