@@ -16,7 +16,9 @@ CREATE TABLE Department(
 );
 
 CREATE TABLE Clients (
+  
   idUser INTEGER NOT NULL PRIMARY KEY,
+  name TEXT NOT NULL,
   username TEXT NOT NULL,
   [password] TEXT NOT NULL,
   email TEXT NOT NULL,

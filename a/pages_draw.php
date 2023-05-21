@@ -143,6 +143,7 @@ require_once(__DIR__ . '/../database/departments.php');
 					</a>
 				</div>
 				<button type="submit" class="btn" onclick="openPopup1()">Submit </button>
+				<button type="button" onclick="closePopup1()"> OK </button>
 					<div class="all_tickets_list" id="popup1">
 						<?php foreach($all_tickets as $ticket){ ?>
 							<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
@@ -157,21 +158,15 @@ require_once(__DIR__ . '/../database/departments.php');
 										<div class="agent_info">
 											<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 										</div>
-											<?php if($user->isAgent($db,$id)){ ?>
-										<div class="response_button">
-											<form action="/../a/update_ticket_status.php" method="post">
-                	        					<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
-												<input type="submit" name="open_ticket" value="Send" class="open_ticket">
-                	    					</form>
-                						</div>
-											<?php } ?>
 									</div>
 								</div>
 							</a>
 						<?php } ?>
                 	</div>
-				<button type="button" onclick="closePopup1()"> OK </button>
+				
 				<button type="submit" class="btn" onclick="openPopup2()">Submit </button>
+				<button type="button" onclick="closePopup2()"> OK </button>
+				
 				<div class="user_tickets_list" id="popup2">
 					<?php foreach($user_tickets as $ticket){ ?>
 						<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
@@ -192,23 +187,15 @@ require_once(__DIR__ . '/../database/departments.php');
 								<div class="agent_info">
 									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
-									<?php if($user->isAgent($db,$id)){ ?>
-									<div class="response_button">
-										<form action="/../a/update_ticket_status.php" method="post">
-                	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
-										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
-                	    				</form>
-                					</div>
-									<?php } ?>
 							</div>
 						</div>
 						</a>
 					<?php } ?>
                 </div>
-				<button type="button" onclick="closePopup2()"> OK </button>
 
 				<?php if($user->isAgent($db,$id)){ ?>
 				<button type="submit" class="btn" onclick="openPopup3()">Submit </button>
+				<button type="button" onclick="closePopup3()"> OK </button>
 						<div class="department_tickets_list" id="popup3">
     						<?php foreach($department_tickets as $ticket){ ?>
 								<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
@@ -223,39 +210,31 @@ require_once(__DIR__ . '/../database/departments.php');
     			            				<div class="agent_info">
     			                				<p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
     			            				</div>
-    			            			<div class="response_button">
-											<form action="/../a/update_ticket_status.php" method="post">
-    			                    			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
-    			                    			<input type="submit" name="open_ticket" value="Send" class="open_ticket">
-    			                			</form>
-    			            			</div>
     			        			</div>
 								</a>
     						<?php } ?>
 						</div>
-					<button type="button" onclick="closePopup3()"> OK </button>
 				<?php } ?>
 			</div>
         </main>
 	</div>
 <?php } ?>
 
-<?php function draw_profile($username, $email) { ?>
+<?php function draw_profile($name, $username, $email) { ?>
 	<div id="page-container">
 			<main id="main">
+			<form action="/../a/update_profile.php" method='post' class="form_class" >
 				<div id="info">
 					<div id="info_text">
 						<h1 class="user_profile_title">User Profile</h1>
 						<div class="row">
 							<div class="attribute">
 								<span class="label">Name:</span>
-								<span class="text_input">João da Silva</span>
+								<span class="text_input"><?php echo($name) ?></span>
 							</div>
 							<div class="single-input">
-							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
 								<input type="text" class="user_profile_input" name="new_name"/>
 								<label for="#">New Name</label>
-							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -264,10 +243,8 @@ require_once(__DIR__ . '/../database/departments.php');
 								<span class="text_input"><?php echo($username) ?></span>
 							</div>
 							<div class="single-input">
-							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
 								<input type="text" class="user_profile_input" name="new_username"/>
 								<label for="#">New Username</label>
-							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -276,10 +253,8 @@ require_once(__DIR__ . '/../database/departments.php');
 								<span class="text_input"><?php echo($email)?></span>
 							</div>
 							<div class="single-input">
-							<form action="/../a/update_user.php" method='post' class="form_class" name="new_email">
 								<input type="text" class="user_profile_input" name="new_email" />
 								<label> New Email</label>
-							</form>
 							</div>
 						</div>
 					</div>
@@ -290,6 +265,8 @@ require_once(__DIR__ . '/../database/departments.php');
 						</div>
 					</div>
 				</div>
+				<input type="submit" value="Edit" class="edit_btn" name="edit_btn">
+			</form>
 			</main>		
 <?php } ?>
 

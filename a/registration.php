@@ -61,6 +61,7 @@ if(isset($_POST['create'])){
         $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $user = new User(0,
+        $_POST['name'],
         strip_tags($_POST['username']),
         strip_tags($_POST['email']),
         $hashedPassword,

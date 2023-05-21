@@ -3,14 +3,17 @@
 
   class User {
     public int $idUser;
+
+    public string $name;
     public string $username;
     public string $email;
     public string $password;
     public string $role;
-    public function __construct(int $idUser, 
+    public function __construct(int $idUser, string $name,
     string $username, string $email,string $password, string $role)
     {
       $this->idUser = $idUser;
+      $this->name = $name;
       $this->username = $username;
       $this->email = $email;
       $this->password = $password;
@@ -38,6 +41,7 @@
         echo ("PASSWORD PASSES");
         return new User(
           (int) $user['idUser'],
+          $user['name'],  
           $user['username'],  
           $user['email'],
           $user['password'],
@@ -77,6 +81,7 @@ function get_avatar_path() : string{
       if($user = $stmt->fetch()) {
           return new User(
            (int) $user['idUser'],
+           $user['name'],  
             $user['username'],  
             $user['email'],
             $user['password'],
@@ -107,6 +112,7 @@ function get_avatar_path() : string{
     while($user = $stmt->fetch()){
       $users_array[] = new User(
         (int) $user['idUser'],
+        $user['name'],  
         $user['username'],
         $user['email'],
         $user['password'],
@@ -119,6 +125,11 @@ function get_avatar_path() : string{
     static public function updateRole(PDO $db, int $id): void {
         $stmt = $db->prepare('UPDATE Clients SET role=? WHERE idUser = ?');
         $stmt -> execute(["admin",$id]);
+      }
+
+      static public function updateName(PDO $db,string $name, int $id): void {
+        $stmt = $db->prepare('UPDATE Clients SET name=? WHERE idUser = ?');
+        $stmt -> execute([$name ,$id]);
       }
       static public function updateUsername(PDO $db,string $username, int $id): void {
         $stmt = $db->prepare('UPDATE Clients SET username=? WHERE idUser = ?');
@@ -135,15 +146,15 @@ function get_avatar_path() : string{
     public function insert(PDO $db): void { 
       if ($this->idUser === 0) {
 
-        $stmt = $db->prepare('INSERT INTO Clients (username, email, [password], role) VALUES (?, ?, ?, ?)');
+        $stmt = $db->prepare('INSERT INTO Clients (name, username, email, [password], role) VALUES (?, ?, ?, ?, ?)');
 
-        $stmt->execute([$this->username, $this->email,  $this->password, $this->role]);
+        $stmt->execute([$this-> name, $this->username, $this->email,  $this->password, $this->role]);
 
         $this->idUser = intval($db->lastInsertId());
 
       } else {
-        $stmt = $db->prepare('UPDATE Clients SET username = ?, email = ?, password = ? , role = ? WHERE idUser = ?');
-        $stmt->execute([$this->username, $this->email, $this->password, $this->idUser, $this->role]);
+        $stmt = $db->prepare('UPDATE Clients SET name = ?, username = ?, email = ?, password = ? , role = ? WHERE idUser = ?');
+        $stmt->execute([$this-> name, $this->username, $this->email, $this->password, $this->idUser, $this->role]);
       }
     }
 
