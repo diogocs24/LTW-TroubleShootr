@@ -118,6 +118,7 @@ function draw_footer(){
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
 		></script>
 		</body>
+		<script src="/../scripts/script_height.js"></script>
 </html>
 
 <?php } ?>
@@ -188,3 +189,4 @@ function draw_footer(){
 				</div>
 			</main>
 	<?php } ?>
+
