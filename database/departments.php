@@ -31,6 +31,14 @@
       return $departments;
      
     }
+    public function insert(PDO $db): void {
+      if ($this->idDepartment === 0) {
+          $stmt = $db->prepare('INSERT INTO Department (name) VALUES (?)');
+          $stmt->execute([$this->name]);
+          $this->idDepartment = intval($db->lastInsertId());
+      }
+  }
+
     static function getDepartments(PDO $db, string $name) : Department {
       $stmt = $db->prepare('SELECT d.idDepartment, d.name FROM Department d WHERE name = ?');
       

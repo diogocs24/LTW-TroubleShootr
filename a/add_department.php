@@ -12,5 +12,9 @@ require_once(__DIR__.'/../database/departments.php');
 $session = new Session();
 $db = getDatabaseConnection();
 
-
+if(isset($_POST['submit-department'])){
+    $department = new Department(0, $_POST['departmentName']);
+    $department -> insert($db);
+    header('Location:/../pages/admin_section.php');
+}
 ?>
