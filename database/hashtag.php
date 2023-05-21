@@ -63,7 +63,7 @@ class Hashtag{
         ');
         $stmt->execute(array(':tag' => $tag));        
         $hashtag = $stmt->fetch();
-        return $hashtag['idHashtag'];
+        return (int) $hashtag['idHashtag'];
     }
 }
 ?>

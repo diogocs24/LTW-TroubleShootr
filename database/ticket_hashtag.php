@@ -27,8 +27,8 @@ class Ticket_hashtag{
         
         while ($hashtag = $stmt->fetch()) {
             $hashtags_array[] = new Ticket_hashtag (
-                $hashtag['idTicket'],
-                $hashtag['tag']
+                (int) $hashtag['idTicket'],
+                (int)  $hashtag['tag']
             );
         }
         return $hashtags_array;
