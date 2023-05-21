@@ -144,10 +144,6 @@ function draw_footer(){
 								<input type="password" name="password" required>
 								<label>Password</label>
 							</div>
-							<div class="remember-forgot">
-								<label><input type="checkbox">Remember me</label>
-								<a href="#">Forgot Password</a>
-							</div>
 							<button type="submit" name="login" class="btn">Login</button>
 							<div class="login-register">
 								<p>Don't have an account? <a href="#" class="register-link">Register</a></p>
@@ -199,5 +195,6 @@ function draw_footer(){
 					</div>
 				</div>
 			</main>
+</div>
 	<?php } ?>
 

@@ -23,6 +23,7 @@ require_once(__DIR__ . '/../database/departments.php');
 				</div>
 				<?php draw_wrapper()?>
             </main>
+</div>
 			
 <?php } ?>
 
@@ -234,17 +235,17 @@ require_once(__DIR__ . '/../database/departments.php');
 							</div>
 							<div class="single-input">
 								<input type="text" class="user_profile_input" name="new_name"/>
-								<label for="#">New Name</label>
+								<label>New Name</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="attribute">
-								<span class="label">Username: </span>
+								<span class="label">Username:</span>
 								<span class="text_input"><?php echo($username) ?></span>
 							</div>
 							<div class="single-input">
 								<input type="text" class="user_profile_input" name="new_username"/>
-								<label for="#">New Username</label>
+								<label>New Username</label>
 							</div>
 						</div>
 						<div class="row">
@@ -254,20 +255,14 @@ require_once(__DIR__ . '/../database/departments.php');
 							</div>
 							<div class="single-input">
 								<input type="text" class="user_profile_input" name="new_email" />
-								<label> New Email</label>
+								<label>New Email</label>
 							</div>
 						</div>
 					</div>
-					<div id="profile_img">
-						<img src="/../images/profile_image.jpg" alt="profile image" />
-						<div id ="profile_img_text">
-							<button class="button">Change Picture <ion-icon name="camera-outline"></ion-icon></button>
-						</div>
-					</div>
 				</div>
-				<input type="submit" value="Edit" class="edit_btn" name="edit_btn">
 			</form>
 			</main>		
+</div>
 <?php } ?>
 
 
