@@ -19,7 +19,7 @@ CREATE TABLE TICKET (
   ticket_message TEXT NOT NULL,
   ticket_status TEXT NOT NULL,
   ticket_priority TEXT NOT NULL,
-  created_at TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TEXT NOT NULL,
   FOREIGN KEY (idDepartment) REFERENCES Department(idDepartment) ON DELETE CASCADE,
   FOREIGN KEY (idClient) REFERENCES Clients(idUser) ON DELETE CASCADE,

@@ -28,9 +28,9 @@
       $messages = array();
       while ($message=$stmt->fetch()){
         $messages[]=new Message(
-          $message['idMessage'],
-          $message['idTicket'],
-          $message['idUser'],
+          (int) $message['idMessage'],
+          (int) $message['idTicket'],
+          (int) $message['idUser'],
           $message['message'],
           $message['created_at']
         );

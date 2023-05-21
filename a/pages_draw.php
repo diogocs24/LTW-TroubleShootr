@@ -1,6 +1,8 @@
 <?php declare(strict_types = 1);
 require_once(__DIR__.'/../a/drawcommon.php'); 
 require_once(__DIR__ . '/../database/ticket.php');
+require_once(__DIR__ . '/../database/message.php');
+require_once(__DIR__ . '/../database/user.php');
 require_once(__DIR__ . '/../database/config.php');?>
 
 <?php function draw_about() { ?>
@@ -303,7 +305,7 @@ require_once(__DIR__ . '/../database/config.php');?>
 <?php } 
 } ?>
 
-<?php function draw_ticket_details_page($ticket) { ?>
+<?php function draw_ticket_details_page($ticket, array $messages) { $db = getDatabaseConnection();?>
 	<div id="page-container">
     <main id="main">
 		<div class="chat_page">
@@ -322,21 +324,16 @@ require_once(__DIR__ . '/../database/config.php');?>
 			</div>
 			<div class="chat">
 			<div class="other_user">
-						<span class="name_user"><span> <?php echo $ticket->idAgent; ?></span></span>
+						<span class="name_user"><span> Chat Conversation </span></span>
 					</div>
     			<div class="chat-container">
-					
-    			    
-    			    <div class="message sent">
-    			        <span class="sender">You:</span>
-    			        <span class="text"><span> <?php echo $ticket->ticket_message ?></span></span>
-    			    </div>
-    			    <div class="message">
-    			        <span class="sender">Agent<span> <?php echo $ticket->idAgent; ?></span>:</span>
-    			        <span class="text">Hi John, how are you?</span>
-    			    </div>
+					<!--<div class="message">
+						<span class="sender"><span> <?php echo User::getUser($db, $ticket->idUser) ?></span>:</span>
+    					<span class="text"><?php echo $ticket->ticket_message; ?></span>
+						<span class="message_time"><?php echo $ticket->created_at; ?></span>
+    				</div>-->
+					<?php foreach($messages as $message) draw_message($message); ?>
     			</div>
-
     			<div class="input-container">
     			    <input type="text" placeholder="Digite sua mensagem">
     			    <button class="submit_btn">Enviar</button>
@@ -345,3 +342,12 @@ require_once(__DIR__ . '/../database/config.php');?>
 		</div>
     </main>
 <?php } ?>
+
+
+<?php function draw_message(Message $message){ 	$db = getDatabaseConnection();?>
+	<div class="message">
+    	<span class="sender"><span> <?php echo User::getUser($db, $message->idUser) ?></span>:</span>
+    	<span class="text"><?php echo $message->message; ?></span>
+		<span class="message_time"><?php echo $message->created_at; ?></span>
+    </div>
+	<?php } ?>
