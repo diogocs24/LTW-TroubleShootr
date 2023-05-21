@@ -570,12 +570,14 @@ body {
 .user_profile_input:valid {
 	border-bottom: 2px solid var(--secondary-color);
 }
-.single-input .user_profile_input:focus ~ label,
-.single-input .user_profile_input:valid ~ label {
+.single-input .form_class .user_profile_input:focus ~ label,
+.single-input .form_class .user_profile_input:valid ~ label {
 	transform: translateY(-24px);
 	font-size: 18px;
 	color: var(--six-color);
 }
+
+
 
 #info > #profile_img {
 	width: 250px;

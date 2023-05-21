@@ -286,13 +286,10 @@ require_once(__DIR__ . '/../database/departments.php');
 								<span class="text_input">João da Silva</span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="name"
-									required
-								/>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
+								<input type="text" class="user_profile_input" name="new_name"/>
 								<label for="#">New Name</label>
+							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -301,13 +298,10 @@ require_once(__DIR__ . '/../database/departments.php');
 								<span class="text_input"><?php echo($username) ?></span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="username"
-									required
-								/>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_username">
+								<input type="text" class="user_profile_input" name="new_username"/>
 								<label for="#">New Username</label>
+							</form>
 							</div>
 						</div>
 						<div class="row">
@@ -316,40 +310,10 @@ require_once(__DIR__ . '/../database/departments.php');
 								<span class="text_input"><?php echo($email)?></span>
 							</div>
 							<div class="single-input">
-								<input
-									type="text"
-									class="user_profile_input"
-									id="email"
-									required
-								/>
-								<label for="#">New Email</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute">
-								<span class="label">Password:</span>
-								<span class="text_input">●●●●●●●●</span>
-							</div>
-							<div class="single-input">
-								<input
-									type="password"
-									class="user_profile_input"
-									id="password"
-									required
-								/>
-								<label for="#">New Password</label>
-							</div>
-						</div>
-						<div class="row">
-							<div class="attribute"></div>
-							<div class="single-input">
-								<input
-									type="password"
-									class="user_profile_input"
-									id="confirm_password"
-									required
-								/>
-								<label for="#">Confirm Password</label>
+							<form action="/../a/update_user.php" method='post' class="form_class" name="new_email">
+								<input type="text" class="user_profile_input" name="new_email" />
+								<label> New Email</label>
+							</form>
 							</div>
 						</div>
 					</div>
