@@ -2,7 +2,7 @@
 declare(strict_types = 1);
 
 class FAQ {
-    public int $ifFAQ;
+    public int $idFAQ;
     public string $title;
     public string $FAQmessage;
     public function __construct(int $idFAQ, string $title, string $FAQmessage)
