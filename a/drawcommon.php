@@ -121,6 +121,8 @@ function draw_footer(){
 		></script>
 		<script src="/../scripts/popup_tickets.js"></script>
 		</body>
+		<script src="/../scripts/script_height.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
 
 <?php } ?>
@@ -191,3 +193,4 @@ function draw_footer(){
 				</div>
 			</main>
 	<?php } ?>
+
