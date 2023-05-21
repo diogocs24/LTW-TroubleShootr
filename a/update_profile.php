@@ -12,13 +12,3 @@ require_once(__DIR__.'/../database/departments.php');
 $session = new Session();
 $db = getDatabaseConnection();
 
-
-if (isset($_POST['open_ticket'])) {
-    
-    
-    $ticketId = (int) $_POST['ticket_id'];
-    Ticket::updateStatus($db, $session->getId(), "opened", $ticketId);
-    $referer = $_SERVER['HTTP_REFERER'];
-    header("Location: $referer");
-}
-?>

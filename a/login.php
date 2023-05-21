@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
 
     $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
 
-    if ($user != null) {
+    if ($user) {
         $session->setId($user->idUser);
         $session->setName($user->username);
         $session->addMessage('success', 'Login successful!');

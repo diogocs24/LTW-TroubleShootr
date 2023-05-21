@@ -120,6 +120,15 @@ function get_avatar_path() : string{
         $stmt = $db->prepare('UPDATE Clients SET role=? WHERE idUser = ?');
         $stmt -> execute(["admin",$id]);
       }
+      static public function updateUsername(PDO $db,string $username, int $id): void {
+        $stmt = $db->prepare('UPDATE Clients SET username=? WHERE idUser = ?');
+        $stmt -> execute([$username ,$id]);
+      }
+
+      static public function updateEmail(PDO $db,string $email, int $id): void {
+        $stmt = $db->prepare('UPDATE Clients SET email=? WHERE idUser = ?');
+        $stmt -> execute([$email ,$id]);
+      }
 
     
 

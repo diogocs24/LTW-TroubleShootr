@@ -118,6 +118,7 @@ function draw_footer(){
 			src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
 		></script>
 		</body>
+		<script src="/../scripts/script_height.js"></script>
 </html>
 
 <?php } ?>
@@ -171,6 +172,11 @@ function draw_footer(){
 								<input type="password" name="password" required />
 								<label>Password</label>
 							</div>
+							<div class="input-box">
+								<span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+								<input type="password" name="password_confirm" required />
+								<label>Confirm Password</label>
+							</div>
 							<div class="remember-forgot">
 								<label
 									><input type="checkbox" required/>I agree to the terms & conditions</label
@@ -188,3 +194,4 @@ function draw_footer(){
 				</div>
 			</main>
 	<?php } ?>
+
