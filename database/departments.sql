@@ -8,5 +8,3 @@ INSERT INTO Department(idDepartment,name) VALUES(5,"Data Science");
 INSERT INTO Department(idDepartment,name) VALUES(6,"Artificial Intelligence");
 INSERT INTO Department(idDepartment,name) VALUES(7,"Web Programming");
 INSERT INTO Department(idDepartment,name) VALUES(8,"Compilers");
-
-
