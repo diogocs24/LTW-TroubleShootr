@@ -48,11 +48,11 @@ if(isset($_POST['create'])){
         $session->addMessage('error', 'Password must contain a number.');
         header('Location: /../pages/home_page1.php');
     }
-    else if(User::userEmailAlreadyExists($db, $_POST['email'])){
+    else if(User::userEmailAlreadyExists($db, strip_tags($_POST['email']))){
         $session->addMessage('error', 'Email already registered!');
         header('Location: /../pages/home_page1.php');
     }
-    else if(User::usernameAlreadyExists($db, $_POST['username'])){
+    else if(User::usernameAlreadyExists($db, strip_tags($_POST['username']))){
         $session->addMessage('error', 'Username already registered!');
         header('Location: /../pages/home_page1.php');
     }
@@ -61,8 +61,8 @@ if(isset($_POST['create'])){
         $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $user = new User(0,
-        $_POST['username'],
-        $_POST['email'],
+        strip_tags($_POST['username']),
+        strip_tags($_POST['email']),
         $hashedPassword,
         'user'
         );
