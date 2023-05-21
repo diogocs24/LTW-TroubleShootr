@@ -24,6 +24,7 @@
 	--ten-color: rgba(255, 255, 255, 0.5);
 	--eleven-color: rgba(255, 255, 255, 0.5);
 	--twelve-color: rgb(0, 0, 0);
+	--thirteen-color: rgba(0, 0, 0, 0.575);
 }
 
 .dark-mode {
@@ -39,6 +40,7 @@
 	--ten-color: rgba(0, 0, 0, 0.5);
 	--eleven-color: rgba(255, 255, 255, 0.063);
 	--twelve-color: rgba(255, 255, 255, 0.959);
+	--thirteen-color: rgba(160, 160, 160, 0.959);
 }
 
 body {
@@ -377,6 +379,27 @@ body {
 
 #tickets_list {
 	width: 100%;
+}
+
+.custom-button {
+	background-color: var(--twelve-color);
+	color: var(--primary-color);
+	border: none;
+	padding: 0.5rem 1.5rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 1rem;
+	cursor: pointer;
+	border-radius: 2rem;
+  }
+  
+  .custom-button:hover {
+	background-color: var(--thirteen-color);
+  }
+  
+#info_text .custom-button {
+	margin-top: 2rem;
 }
 
 .submit_ticket_btn {
@@ -741,7 +764,7 @@ body {
 }
 
 .chat-container::-webkit-scrollbar-thumb {
-	background-color: var(--eleven-color);
+	background-color: var(--nine-color);
 }
 
 .chat-container::-webkit-scrollbar-track {
@@ -825,7 +848,7 @@ body {
 }
 
 .ticket_details_info .details::-webkit-scrollbar-thumb {
-	background-color: var(--eleven-color);
+	background-color: var(--nine-color);
 }
 
 .ticket_details_info .details::-webkit-scrollbar-track {
