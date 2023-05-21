@@ -323,15 +323,10 @@ require_once(__DIR__ . '/../database/config.php');?>
 				</div>
 			</div>
 			<div class="chat">
-			<div class="other_user">
+				<div class="other_user">
 						<span class="name_user"><span> Chat Conversation </span></span>
 					</div>
     			<div class="chat-container">
-					<!--<div class="message">
-						<span class="sender"><span> <?php echo User::getUser($db, $ticket->idUser) ?></span>:</span>
-    					<span class="text"><?php echo $ticket->ticket_message; ?></span>
-						<span class="message_time"><?php echo $ticket->created_at; ?></span>
-    				</div>-->
 					<?php foreach($messages as $message) draw_message($message); ?>
     			</div>
     			<div class="input-container">
