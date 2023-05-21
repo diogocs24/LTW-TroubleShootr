@@ -59,9 +59,6 @@ require_once(__DIR__ . '/../database/user.php');
 			<?php if(User::isAdmin($db ,$id)) {?>
 			<a href="admin_section.php" class="navigation_item">Admin Section</a>
 			<?php } ?>
-			<?php if(User::isAgent($db, $id)) {?>
-			<a href="tickets_agents.php" class="navigation_item">Tickets</a>
-			<?php } ?>
 			<a href="faq_page.php" class="navigation_item">FAQ</a>
 			<img src="/../images/moon-outline.svg" id="dark-mode-icon" onclick="darkmode()">
 			<a href="/../a/logout.php" class="navigation_item">Sign Out</a>

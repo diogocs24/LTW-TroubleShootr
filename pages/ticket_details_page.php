@@ -31,7 +31,7 @@ foreach ($tickets as $t) {
 
 if ($ticket) {
     draw_header_logged_in($db, $session->getId());
-    draw_ticket_details_page($ticket, $messages, $db);
+    draw_ticket_details_page($ticket, $messages, $user, $db, $session->getId());
     draw_footer(); 
     draw_script(); 
 } else {

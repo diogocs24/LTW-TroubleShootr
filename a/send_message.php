@@ -18,7 +18,7 @@ if(isset($_POST['chat_submit_btn'])){
     $message->insert($db);
 
     if($message !== NULL){
-        header('Location: /../pages/main_page.php');
+        header('Location: /../pages/ticket_details_page.php?ticket_id='.$idTicket);
     }
     else{
         echo 'Error';
