@@ -143,50 +143,52 @@ require_once(__DIR__ . '/../database/departments.php');
 					</a>
 				</div>
 				<button type="submit" class="btn" onclick="openPopup1()">Submit </button>
-				<div class="all_tickets_list" id="popup1">
+					<div class="all_tickets_list" id="popup1">
 						<?php foreach($all_tickets as $ticket){ ?>
-							<div class="ticket">
-								<div class="ticket_info">
-									<h4><?php echo $ticket->title?></h4>
-									<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-									<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-									<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-								</div>
-								<div class="ticket_trailing">
-									<div class="agent_info">
-										<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+							<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
+								<div class="ticket">
+									<div class="ticket_info">
+										<h4><?php echo $ticket->title?></h4>
+										<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+										<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+										<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
 									</div>
-										<?php if($user->isAgent($db,$id)){ ?>
-									<div class="response_button">
-										<form action="/../a/update_ticket_status.php" method="post">
-                	        			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
-										<input type="submit" name="open_ticket" value="Send" class="open_ticket">
-                	    				</form>
-                					</div>
-										<?php } ?>
+									<div class="ticket_trailing">
+										<div class="agent_info">
+											<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+										</div>
+											<?php if($user->isAgent($db,$id)){ ?>
+										<div class="response_button">
+											<form action="/../a/update_ticket_status.php" method="post">
+                	        					<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+												<input type="submit" name="open_ticket" value="Send" class="open_ticket">
+                	    					</form>
+                						</div>
+											<?php } ?>
+									</div>
 								</div>
-							</div>
-							<?php } ?>
-
-                </div>
+							</a>
+						<?php } ?>
+                	</div>
 				<button type="button" onclick="closePopup1()"> OK </button>
 				<button type="submit" class="btn" onclick="openPopup2()">Submit </button>
 				<div class="user_tickets_list" id="popup2">
 					<?php foreach($user_tickets as $ticket){ ?>
-						<div class="ticket">
-							<div class="ticket_info">
-								<h4><?php echo $ticket->title?></h4>
-									<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-									<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-									<p>Hashtags: <span><?php
-                                	$hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
-                                	foreach($hashtags as $hashtag){
-                                    	echo Hashtag::getHashtagName($db,$hashtag->tag);
-										echo " ";
+						<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
+							<div class="ticket">
+								<div class="ticket_info">
+									<h4><?php echo $ticket->title?></h4>
+										<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+										<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+										<p>Hashtags: <span><?php
+                                		$hashtags = Ticket_hashtag::getHashtagsWithTickedId($db,$ticket->idTicket); 
+                                		foreach($hashtags as $hashtag){
+                                    		echo Hashtag::getHashtagName($db,$hashtag->tag);
+											echo " ";
                         					}?></span></p>
-									<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-							</div>
-							<div class="ticket_trailing">
+										<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+								</div>
+								<div class="ticket_trailing">
 								<div class="agent_info">
 									<p>Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
 								</div>
@@ -200,35 +202,38 @@ require_once(__DIR__ . '/../database/departments.php');
 									<?php } ?>
 							</div>
 						</div>
+						</a>
 					<?php } ?>
                 </div>
 				<button type="button" onclick="closePopup2()"> OK </button>
 
 				<?php if($user->isAgent($db,$id)){ ?>
 				<button type="submit" class="btn" onclick="openPopup3()">Submit </button>
-					<div class="department_tickets_list" id="popup3">
-    					<?php foreach($department_tickets as $ticket){ ?>
-    			    		<div class="ticket">
-    			        		<div class="ticket_info">
-    			            		<h4><?php echo $ticket->title?></h4>
-    			            		<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-    			            		<p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
-    			        			<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-    			        		</div>
-    			        		<div class="ticket_trailing">
-    			            		<div class="agent_info">
-    			                		<p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
-    			            		</div>
-    			            	<div class="response_button">
-									<form action="/../a/update_ticket_status.php" method="post">
-    			                    <input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
-    			                    <input type="submit" name="open_ticket" value="Send" class="open_ticket">
-    			                	</form>
-    			            	</div>
-    			        	</div>
-    					<?php } ?>
-					</div>
-				<button type="button" onclick="closePopup3()"> OK </button>
+						<div class="department_tickets_list" id="popup3">
+    						<?php foreach($department_tickets as $ticket){ ?>
+								<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
+    			    				<div class="ticket">
+    			        				<div class="ticket_info">
+    			            				<h4><?php echo $ticket->title?></h4>
+    			            				<p>Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+    			            				<p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
+    			        					<p>Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+    			        				</div>
+    			        				<div class="ticket_trailing">
+    			            				<div class="agent_info">
+    			                				<p>Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
+    			            				</div>
+    			            			<div class="response_button">
+											<form action="/../a/update_ticket_status.php" method="post">
+    			                    			<input type="hidden" name="ticket_id" value="<?php echo $ticket->idTicket; ?>">
+    			                    			<input type="submit" name="open_ticket" value="Send" class="open_ticket">
+    			                			</form>
+    			            			</div>
+    			        			</div>
+								</a>
+    						<?php } ?>
+						</div>
+					<button type="button" onclick="closePopup3()"> OK </button>
 				<?php } ?>
 			</div>
         </main>
@@ -340,36 +345,37 @@ require_once(__DIR__ . '/../database/departments.php');
 <?php } ?>
 
 
-<?php function draw_ticket_details_page($ticket, array $messages) { $db = getDatabaseConnection();?>
+<?php function draw_ticket_details_page($ticket, array $messages) {?>
 	<div id="page-container">
-    <main id="main">
-		<div class="chat_page">
-			<div class="ticket_details">
-				<div class="ticket_details_info">
-					<h2 class="ticket_details_title"><?php echo $ticket->title?></h2>
-					<p class="ticket_details_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-					<p class="details" id="details-content">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-					<p class="ticket_details_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-				</div>
-				<div class="ticket_details_trailing">
-					<div class="ticket_details_agent_info">
-						<p class="ticket_details_text">Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+   		<main id="main">
+				<div class="chat_page">
+					<div class="ticket_details">
+						<div class="ticket_details_info">
+							<h2 class="ticket_details_title"><?php echo $ticket->title?></h2>
+							<p class="ticket_details_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
+							<p class="details" id="details-content">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
+							<p class="ticket_details_text" name="ticket_status">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+						</div>
+						<div class="ticket_details_trailing">
+							<div class="ticket_details_agent_info">
+								<p class="ticket_details_text">Agent: <span> <?php echo $ticket->idAgent; ?></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="chat">
+						<div class="other_user">
+							<span class="name_user"><span> Chat Conversation </span></span>
+						</div>
+    					<div class="chat-container">
+							<?php foreach($messages as $message) draw_message($message); ?>
+    					</div>
+						<form action="/../a/send_message.php" method='post' class="input-container">
+							<input type="hidden" name="idTicket" value="<?php echo $ticket->idTicket; ?>">
+    			    		<input type="text" name="message" class="message" placeholder="Type your message">
+							<input type="submit" value="Send" name="chat_submit_btn" class="submit_btn" />
+						</form>
 					</div>
 				</div>
-			</div>
-			<div class="chat">
-				<div class="other_user">
-						<span class="name_user"><span> Chat Conversation </span></span>
-					</div>
-    			<div class="chat-container">
-					<?php foreach($messages as $message) draw_message($message); ?>
-    			</div>
-    			<form action="/../a/send_message.php" method='post' class="input-container">
-    			    <input type="text" placeholder="Type your message">
-					<input type="submit" value="Send" name="chat_submit_btn" class="submit_btn" />
-				</form>
-			</div>
-		</div>
     </main>
 <?php } ?>
 

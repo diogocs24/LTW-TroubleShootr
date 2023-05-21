@@ -1,11 +1,11 @@
 let popup1 = document.getElementById("popup1");
 
 function openPopup1(){
-    popup1.classList.add("open-popup2");
+    popup1.classList.add("open-popup1");
 }
 
 function closePopup1(){
-    popup1.classList.remove("open-popup");
+    popup1.classList.remove("open-popup1");
 }
 let popup2 = document.getElementById("popup2");
 

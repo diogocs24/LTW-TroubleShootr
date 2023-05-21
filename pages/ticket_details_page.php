@@ -12,7 +12,7 @@ require_once(__DIR__.'/../database/message.php');
 $session = new Session();
 $db = getDatabaseConnection();
 $user = User::getUser($db, $session->getId());
-$tickets = Ticket::getTicketsFromUser($db, $session->getId());
+$tickets = Ticket::getAllTickets($db, $session->getId());
 $ticketId = $_GET['ticket_id'] ?? null;
 $messages = Message::getMessages($db, intval($ticketId));
 
@@ -31,7 +31,7 @@ foreach ($tickets as $t) {
 
 if ($ticket) {
     draw_header_logged_in($db, $session->getId());
-    draw_ticket_details_page($ticket, $messages);
+    draw_ticket_details_page($ticket, $messages, $db);
     draw_footer(); 
     draw_script(); 
 } else {

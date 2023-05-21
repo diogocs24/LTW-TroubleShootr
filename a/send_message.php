@@ -10,14 +10,15 @@ require_once(__DIR__.'/../database/message.php');
 
 $session = new Session();
 $db = getDatabaseConnection();
+$idTicket = (int) $_POST['idTicket'];
 
 if(isset($_POST['chat_submit_btn'])){
-    $message = new Message(0, $ticket->idTicket, $session->getId(), 0, $_POST['message'], "f");    
+    $message = new Message(0, $idTicket, $session->getId(), $_POST['message'], "f");    
 
     $message->insert($db);
 
     if($message !== NULL){
-        header('Location: /../pages/ticket_details_page.php');
+        header('Location: /../pages/main_page.php');
     }
     else{
         echo 'Error';

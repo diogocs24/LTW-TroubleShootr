@@ -12,7 +12,7 @@
     {
       $this->idMessage = $idMessage;
       $this->idTicket = $idTicket;      
-      $this->idUser = $idUser;
+       $this->idUser = $idUser;
       $this->message = $message;
       $this->created_at=$created_at;
     }
