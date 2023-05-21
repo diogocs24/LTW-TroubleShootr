@@ -43,13 +43,13 @@ require_once(__DIR__ . '/../database/departments.php');
 			<main id="main">
 				<div class="questions_box">
 					<div class="title">
-						<h2 class="title">TroubleShootr's Frequently Asked Questions</h2>
+						<h2>TroubleShootr's Frequently Asked Questions</h2>
+						<a href="add_question_faq.php">
 						<?php if($user->isAgent($db,$id)){ ?>
-							<a href="add_question_faq.php"
-							><button class="add_question">
+							<button class="add_question">
 								<ion-icon name="add-circle"></ion-icon></button
-							></a>
-						<?php }?>
+							>
+						<?php }?></a>
 					</div>
 					<div class="questions_list">
 					<?php foreach($faq as $question){ ?>
@@ -107,16 +107,17 @@ require_once(__DIR__ . '/../database/departments.php');
 <?php function draw_admin_section($all_users) {?> 
 	<div id="page-container">
 		<main id="main">
+			<div class="admin-page">
 	<div class="admin-promote">
     <h2>Promote Users</h2>
     <form action="/../a/promote_user.php" method='post' class="promote_admin">
-      <label class="label">Username:</label>
-      <select name="username1" required>
+      <label class="label"><div class="username">Username:</div></label>
+      <select name="username1" required class ="custom-button">
 		<?php foreach($all_users as $user){ ?>
 				<option><?php echo $user->username ?></option>
 		<?php } ?>
 	  </select>
-      <input type="submit" value="Promote" class="promote_btn" name="promote_btn">
+      <input type="submit" value="Promote" class="custom-button" name="promote_btn">
     </form>
   </div>
 
@@ -128,6 +129,7 @@ require_once(__DIR__ . '/../database/departments.php');
       <input type="submit" value="Create" class="submit-department" name="submit-department">
     </form>
   </div>
+		</div>
 </main>
   </div>
 
@@ -143,30 +145,9 @@ require_once(__DIR__ . '/../database/departments.php');
 						<button class="submit_ticket_btn"><ion-icon name="add-circle"></ion-icon></button>
 					</a>
 				</div>
-				<button type="submit" class="btn" onclick="openPopup1()">Submit </button>
-				<button type="button" onclick="closePopup1()"> OK </button>
-					<div class="all_tickets_list" id="popup1">
-						<?php foreach(array_reverse($all_tickets) as $ticket){ ?>
-							<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
-								<div class="ticket">
-									<div class="ticket_info">
-										<h4><?php echo $ticket->title?></h4>
-										<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-										<p class="details">Details: <span> <?php echo $ticket->ticket_message ?></span></p>
-										<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-									</div>
-									<div class="ticket_trailing">
-										<div class="agent_info">
-											<p class="initial_text">Department: <span> <?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
-										</div>
-									</div>
-								</div>
-							</a>
-						<?php } ?>
-                	</div>
 				
-				<button type="submit" class="btn" onclick="openPopup2()">Submit </button>
-				<button type="button" onclick="closePopup2()"> OK </button>
+				<button type="submit" class="custom-button" onclick="openPopup2()">View Your Tickets </button>
+				<button type="button" class="custom-button"onclick="closePopup2()"> x </button>
 				
 				<div class="user_tickets_list" id="popup2">
 					<?php foreach(array_reverse($user_tickets) as $ticket){ ?>
@@ -194,27 +175,28 @@ require_once(__DIR__ . '/../database/departments.php');
 					<?php } ?>
                 </div>
 
-				<?php if($user->isAgent($db,$id)){ ?>
-				<button type="submit" class="btn" onclick="openPopup3()">Submit </button>
-				<button type="button" onclick="closePopup3()"> OK </button>
-						<div class="department_tickets_list" id="popup3">
-    						<?php foreach(array_reverse($department_tickets) as $ticket){ ?>
-								<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
-    			    				<div class="ticket">
-    			        				<div class="ticket_info">
-    			            				<h4><?php echo $ticket->title?></h4>
-    			            				<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?> </span></p>
-    			            				<p class="details">Details: <span><?php echo $ticket->ticket_message ?></span></p>
-    			        					<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
-    			        				</div>
-    			        				<div class="ticket_trailing">
-    			            				<div class="agent_info">
-    			                				<p class="initial_text">Department: <span><?php echo Department::getDepartmentName($db ,$ticket->idDepartment); ?></span></p>
-    			            				</div>
-    			        			</div>
-								</a>
-    						<?php } ?>
-						</div>
+				<?php if ($user->isAgent($db, $id)) { ?>
+					<button type="submit" class="custom-button" onclick="openPopup3()">View Department Tickets</button>
+					<button type="button" class="custom-button" onclick="closePopup3()">x</button>
+					<div class="department_tickets_list" id="popup3">
+						<?php foreach (array_reverse($department_tickets) as $ticket) { ?>
+							<a href="ticket_details_page.php?ticket_id=<?php echo $ticket->idTicket; ?>">
+								<div class="ticket">
+									<div class="ticket_info">
+										<h4><?php echo $ticket->title; ?></h4>
+										<p class="initial_text">Priority: <span><?php echo $ticket->ticket_priority; ?></span></p>
+										<p class="details">Details: <span><?php echo $ticket->ticket_message; ?></span></p>
+										<p class="initial_text">Status: <span><?php echo $ticket->ticket_status; ?></span></p>
+									</div>
+									<div class="ticket_trailing">
+										<div class="agent_info">
+											<p class="initial_text">Department: <span><?php echo Department::getDepartmentName($db, $ticket->idDepartment); ?></span></p>
+										</div>
+									</div>
+								</div>
+							</a>
+						<?php } ?>
+					</div>
 				<?php } ?>
 			</div>
         </main>
@@ -258,6 +240,7 @@ require_once(__DIR__ . '/../database/departments.php');
 								<label>New Email</label>
 							</div>
 						</div>
+						<input type="submit" value="Edit" class="custom-button" name="edit_btn">
 					</div>
 				</div>
 			</form>
