@@ -1,0 +1,50 @@
+<?php
+  declare(strict_types = 1);
+
+  class Message{
+    public int $idMessage;
+    public int $idTicket;
+    public int $idUser;
+    public string $message;
+    public string $created_at;
+    public function __construct(int $idMessage, 
+    int $idTicket, int $idUser,string $message, string $created_at)
+    {
+      $this->idMessage = $idMessage;
+      $this->idTicket = $idTicket;      
+      $this->idUser = $idUser;
+      $this->message = $message;
+      $this->created_at=$created_at;
+    }
+
+    static public function getComments(PDO $db,int $idTicket):array{
+        $stmt = $db->prepare('
+        SELECT idMessage, idUser, idTicket, message, created_at
+        FROM MESSAGE
+        WHERE idTicket = ?
+      ');
+
+      $stmt->execute(array($idTicket));
+      $comments = array();
+      while ($comment=$stmt->fetch()){
+        $comments[]=new Comment(
+          $comment['idMessage'],
+          $comment['idTicket'],
+          $comment['idUser'],
+          $comment['message'],
+          $comment['created_at']
+        );
+
+      }
+      return $comments;
+    }
+
+    public function save(PDO $db): void {
+        if ($this->idMessage === 0) {
+          $stmt = $db->prepare('INSERT INTO Comments (idTicket, idUser,[message],created_at) VALUES (?, ?, ?,?)');
+          $stmt->execute([$this->idTicket, $this->idUser, $this->message, $this->created_at]);
+           $this->idMessage = intval($db->lastInsertId());
+      }
+  }
+
+}
