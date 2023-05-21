@@ -125,8 +125,8 @@ require_once(__DIR__ . '/../database/departments.php');
     <h2>Create Department</h2>
     <form action="/../a/add_department.php" method='post' class="department_admin">
       <label for="departmentName">Department Name:</label>
-      <input type="text" id="departmentName" name="departmentName" required>
-      <input type="submit" value="Create" class="submit-department" name="submit-department">
+      <input type="text" id="departmentName" name="departmentName" class="custom-button" required>
+      <input type="submit" value="Create" class="custom-button" name="submit-department">
     </form>
   </div>
 		</div>

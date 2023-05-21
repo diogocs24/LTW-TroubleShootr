@@ -1032,12 +1032,6 @@ body {
 	height: 100vh;
   }
   
-.content {
-	width: 100%;
-	padding: 2rem;
-	background-color: #f4f4f4;
-	border-radius: 2rem;
-  }
   
   .admin-promote,
   .admin-department {
