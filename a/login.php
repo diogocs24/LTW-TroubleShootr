@@ -14,7 +14,7 @@ if(isset($_POST['login'])){
 
     $user = User::getUserWithPassword($db, $_POST['email'], $_POST['password']);
 
-    if ($user) {
+    if ($user != null) {
         $session->setId($user->idUser);
         $session->setName($user->username);
         $session->addMessage('success', 'Login successful!');
@@ -24,6 +24,7 @@ if(isset($_POST['login'])){
         $session->addMessage('error', 'Wrong password!');
         header('Location: /../pages/home_page1.php');
       }
+      
 
 }
 

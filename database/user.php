@@ -31,6 +31,9 @@
       $stmt->execute(array(strtolower($email)));
       $user = $stmt->fetch();
       // mudar -> so fazer password_verify se este user for null
+      if ($user['password'] == null) {
+        return null;
+      }
       if ($user !== null && password_verify($password, $user['password'])) {
         echo ("PASSWORD PASSES");
         return new User(
