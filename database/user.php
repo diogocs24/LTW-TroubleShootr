@@ -105,7 +105,7 @@ function get_avatar_path() : string{
   }
 
   static function getAllUsers(PDO $db) : array {
-    $stmt = $db->prepare('SELECT c.idUser, c.username, c.email, c.password, c.role FROM Clients c WHERE role=?');
+    $stmt = $db->prepare('SELECT c.idUser, c.name, c.username, c.email, c.password, c.role FROM Clients c WHERE role=?');
     $stmt->execute(array("user"));
     $users_array = array();
 
